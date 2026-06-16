@@ -21,8 +21,12 @@ Rangsit University Students, Lecturers, and Staff.
 SmartTimetable is a web-based scheduling platform that provides Rangsit University students with a personalized, real-time view of their weekly class schedule, along with instant LINE Notify alerts. Lecturers and staff can manage timetable entries and broadcast updates through a simple admin dashboard, replacing the current reliance on static PDFs and informal group chats.
 ## Technology Possibility
 Possible technologies:
-- Web application
-- Mobile application
+- Web application (React or plain HTML/CSS frontend)
+- Cloud-based system (Firebase or Railway for hosting and real-time database)
+- Admin dashboard for schedule management
+- LINE Notify API for push notifications
+- MySQL for data storage
+- AI-assisted conflict detection (optional enhancement)
 ## Repository Structure
 - docs: reports, profiles, idea logs, and weekly logbooks
 - prototype: source code or clickable prototype files
