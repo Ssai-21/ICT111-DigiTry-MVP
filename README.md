@@ -14,19 +14,18 @@ DigiTry
 | Rigzang Lhmao | Documentation Lead | Maintains README, weekly logbook, report files, and final submission package |
 | Seint Myat Wai | Validation Lead | Manages customer discovery, survey/interview evidence, and metric collection |
 ## Initial Problem Area
-Rangsit University students and lecturers currently have no unified, real-time source for class schedules, room assignments, and last-minute changes. Schedule information is fragmented across PDF documents, LINE group chats, and verbal announcements, making it difficult for students to track room availability, detect scheduling conflicts, or receive timely updates when classes are cancelled or relocated.
+Students and lecturers currently rely on a static PDF timetable that does not update when a class is moved, cancelled, or rescheduled. The PDF is difficult to search on a phone, gives no personalized daily view, and any last-minute changes are only communicated informally through group chats or verbal announcements in class.
 ## Target Users
-Rangsit University Students, Lecturers, and Staff.
-## Initial IT Venture Direction
-SmartTimetable is a web-based scheduling platform that provides Rangsit University students with a personalized, real-time view of their weekly class schedule, along with instant LINE Notify alerts. Lecturers and staff can manage timetable entries and broadcast updates through a simple admin dashboard, replacing the current reliance on static PDFs and informal group chats.
+University students, lecturers, and academic staff.
+## Selected IT Venture Direction
+After scoring six possible ideas using the NUF (New, Useful, Feasible) framework in Lab 02, the team selected **SmartTimetable** as the semester project. SmartTimetable converts the original PDF timetable into a searchable, personalized digital schedule. Students and lecturers can view their own classes in a clean weekly or daily layout and search for a room to see what is scheduled there. We selected this idea because it is useful to every student and lecturer who already relies on the timetable, feasible to prototype using the real PDF data the team has access to, and can be built as a web-based display and search system without IoT devices or advanced cybersecurity work.
 ## Technology Possibility
 Possible technologies:
-- Web application (React or plain HTML/CSS frontend)
-- Cloud-based system (Firebase or Railway for hosting and real-time database)
-- Admin dashboard for schedule management
-- LINE Notify API for push notifications
-- MySQL for data storage
-- AI-assisted conflict detection (optional enhancement)
+- Web application (HTML/CSS/JS prototype)
+- Database for storing digitized timetable data (MySQL or Firebase)
+- Search and filter features for viewing classes by student, lecturer, or room
+- Admin view for updating schedule entries
+- AI-assisted conflict detection (optional future enhancement)
 ## Repository Structure
 - docs: reports, profiles, idea logs, and weekly logbooks
 - prototype: source code or clickable prototype files
@@ -38,8 +37,9 @@ Possible technologies:
 ## Weekly Progress Log
 | Lab | Main Activity | Output | Status |
 |---|---|---|---|
-| Lab 1 | Lab setup and idea log | Repository, team profile, initial idea log | In progress |
+| Lab 1 | Lab setup and idea log | Repository, team profile, initial idea log | Completed |
+| Lab 2 | IT opportunity scanning | Opportunity scan, NUF scoring, selected opportunity file | Completed |
 ## Current Status
-In Lab 1, the DigiTry team formed and agreed on team roles, with each member taking responsibility for a defined area of the project. The team identified the core problem of fragmented and outdated schedule information at Rangsit University and aligned on SmartTimetable as the venture direction. A GitHub repository was initialized with the standard folder structure, including docs, prototype, data, finance, diagrams, screenshots, and pitch directories. An initial idea log was drafted outlining the problem statement, target users, and proposed solution direction. The team also began discussing potential technologies, shortlisting a web application with a real-time dashboard and LINE Notify integration as the primary approach.
+In Lab 02, the team reviewed six possible IT opportunities, scored each one using the NUF framework, and selected SmartTimetable as the semester project idea. The team documented the decision, including target user, problem statement, current alternative, and feasibility reasoning, in `/docs/selected-opportunity.md`.
 ## Next Step
-In Lab 2, the team will conduct a short user survey targeting Rangsit University students and lecturers to validate the identified problem and gather data on how they currently manage schedules and receive updates. The Product Lead will draft a value proposition canvas, the Technical Lead will research the LINE Notify API and assess database options, and the Documentation Lead will update the idea log with survey findings and begin the Lab 2 logbook entry.
+In Lab 03, the team will prepare customer discovery questions and collect evidence from target users. This includes interviewing or surveying a small group of students and at least one lecturer who currently use the PDF timetable, to validate the problem and confirm whether a searchable digital version would be valuable before moving into prototyping.
