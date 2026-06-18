@@ -30,7 +30,7 @@
 | Idea 5: QuickPoll | Web prototype with poll creation and live results display | HTML/CSS/JS, Firebase real-time database or WebSocket | Sample poll questions and responses | Medium | Yes |
 | Idea 6: LinguaHub | Web prototype with peer matching board and writing feedback demo | HTML/CSS/JS, MySQL or Firebase | Sample student profiles, sample writing submissions | Medium | Yes |
 
-## Scoring Matrix
+## NUF Scoring Matrix
  
 | Idea | New | Useful | Feasible | Total | Rank | Notes |
 |---|---|---|---|---|---|---|
