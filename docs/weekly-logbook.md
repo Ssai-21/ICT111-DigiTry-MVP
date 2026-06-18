@@ -85,7 +85,7 @@ The team rejected **LinguaHub** (an English practice and peer conversation match
 
 - Opportunity scan file: `/docs/opportunity-scan.md`
 
-- NUF scoring file: `/docs/opportunity-scoring.md` and `/data/opportunity-scoring.xlsx`
+- NUF scoring file: `/docs/opportunity-scan.md`
 
 - Selected opportunity file: `/docs/selected-opportunity.md`
 
