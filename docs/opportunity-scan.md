@@ -8,3 +8,4 @@
 | Idea 4: PeerNote | Students who miss class or struggle to keep up have no structured way to access organized, searchable lecture notes | Students | Informal photo/PDF sharing in LINE chats and personal Drive links | Web application with file upload, tagging, and search |
 | Idea 5: QuickPoll | Lecturers get no real-time feedback on student understanding, and students are uncomfortable signaling confusion aloud | Lecturers and students | End-of-semester evaluation forms; raising hands in class | Web application with anonymous live polling and real-time results |
 | Idea 6: LinguaHub | Students lack consistent, low-pressure opportunities to practice English speaking and writing | Students, especially non-native English speakers | Informal practice with friends, classroom participation only | Web application with peer matching and scheduling |
+https://docs.google.com/spreadsheets/d/1KqA-F6l7_MBkfzkcWwdzLfEHeE7I4yASzuCy6fbegVs/edit?usp=sharing
