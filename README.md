@@ -39,7 +39,8 @@ Possible technologies:
 |---|---|---|---|
 | Lab 1 | Lab setup and idea log | Repository, team profile, initial idea log | Completed |
 | Lab 2 | IT opportunity scanning | Opportunity scan, NUF scoring, selected opportunity file | Completed |
+| Lab 3 | Customer problem discovery | Survey questions, 15 raw responses, assumption-evidence table, problem notes | Completed |
 ## Current Status
-In Lab 02, the team reviewed six possible IT opportunities, scored each one using the NUF framework, and selected SmartTimetable as the semester project idea. The team documented the decision, including target user, problem statement, current alternative, and feasibility reasoning, in `/docs/selected-opportunity.md`.
+In Lab 03, the team conducted customer problem discovery by surveying 15 respondents (students, lecturers, and staff) who currently use the PDF timetable. The evidence confirmed the core problem — the timetable does not update for cancellations, room changes, or double-bookings — and showed strong demand for a real-time digital alternative. Findings were documented in `/docs/assumption-evidence-table.md`, `/docs/customer-discovery-summary.md`, and `/docs/problem-notes.md`.
 ## Next Step
-In Lab 03, the team will prepare customer discovery questions and collect evidence from target users. This includes interviewing or surveying a small group of students and at least one lecturer who currently use the PDF timetable, to validate the problem and confirm whether a searchable digital version would be valuable before moving into prototyping.
+In Lab 04, the team will define the primary customer segment based on the strongest evidence collected, build a representative user persona, and write user stories describing how this persona would interact with SmartTimetable to solve their specific scheduling pain points.
