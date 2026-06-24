@@ -99,38 +99,38 @@ The team rejected **LinguaHub** (an English practice and peer conversation match
 In Lab 3, the team will conduct customer problem discovery by interviewing or surveying a small group of students and at least one lecturer who currently rely on the PDF timetable. The team will ask how they currently manage schedule changes, how often they refer to the timetable, and whether a searchable digital version would be valuable. Responses will be recorded and saved as evidence in the `/data` folder to validate the problem before moving into prototyping.
 
 
- # Weekly Venture Logbook
+# Weekly Venture Logbook
 
 ## Lab 03: Customer Problem Discovery
 
 ### What We Completed
-1. Designed a customer discovery survey with 12 questions covering current timetable access habits, recent mismatch incidents, time lost, frequency, desired features, and likelihood to switch to a digital alternative
-2. Distributed the survey and collected 15 responses from students, lecturers, and staff, then organized the raw data in `/data/raw-responses.xlsx`
-3. Analyzed the responses to build the assumption-evidence table, customer discovery summary, and problem notes, identifying repeated pain points, current workarounds, and consequences
+1. Designed a customer discovery survey with 12 organised questions covering current timetable access habits, recent mismatch incidents, time lost, frequency, desired features, and likelihood to switch to a digital alternative
+2. Distributed the survey and collected 21 responses from students, lecturers, and staff, then organized the raw data in `/data/raw-responses.xlsx`
+3. Analysed the responses to build the assumption-evidence table, customer discovery summary, and problem notes, identifying repeated pain points, current workarounds, and consequences
 
 ### What We Learned About the Problem
 1. The PDF timetable's biggest weakness is that it does not update automatically when a class is cancelled, a room is changed, or a room is double-booked, which directly causes lateness and missed classes
-2. Students, lecturers, and staff all rely on informal, manual workarounds (group chats, verbal announcements, repeated explanations) to compensate for the timetable's lack of real-time accuracy
+2. Existing university digital systems (RSU Connect, intranet, registration website) do not fully solve the problem either — several respondents reported these systems showing outdated semester data or failing to display correct room information
 3. Not every user experiences the problem equally; a minority of respondents reported almost no issues with the current system, showing the problem's severity varies by individual habits and how often their schedule changes
 
 ### What Evidence We Collected
-- Number of respondents/interviews: 15
+- Number of respondents/interviews: 21
 - Evidence file: `/data/raw-responses.xlsx`
-- Key repeated pattern: Outdated or unannounced changes (cancellations, room changes, double-bookings) consistently led to lateness, missed classes, or lost teaching time, and most respondents said they would switch to a real-time digital alternative
+- Key repeated pattern: Outdated or unannounced changes (cancellations, room changes, double-bookings) consistently led to lateness, missed classes, or lost teaching time; 76% of respondents rated a real-time digital alternative 7/10 or higher in potential value
 
 ### What We Changed Based on Evidence
-The team revised the assumption that all users experience the timetable problem at the same frequency and severity, since responses ranged from "Almost never" to "All the time." The team also revised the assumption that one single feature (such as push notifications) is the clear top priority, since requests were split between notifications, calendar sync, and room search. The core problem direction and target users were confirmed and kept, since the majority of evidence strongly supported the original assumption.
+The team revised the assumption that all users experience the timetable problem at the same frequency and severity, since responses ranged from "Almost never" to "All the time." The team also revised the assumption that one single feature (such as push notifications) is the clear top priority, since requests were split between notifications, calendar sync, room/course search, and mobile readability. The team additionally revised the assumption that existing university digital systems already solve this problem, since multiple respondents reported RSU Connect and the intranet showing outdated or incorrect data. The core problem direction and target users were confirmed and kept, since the majority of evidence strongly supported the original assumption.
 
 ### Problems or Difficulties
-1. The lecturer and staff sample size was small (2 lecturers, 1 staff) compared to students, making it harder to confirm whether their needs are fully represented in the evidence collected so far
-2. Some survey responses contained inconsistent or unclear answers (for example, a low reported frequency paired with a high improvement rating), which required careful interpretation when identifying genuine patterns versus noise
+1. The lecturer and staff sample size remained small (2 lecturers, 1 staff member out of 21 total) compared to students, making it harder to confirm whether their needs are fully represented in the evidence collected so far
+2. Some survey responses contained inconsistent, vague, or unclear answers (for example, a low reported frequency paired with a high improvement rating, or comments unrelated to the question asked), which required careful interpretation when identifying genuine patterns versus noise
 
 ### Evidence of Work
-- GitHub repository link: https://github.com/Ssai-21/ICT111-DigiTry-MVP
-- Customer questions file: `/data/survey-questions.md`
+- GitHub repository link: [https://github.com/Ssai-21/ICT111-DigiTry-MVP](https://github.com/Ssai-21/ICT111-DigiTry-MVP.git)
+- Customer questions file: `/docs/customer-questions.md`
 - Raw responses file: `/data/raw-responses.xlsx`
 - Assumption-evidence table: `/docs/assumption-evidence-table.md`
-- Commit link: https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main
+- Commit link: [https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main](https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/)
 
 ### Plan for Lab 04
-In Lab 04, the team will define the primary customer segment based on the strongest evidence collected (students who experience frequent schedule changes), build a representative user persona, and write user stories describing how this persona would interact with SmartTimetable to solve their specific pain points around room changes, cancellations, and real-time updates.
+In Lab 04, the team will define the primary customer segment based on the strongest evidence collected (students who experience frequent schedule changes), build a representative user persona, and write user stories describing how this persona would interact with SmartTimetable to solve their specific pain points around room changes, cancellations, and real-time updates. strongest evidence collected (students who experience frequent schedule changes), build a representative user persona, and write user stories describing how this persona would interact with SmartTimetable to solve their specific pain points around room changes, cancellations, and real-time updates.
