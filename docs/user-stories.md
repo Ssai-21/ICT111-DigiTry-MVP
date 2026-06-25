@@ -1,8 +1,5 @@
 # Lab 04 - User Stories and Acceptance Criteria
 
-## User Story Format
-As a [user role], I want to [goal/action], so that [benefit/value].
-
 ## User Stories
 
 | Story ID | Role | User Story | Related Requirement | Priority | Acceptance Criteria | Demo Evidence |
