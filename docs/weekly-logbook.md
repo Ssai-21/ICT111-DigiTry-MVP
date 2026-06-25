@@ -147,7 +147,7 @@ In Lab 04, the team will define the primary customer segment based on the strong
 ## 1. Work Completed Today
 | Member Name | Contribution | GitHub Evidence (Commit/Issue/PR Link) |
 |---|---|---|
-| Soe Yu Nwe | Reviewed Lab 03 evidence and defined the primary target user and persona (Ploy, Year 2 IT student) | Commit: "Add user-persona.md" |
+| Soe Yu Nwe | Reviewed Lab 03 evidence and defined the primary target user and persona (Yu, Year 1 IT student) | Commit: "Add user-persona.md" |
 | Sai Thi Han Win | Wrote functional and non-functional requirements based on the lecturer's fixed system-requirements template, mapped to SmartTimetable | Commit: "Add system-requirements.md" |
 | Rigzang Lhmao | Wrote user stories with acceptance criteria for each requirement and maintained documentation/logbook | Commit: "Add user-stories.md", "Add weekly-logbook.md" |
 | Seint Myat Wai | Prioritized MVP features using MoSCoW scoring and linked each feature back to Lab 03 evidence | Commit: "Add mvp-feature-list.md" |
