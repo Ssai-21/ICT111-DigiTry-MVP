@@ -21,9 +21,12 @@ A university freshman who relies heavily on digital tools but struggles with unp
 
 ## 4. Goals
 - What does the user want to achieve?
-- What would make the situation easier or faster for the user?
+
   To have a single, reliable source of truth for daily schedules that updates automatically.
   To avoid wasting time walking to the wrong classroom or showing up to a cancelled lecture.
+  
+- What would make the situation easier or faster for the user?
+  
   To receive immediate, trustworthy alerts regarding sudden timetable changes directly on their phone.
   
 
