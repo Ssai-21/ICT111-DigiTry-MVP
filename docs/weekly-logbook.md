@@ -134,3 +134,45 @@ The team revised the assumption that all users experience the timetable problem 
 
 ### Plan for Lab 04
 In Lab 04, the team will define the primary customer segment based on the strongest evidence collected (students who experience frequent schedule changes), build a representative user persona, and write user stories describing how this persona would interact with SmartTimetable to solve their specific pain points around room changes, cancellations, and real-time updates. strongest evidence collected (students who experience frequent schedule changes), build a representative user persona, and write user stories describing how this persona would interact with SmartTimetable to solve their specific pain points around room changes, cancellations, and real-time updates.
+
+# Lab 04 - Weekly Logbook
+
+## Group Information
+- Course: ICT105 Fundamental Technology Entrepreneurship
+- Lab: Lab 04 - User Persona, Requirements, and User Stories
+- Group Name: DigiTry
+- Repository Link: https://github.com/Ssai-21/ICT111-DigiTry-MVP
+- Date: Lab 04
+
+## 1. Work Completed Today
+| Member Name | Contribution | GitHub Evidence (Commit/Issue/PR Link) |
+|---|---|---|
+| Soe Yu Nwe | Reviewed Lab 03 evidence and defined the primary target user and persona (Ploy, Year 2 IT student) | Commit: "Add user-persona.md" |
+| Sai Thi Han Win | Wrote functional and non-functional requirements based on the lecturer's fixed system-requirements template, mapped to SmartTimetable | Commit: "Add system-requirements.md" |
+| Rigzang Lhmao | Wrote user stories with acceptance criteria for each requirement and maintained documentation/logbook | Commit: "Add user-stories.md", "Add weekly-logbook.md" |
+| Seint Myat Wai | Prioritized MVP features using MoSCoW scoring and linked each feature back to Lab 03 evidence | Commit: "Add mvp-feature-list.md" |
+
+## 2. Main Decisions
+- Primary target user: Students who experience frequent schedule mismatches (the largest and most evidence-backed group from Lab 03), represented by the persona Ploy
+- Main persona: Ploy, a Year 2 IT student who relies on the PDF timetable and RSU Connect, and has personally experienced room changes, cancellations, and mobile usability issues with the current system
+- Most important problem: The timetable does not update automatically for cancellations, room changes, or double-bookings, which is the most repeated and strongest pain point across all 21 Lab 03 survey responses
+- Must-have requirements: Homepage (FR-01), navigation flow (FR-02), schedule list view (FR-05), class detail view with status label (FR-07, FR-08), report-a-mismatch form with validation (FR-03, FR-10), admin update function (FR-09), data storage (FR-04), confirmation messages (FR-11), UI consistency (FR-13), mobile-friendly design (FR-14), and privacy-conscious data handling (FR-15)
+- Features included in MVP: Homepage, navigation flow, schedule list view, class detail view with status labels, report-a-mismatch form, admin update function, and search by course code/room (Should-have)
+- Features postponed: Push notifications (too much added infrastructure for this stage) and calendar sync (third-party integration not needed to prove the core idea); the lecturer broadcast tool was kept in as a Could-have since it was simple enough to attempt
+
+## 3. Requirement Changes / Clarifications
+The team initially considered including push notifications as a Must-have feature, since it was the most-requested feature in Lab 03 evidence. After reviewing technical complexity, the team reclassified it as a Could-have/future feature, since it requires notification infrastructure not necessary to demonstrate the core problem-solution fit. The team also added a lecturer broadcast feature (originally postponed) back into the MVP scope as a Could-have, since both lecturer respondents in Lab 03 raised the same manual-communication pain point and the feature was assessed as feasible to build alongside the admin update function.
+
+## 4. Problems Encountered
+- Technical problem: The team had to decide how to simulate real-time status updates (Confirmed/Room Changed/Cancelled) without building full notification infrastructure, which took some discussion to scope correctly for an MVP
+- Team coordination problem: Aligning the requirement IDs (FR-XX) consistently across the persona, requirements, user stories, and feature list files took a few rounds of cross-checking to make sure nothing was mismatched or missing
+- Evidence/requirement problem: The lecturer and staff sample from Lab 03 was small (3 of 21 respondents), making it harder to confidently prioritize features specific to their workflow, such as the lecturer broadcast tool
+
+## 5. Next Actions Before Lab 05
+| Task | Owner | Deadline | GitHub Issue |
+|---|---|---|---|
+| Set up the spreadsheet structure for class and report data | Soe Yu Nwe | Before Lab 05 | #TBD |
+| Build the homepage and navigation flow wireframe | Sai Thi Han Win | Before Lab 05 | #TBD |
+| Draft the schedule list and class detail view layout | Seint Myat Wai | Before Lab 05 | #TBD |
+| Update README and repository documentation with Lab 04 outputs | Rigzang Lhmao | Before Lab 05 | #TBD |
+
