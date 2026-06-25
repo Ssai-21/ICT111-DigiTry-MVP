@@ -10,10 +10,13 @@ A university freshman who relies heavily on digital tools but struggles with unp
 
 ## 3. Background and Context
 - Where does this user experience the problem?
+
   On campus when trying to locate classrooms, lecture halls, or navigating between different university faculties.
 - When does the problem usually happen?
+
   During the university week when classes are suddenly cancelled, rescheduled, or moved to different rooms.
 - What digital tools does this user already use?
+
   Official university portals (RSU Connect, intranet, registration website), downloadable PDF timetables, Google Calendar, and LINE group chats.
 
 ## 4. Goals
