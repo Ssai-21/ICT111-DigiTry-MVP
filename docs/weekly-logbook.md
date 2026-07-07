@@ -176,3 +176,41 @@ The team initially considered including push notifications as a Must-have featur
 | Draft the schedule list and class detail view layout | Seint Myat Wai | Before Lab 05 | #TBD |
 | Update README and repository documentation with Lab 04 outputs | Rigzang Lhmao | Before Lab 05 | #TBD |
 
+# Weekly Logbook - Lab 05
+
+## Group Name
+DigiTry
+
+## Project Title
+SmartTimetable
+
+## Lab 05 Focus
+Product Concept and UI/UX Wireframe
+
+## What We Completed Today
+- [x] Reviewed Lab 04 requirements
+- [x] Defined product concept
+- [x] Mapped features to requirements
+- [x] Created required wireframe screens
+- [x] Created user flow diagram
+- [ ] Built clickable prototype draft or screen navigation plan
+- [x] Updated GitHub repository
+
+## Member Contributions
+| Member Name | Contribution | Evidence / Commit Link |
+|---|---|---|
+| Sai Thi Han Win | | |
+| Soe Yu Nwe | | |
+| Rigzang Lhmao | | |
+| Seint Myat Wai | | |
+
+## Decisions Made
+| Decision | Reason | Related Requirement |
+|---|---|---|
+| | | |
+
+## Problems Found
+
+
+## Next Steps Before Lab 06
+Start building the clickable prototype by linking the six wireframe screens together according to the confirmed user flow.
