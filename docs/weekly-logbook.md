@@ -199,12 +199,10 @@ Product Concept and UI/UX Wireframe
 ## Member Contributions
 | Member Name | Contribution | Evidence / Commit Link |
 |---|---|---|
-| Sai Thi Han Win | | |
-| Soe Yu Nwe | | |
-| Rigzang Lhmao | | |
-| Seint Myat Wai | | |
-
-## Decisions Made
+| Sai Thi Han Win | Created wireframe designs and mockups and updated README.md | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Soe Yu Nwe | Did product concept and feature requirements mapping | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Rigzang Lhmao | Did wireframe specification | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Seint Myat Wai | Did screen inventory checklist and updated weekly logbook| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/
 | Decision | Reason | Related Requirement |
 |---|---|---|
 | | | |
