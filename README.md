@@ -50,14 +50,23 @@ Possible technologies:
 SmartTimetable is a web-based tool for RSU students and lecturers who currently rely on a static PDF timetable that does not update for cancellations, room changes, or reschedules. It converts the PDF into a searchable, personalized digital schedule, letting students view their own classes, check a class's current status, and flag a mismatch so it can be corrected — solving the trust and accuracy problem confirmed during customer discovery in Lab 03.
 
 ### Requirement-Driven Screens
-| Screen | Related Requirement IDs | Wireframe File |
+| Screen | Related Requirement IDs | Mockup File |
 |---|---|---|
-| Homepage / Landing | FR-01, FR-02 | /wireframes/homepage.png |
-| Input / Submission Form | FR-03, FR-10, FR-11 | /wireframes/input-form.png |
-| Records / Information List | FR-05, FR-06 | /wireframes/record-list.png |
-| Record Detail View | FR-07, FR-08 | /wireframes/detail-view.png |
-| Dashboard / Summary | FR-12 | /wireframes/dashboard.png |
-| Admin / Manager View | FR-09, FR-08 | /wireframes/admin-view.png |
+| Homepage / Landing | FR-01, FR-02 | /prototype/wireframe-html/01-home.html |
+| Report a Mismatch (Submission Form) | FR-03, FR-10, FR-11 | /prototype/wireframe-html/06-report-form.html |
+| Schedule List | FR-05, FR-06, FR-08 | /prototype/wireframe-html/02-schedule.html |
+| Class Detail View | FR-07, FR-08 | /prototype/wireframe-html/03-detail-confirmed.html, /prototype/wireframe-html/04-detail-room-changed.html, /prototype/wireframe-html/05-detail-cancelled.html |
+| Admin Dashboard / Report Summary | FR-12 | /prototype/wireframe-html/09-admin-dashboard.html |
+| Admin View (Update Class Status) | FR-09, FR-08 | /prototype/wireframe-html/09-admin-dashboard.html, /prototype/wireframe-html/10-admin-edit.html |
+ 
+#### Additional Supporting Screens
+Not required by the minimum list above, but included to complete the end-to-end flow:
+ 
+| Screen | Related Requirement IDs | Mockup File |
+|---|---|---|
+| Report Confirmation | FR-11 | /prototype/wireframe-html/07-report-confirmation.html |
+| Admin Login | FR-09 | /prototype/wireframe-html/08-admin-login.html |
+| Admin Confirmation | FR-11 | /prototype/wireframe-html/11-admin-confirmation.html |
 
 ### User Flow
 See `/diagrams/user-flow.png` for the full diagram. The primary path is: Homepage → Schedule List → Class Detail View → (optional) Report a Mismatch → Confirmation
