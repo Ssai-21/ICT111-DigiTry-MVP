@@ -1,4 +1,4 @@
-# RSU Smart Campus Timetable
+# Smart Timetable
 ## Course Information
 Course Code: ICT11
 Course Name: Introduction to Information Technology
@@ -32,6 +32,7 @@ Possible technologies:
 - data: survey responses, validation data, and metrics
 - finance: financial assumptions and model
 - diagrams: user flow and technical architecture diagrams
+- wireframes: UI/UX wireframe screens for each required screen
 - screenshots: evidence of prototype and repository progress
 - pitch: pitch deck and final demo files
 ## Weekly Progress Log
@@ -40,7 +41,31 @@ Possible technologies:
 | Lab 1 | Lab setup and idea log | Repository, team profile, initial idea log | Completed |
 | Lab 2 | IT opportunity scanning | Opportunity scan, NUF scoring, selected opportunity file | Completed |
 | Lab 3 | Customer problem discovery | Survey questions, 15 raw responses, assumption-evidence table, problem notes | Completed |
+| Lab 4 | Persona and user stories | User persona, user stories, MVP feature list, system requirements | Completed |
+| Lab 5 | Product concept and UI/UX wireframe | Product concept, feature-requirement mapping, wireframe specification, wireframe usability checklist, wireframes, user flow diagram | Completed |
+
+## Lab 05: Product Concept and UI/UX Wireframe
+
+### Product Concept
+SmartTimetable is a web-based tool for RSU students and lecturers who currently rely on a static PDF timetable that does not update for cancellations, room changes, or reschedules. It converts the PDF into a searchable, personalized digital schedule, letting students view their own classes, check a class's current status, and flag a mismatch so it can be corrected — solving the trust and accuracy problem confirmed during customer discovery in Lab 03.
+
+### Requirement-Driven Screens
+| Screen | Related Requirement IDs | Wireframe File |
+|---|---|---|
+| Homepage / Landing | FR-01, FR-02 | /wireframes/homepage.png |
+| Input / Submission Form | FR-03, FR-10, FR-11 | /wireframes/input-form.png |
+| Records / Information List | FR-05, FR-06 | /wireframes/record-list.png |
+| Record Detail View | FR-07, FR-08 | /wireframes/detail-view.png |
+| Dashboard / Summary | FR-12 | /wireframes/dashboard.png |
+| Admin / Manager View | FR-09, FR-08 | /wireframes/admin-view.png |
+
+### User Flow
+See `/diagrams/user-flow.png` (or `/diagrams/user-flow.mmd`) for the full diagram. The primary path is: Homepage → Schedule List → Class Detail View → (optional) Report a Mismatch → Confirmation.
+
+### Team Contribution
+All members contributed to the same GitHub repository.
+
 ## Current Status
-In Lab 03, the team conducted customer problem discovery by surveying 15 respondents (students, lecturers, and staff) who currently use the PDF timetable. The evidence confirmed the core problem — the timetable does not update for cancellations, room changes, or double-bookings — and showed strong demand for a real-time digital alternative. Findings were documented in `/docs/assumption-evidence-table.md`, `/docs/customer-discovery-summary.md`, and `/docs/problem-notes.md`.
+In Lab 05, the team defined the product concept, mapped every required screen to its requirement IDs, and produced wireframes for all six screens along with the user flow diagram. Supporting documentation was added to `/docs/product-concept.md`, `/docs/feature-requirement-mapping.md`, `/docs/wireframe-specification.md`, and `/docs/wireframe-usability-checklist.md`.
 ## Next Step
-In Lab 04, the team will define the primary customer segment based on the strongest evidence collected, build a representative user persona, and write user stories describing how this persona would interact with SmartTimetable to solve their specific scheduling pain points.
+In Lab 06, the team will begin building the clickable prototype, wiring the six wireframe screens together according to the confirmed user flow.
