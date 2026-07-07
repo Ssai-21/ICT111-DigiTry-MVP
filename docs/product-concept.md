@@ -5,6 +5,7 @@ SmartTimetable – Smart Campus Timetable System
 
 ## 2. Target User
 Primary users: students and lecturers who need to check their class schedules.
+
 Secondary user: academic staff/admin who maintain and update timetable data.
 
 ## 3. Problem Statement
