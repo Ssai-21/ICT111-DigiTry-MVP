@@ -42,7 +42,7 @@ Possible technologies:
 | Lab 2 | IT opportunity scanning | Opportunity scan, NUF scoring, selected opportunity file | Completed |
 | Lab 3 | Customer problem discovery | Survey questions, 15 raw responses, assumption-evidence table, problem notes | Completed |
 | Lab 4 | Persona and user stories | User persona, user stories, MVP feature list, system requirements | Completed |
-| Lab 5 | Product concept and UI/UX wireframe | Product concept, feature-requirement mapping, wireframe specification, wireframe usability checklist, wireframes, user flow diagram | Completed |
+| Lab 5 | Product concept and UI/UX wireframe | Product concept, feature-requirement mapping, wireframe specification, screen inventory checklist, wireframes, user flow diagram | Completed |
 
 ## Lab 05: Product Concept and UI/UX Wireframe
 
@@ -60,12 +60,12 @@ SmartTimetable is a web-based tool for RSU students and lecturers who currently 
 | Admin / Manager View | FR-09, FR-08 | /wireframes/admin-view.png |
 
 ### User Flow
-See `/diagrams/user-flow.png` (or `/diagrams/user-flow.mmd`) for the full diagram. The primary path is: Homepage → Schedule List → Class Detail View → (optional) Report a Mismatch → Confirmation.
+See `/diagrams/user-flow.png` for the full diagram. The primary path is: Homepage → Schedule List → Class Detail View → (optional) Report a Mismatch → Confirmation
 
 ### Team Contribution
 All members contributed to the same GitHub repository.
 
 ## Current Status
-In Lab 05, the team defined the product concept, mapped every required screen to its requirement IDs, and produced wireframes for all six screens along with the user flow diagram. Supporting documentation was added to `/docs/product-concept.md`, `/docs/feature-requirement-mapping.md`, `/docs/wireframe-specification.md`, and `/docs/wireframe-usability-checklist.md`.
+In Lab 05, the team defined the product concept, mapped every required screen to its requirement IDs, and produced wireframes for all the screens along with the user flow diagram. Supporting documentation was added to `/docs/product-concept.md`, `/docs/feature-requirement-mapping.md`, `/docs/wireframe-specification.md`, and `/docs/screen-inventory-checklist.md`.
 ## Next Step
 In Lab 06, the team will begin building the clickable prototype, wiring the six wireframe screens together according to the confirmed user flow.
