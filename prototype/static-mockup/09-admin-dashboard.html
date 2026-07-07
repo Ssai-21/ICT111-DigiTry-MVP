@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTimetable — Admin Dashboard (Static Mockup)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-scene">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+
+<div class="brand-chip glass"><span class="dot"></span> SmartTimetable</div>
+
+<div class="tab-bar glass">
+  <span class="tab-item"><span class="tab-icon">&#127968;</span><span class="tab-label">Home</span></span>
+  <span class="tab-item"><span class="tab-icon">&#128197;</span><span class="tab-label">Schedule</span></span>
+  <span class="tab-item"><span class="tab-icon">&#128681;</span><span class="tab-label">Report</span></span>
+  <span class="tab-item active"><span class="tab-icon">&#128736;</span><span class="tab-label">Admin</span></span>
+</div>
+
+<main>
+  <div class="container page">
+    <p class="breadcrumb">Admin / Dashboard</p>
+    <h1>Admin Dashboard</h1>
+    <p class="lead">Overview of reports and classes for the week of 07&ndash;10 July 2026.</p>
+
+    <div class="summary-grid">
+      <div class="glass summary-card">
+        <div class="num">7</div>
+        <div class="lbl">Reports received this week</div>
+      </div>
+      <div class="glass summary-card">
+        <div class="num">ICT 401</div>
+        <div class="lbl">Most-reported class (3 reports)</div>
+      </div>
+      <div class="glass summary-card">
+        <div class="num">2</div>
+        <div class="lbl">Reports pending review</div>
+      </div>
+    </div>
+
+    <h2>Recent Reports</h2>
+    <div class="glass table-card">
+      <div class="table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Course</th><th>Room</th><th>Issue Type</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ICT 401</td><td>11-304</td><td>Class was cancelled</td>
+              <td><span class="status-badge status-cancelled">Cancelled</span></td>
+              <td><span class="btn btn-ghost btn-sm">Edit</span></td>
+            </tr>
+            <tr>
+              <td>ILE 126</td><td>11-208</td><td>Wrong room listed</td>
+              <td><span class="status-badge status-changed">Room Changed</span></td>
+              <td><span class="btn btn-ghost btn-sm">Edit</span></td>
+            </tr>
+            <tr>
+              <td>ICT 105</td><td>3-216D</td><td>Time changed</td>
+              <td><span class="status-badge status-confirmed">Reviewed</span></td>
+              <td><span class="btn btn-ghost btn-sm">Edit</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2>Manage Classes</h2>
+    <div class="glass table-card">
+      <div class="table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Course</th><th>Day / Time</th><th>Room</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ICT 111 &middot; Introduction to Information Technology</td>
+              <td>Tue &amp; Thu, 09:00&ndash;11:45</td>
+              <td>11-A504</td>
+              <td><span class="status-badge status-confirmed">Confirmed</span></td>
+              <td><span class="btn btn-ghost btn-sm">Edit Status</span></td>
+            </tr>
+            <tr>
+              <td>ICT 402 &middot; Research Methodology</td>
+              <td>Tue &amp; Thu, 12:00&ndash;14:45</td>
+              <td>6-302B</td>
+              <td><span class="status-badge status-confirmed">Confirmed</span></td>
+              <td><span class="btn btn-ghost btn-sm">Edit Status</span></td>
+            </tr>
+            <tr>
+              <td>ICT 401 &middot; Seminar in ICT</td>
+              <td>Tue, 15:00&ndash;17:45</td>
+              <td>11-304</td>
+              <td><span class="status-badge status-cancelled">Cancelled</span></td>
+              <td><span class="btn btn-ghost btn-sm">Edit Status</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

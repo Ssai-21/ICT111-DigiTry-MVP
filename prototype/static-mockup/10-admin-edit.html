@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTimetable — Edit Class Status (Static Mockup)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-scene">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+
+<div class="brand-chip glass"><span class="dot"></span> SmartTimetable</div>
+
+<div class="tab-bar glass">
+  <span class="tab-item"><span class="tab-icon">&#127968;</span><span class="tab-label">Home</span></span>
+  <span class="tab-item"><span class="tab-icon">&#128197;</span><span class="tab-label">Schedule</span></span>
+  <span class="tab-item"><span class="tab-icon">&#128681;</span><span class="tab-label">Report</span></span>
+  <span class="tab-item active"><span class="tab-icon">&#128736;</span><span class="tab-label">Admin</span></span>
+</div>
+
+<main>
+  <div class="container page">
+    <p class="breadcrumb">Admin / Dashboard / Edit Class</p>
+    <h1>Update Class Status</h1>
+    <p class="lead">Review the report and update the class record below.</p>
+
+    <div class="glass form-card">
+      <div class="form-group">
+        <label>Class</label>
+        <select disabled>
+          <option selected>ICT 401 &middot; Seminar in ICT (Sec. 132, Tue 15:00&ndash;17:45)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <fieldset>
+          <legend>Status</legend>
+          <div class="radio-option">
+            <input type="radio" disabled>
+            <label style="margin:0; font-weight:400;">Confirmed</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" disabled>
+            <label style="margin:0; font-weight:400;">Room Changed</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" checked disabled>
+            <label style="margin:0; font-weight:400;">Cancelled</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <label>New Room (if changed)</label>
+        <input type="text" placeholder="e.g. 11-208" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Notes to Students</label>
+        <textarea readonly>Cancelled by lecturer for this week. No make-up session scheduled yet.</textarea>
+      </div>
+
+      <div class="btn-row" style="margin-top: 0;">
+        <span class="btn btn-primary" style="flex:1;">Save Update</span>
+        <span class="btn btn-secondary">Cancel</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
