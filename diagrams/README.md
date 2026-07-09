@@ -21,5 +21,4 @@ This folder contains the diagrams for the SmartTimetable project.
 ## Notes
 
 - Diagrams should be added to this folder as image files (e.g. `.png`) or as source files (e.g. `.mmd`, `.drawio`)
-- `.mmd` files can be imported directly into draw.io (Arrange > Insert > Mermaid) or the Mermaid Live Editor to generate/export a `.png`
 - This README should be updated whenever a diagram is added, removed, or renamed
