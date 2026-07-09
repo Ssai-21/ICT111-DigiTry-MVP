@@ -43,6 +43,7 @@ Possible technologies:
 | Lab 3 | Customer problem discovery | Survey questions, 15 raw responses, assumption-evidence table, problem notes | Completed |
 | Lab 4 | Persona and user stories | User persona, user stories, MVP feature list, system requirements | Completed |
 | Lab 5 | Product concept and UI/UX wireframe | Product concept, feature-requirement mapping, wireframe specification, wireframe usability checklist, screen inventory checklist, wireframes, user flow diagram | Completed |
+| Lab 6 | Technical architecture and data structure | Business model canvas, feature-value mapping, technical architecture, data structure, customer segments/value table, sample dataset | Completed |
 
 ## Lab 05: Product Concept and UI/UX Wireframe
 
@@ -69,12 +70,32 @@ Not required by the minimum list above, but included to complete the end-to-end 
 | Admin Confirmation | FR-11 | /prototype/wireframe-html/11-admin-confirmation.html |
 
 ### User Flow
-See `/diagrams/user-flow.png` for the full diagram. The primary path is: Homepage → Schedule List → Class Detail View → (optional) Report a Mismatch → Confirmation
+See /diagrams/user-flow.png for the full diagram. The primary path is: Homepage → Schedule List → Class Detail View → (optional) Report a Mismatch → Confirmation
 
 ### Team Contribution
 All members contributed to the same GitHub repository.
 
+## Lab 06 Update - Business Model Canvas and Technical Architecture
+
+### Lab 06 Summary
+In Lab 06, our group connected our product concept, requirements, user stories, and wireframes into business logic and technical structure.
+
+### Files Added or Updated
+- [Business Model Canvas](docs/business-model-canva.md)
+- [Feature-Value Mapping](docs/feature-value-mapping.md)
+- [Technical Architecture](docs/technical-architecture.md)
+- [Data Structure](docs/data-structure.md)
+- [Weekly Logbook](docs/weekly-logbook.md)
+- /data/customer_segments_value.csv
+- /data/smarttimetable_sample_records.csv
+
+### Technical Direction
+Frontend + localStorage/JSON. The team already has the required screens built as static HTML/CSS/JS files, and no member has backend or database experience beyond this course, so the class schedule will be stored in a JSON file and reports/admin status updates will be saved to browser localStorage rather than a real database.
+
+### Final Prototype Connection
+The business model canvas confirms who the prototype is for and what value each screen needs to deliver; the feature-value mapping ties each of those screens directly to a requirement ID and a priority, so the team knows the report form, schedule search, status labels, and admin dashboard are all Must-Have for the final build. The technical architecture and data structure then define exactly how those same screens will actually work — what the Class and Report entities look like, what fields and statuses they use, and how data will move between the JSON file, localStorage, and each screen — so Lab 07's clickable prototype is just wiring the already-built mockups to this defined data structure, not redesigning anything.
+
 ## Current Status
-In Lab 05, the team defined the product concept, mapped every required screen to its requirement IDs, and produced wireframes for all the screens along with the user flow diagram. Supporting documentation was added to `/docs/product-concept.md`, `/docs/feature-requirement-mapping.md`, `/docs/wireframe-specification.md`, `/docs/wireframe-usability-review-checklist.md` and `/docs/screen-inventory-checklist.md`.
+In Lab 06, the team completed the business model canvas, mapped each MVP feature to its user and business value, selected the prototype platform, defined the technical architecture and main components, and documented the data structure (entities, fields, and status values) along with sample datasets for customer segments and reports.
 ## Next Step
-In Lab 06, the team will begin building the clickable prototype, wiring the six wireframe screens together according to the confirmed user flow.
+In Lab 07, the team will build the JSON class-schedule file and connect the schedule list, search/filter, report form, and admin edit form so status changes actually update across the prototype.
