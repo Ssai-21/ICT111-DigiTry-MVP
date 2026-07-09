@@ -31,4 +31,3 @@ This folder contains all reports, profiles, planning documents, and weekly logbo
 
 ## Notes
 - This README should be updated whenever a doc is added, removed, or renamed
-- `technical-architecture.md` and `data-structure.md` are listed here for completeness but may not be pushed to the repo yet — check the file list above against what's actually committed
