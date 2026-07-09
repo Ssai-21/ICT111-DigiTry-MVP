@@ -1,4 +1,4 @@
-# Diagrams Folder
+# Diagrams
 
 This folder contains the diagrams for the SmartTimetable project.
 
