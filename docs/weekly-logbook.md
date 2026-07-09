@@ -212,3 +212,38 @@ Product Concept and UI/UX Wireframe
 
 ## Next Steps Before Lab 06
 Start building the clickable prototype by linking the six wireframe screens together according to the confirmed user flow.
+
+# Weekly Logbook - Lab 06
+
+## Group Name
+DigiTry
+
+## Project Title
+Smart Timetable
+
+## Date
+July 9, 2026
+
+## Members Present
+
+| Member Name | Contribution Today | GitHub Evidence / Commit / File Updated |
+|---|---|---|
+| Sai Thi Han Win | Did data flow and system architecture diagrams | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Soe Yu Nwe | Weekly log book and README.md update| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Rigzang Lhmao | Business model canvas and feature value mapping | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Seint Myat Wai | Defined data structure and uploaded sample data sets| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+
+## Decisions Made Today
+
+1. Business model decision:
+2. Technical architecture decision: Selected a frontend-only prototype using a JSON file for the class schedule and browser localStorage for reports and admin status updates, instead of a full database (MySQL/Firebase), since it matches the team's current skill set and fits the remaining timeline.
+3. Data structure decision: Defined three entities — Class, Report, and Admin — with a Class-level status (Confirmed / Room Changed / Cancelled) and a separate Report-level status (Pending / In Progress / Resolved / Closed).
+4. Diagram decision:
+
+## Problems or Risks Found
+Since data is stored in localStorage, a report submitted or a status change made on one device will not appear on another device. The team will demo from a single browser and pre-load a consistent sample dataset before presenting to avoid this looking like a bug.
+
+## Next Actions Before Lab 07
+Build the JSON class-schedule file, wire the schedule list and search/filter to read from it, and connect the report form and admin edit form to localStorage so status changes actually update across the prototype.
+
+## Lecturer / TA Notes
