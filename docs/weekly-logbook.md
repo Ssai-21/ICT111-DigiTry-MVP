@@ -265,10 +265,10 @@ Build the JSON class-schedule file, wire the schedule list and search/filter to 
 ## Member Contributions
 | Member Name | Contribution | Evidence/Commit/Issue Link |
 |---|---|---|
-| Sai Thi Han Win | | |
-| Soe Yu Nwe | | |
-| Rigzang Lhmao | | |
-| Seint Myat Wai | | |
+| Sai Thi Han Win |created working prototype and updated README.md |https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Soe Yu Nwe |imported experiement results data sets|https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Rigzang Lhmao |created feedback-form and experiment script |https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Seint Myat Wai |created critical assumptions, MVP experiment plan and success metrics, updated weekly-logbook |https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
 
 ## Key Decisions
 | Decision | Reason | Evidence/Requirement Link |
