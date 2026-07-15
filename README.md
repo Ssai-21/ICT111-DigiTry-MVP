@@ -44,6 +44,7 @@ Possible technologies:
 | Lab 4 | Persona and user stories | User persona, user stories, MVP feature list, system requirements | Completed |
 | Lab 5 | Product concept and UI/UX wireframe | Product concept, feature-requirement mapping, wireframe specification, wireframe usability checklist, screen inventory checklist, wireframes, user flow diagram | Completed |
 | Lab 6 | Technical architecture and data structure | Business model canvas, feature-value mapping, technical architecture, data structure, customer segments/value table, sample dataset | Completed |
+| Lab 7 | MVP experiment design | Critical assumptions, MVP experiment plan, experiment script, success metrics, feedback form, interactive clickable prototype | Completed |
 
 ## Lab 05: Product Concept and UI/UX Wireframe
 
@@ -97,5 +98,40 @@ The business model canvas confirms who the prototype is for and what value each 
 
 ## Current Status
 In Lab 06, the team completed the business model canvas, mapped each MVP feature to its user and business value, selected the prototype platform, defined the technical architecture and main components, and documented the data structure (entities, fields, and status values) along with sample datasets for customer segments and reports.
+
+## Lab 07: MVP Experiment Design
+
+### Experiment Objective
+We want to test whether students can find their weekly schedule, understand a class's current status, and successfully submit a mismatch report without help — and whether admin/lecturer testers can review and act on those reports from the admin dashboard.
+
+### Critical Assumptions
+Top 3 (full list in `/docs/critical-assumptions.md`):
+1. **(High risk)** Students will actually switch to SmartTimetable instead of continuing to rely on the PDF timetable and class group chats for updates.
+2. **(High risk)** Client-side storage (a JSON schedule file plus browser localStorage) is enough to demonstrate the full report-to-status-update loop without a real backend.
+3. **(Medium risk)** Users can understand the report form's required fields and the admin dashboard terms without needing instructions.
+
+### MVP Experiment Type
+**Selected: Clickable prototype.** The required screens already exist as a real interactive prototype (not just static mockups) in `/prototype/smarttimetable-prototype/`, so testers can navigate the full flow — search, view status, submit a report, and for admin testers, log in and update a class's status — using the actual frontend + localStorage architecture decided in Lab 06, without needing a working backend.
+
+### Success Metrics
+Full targets and how-to-measure detail in `/docs/success-metrics.md`:
+- Task completion rate: 70% or higher
+- Form completion accuracy: 80% or higher
+- Search success rate: 70% or higher
+- Usability rating (task ease): average 4 out of 5
+- Feature usefulness rating: average 4 out of 5
+
+### Files Added in Lab 07
+- [MVP Experiment Plan](docs/mvp-experiment-plan.md)
+- [Critical Assumptions](docs/critical-assumptions.md)
+- [Experiment Script](docs/experiment-script.md)
+- [Success Metrics](docs/success-metrics.md)
+- [Feedback Form](docs/feedback-form.md)
+- [Weekly Logbook](docs/weekly-logbook.md)
+- `/prototype/smarttimetable-prototype/` — the interactive clickable prototype used to actually run the experiment
+
+### Connection to Final Prototype
+This experiment is the checkpoint between the wireframes and the final build: the critical assumptions name exactly what could make the final prototype fail, and the success metrics turn "did it work?" into a number the team can actually check against a target. Based on the decision rules in `/docs/success-metrics.md` — if metrics meet target, the team moves straight into the implementation sprint; if some metrics fail, the team revises the affected screen, flow, or label (for example, the report form's required-field clarity) before implementation; if most metrics fail, the team revisits the requirements and problem evidence before building further. Either way, the final prototype is built on top of the same interactive codebase already in `/prototype/smarttimetable-prototype/`, not a rewrite.
+
 ## Next Step
-In Lab 07, the team will build the JSON class-schedule file and connect the schedule list, search/filter, report form, and admin edit form so status changes actually update across the prototype.
+Run the real experiment with the test users defined in `/docs/mvp-experiment-plan.md` (5 students, 2 admin/lecturer staff) using `/docs/experiment-script.md` and `/docs/feedback-form.md`, log results, and apply the decision rule in `/docs/success-metrics.md` before starting the Lab 08 implementation sprint.
