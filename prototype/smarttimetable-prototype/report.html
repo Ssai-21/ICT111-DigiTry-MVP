@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTimetable — Report an Issue</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-scene">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+
+<a href="index.html" class="brand-chip glass" style="text-decoration:none;"><span class="dot"></span> SmartTimetable</a>
+
+<nav class="tab-bar glass">
+  <a href="index.html" class="tab-item"><span class="tab-icon">&#127968;</span><span class="tab-label">Home</span></a>
+  <a href="schedule.html" class="tab-item"><span class="tab-icon">&#128197;</span><span class="tab-label">Schedule</span></a>
+  <a href="report.html" class="tab-item active"><span class="tab-icon">&#128681;</span><span class="tab-label">Report</span></a>
+  <a href="admin-login.html" class="tab-item"><span class="tab-icon">&#128736;</span><span class="tab-label">Admin</span></a>
+</nav>
+
+<main>
+  <div class="container page">
+    <p class="breadcrumb">Home / Report an Issue</p>
+    <h1>Report a Schedule Mismatch</h1>
+    <p class="lead">Spotted a class that's wrong, cancelled, or moved? Let us
+    know and the team will correct it for everyone.</p>
+
+    <form id="reportForm" class="glass form-card" novalidate>
+      <div class="privacy-note">
+        We only ask for class-related details &mdash; no personal information
+        is required to submit a report.
+      </div>
+
+      <div class="form-group">
+        <label>I am a *</label>
+        <select id="role" required>
+          <option value="Student">Student</option>
+          <option value="Lecturer">Lecturer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Course Code *</label>
+        <input id="courseCode" type="text" placeholder="e.g. ICT 401" required>
+        <div class="hint" id="courseCodeError" style="color: var(--red-fg); display:none;">Course code is required.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Room Number *</label>
+        <input id="roomNumber" type="text" placeholder="e.g. 11-304" required>
+        <div class="hint" id="roomNumberError" style="color: var(--red-fg); display:none;">Room number is required.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Issue Type *</label>
+        <select id="issueType" required>
+          <option value="" selected disabled>Select an issue type…</option>
+        </select>
+        <div class="hint" id="issueTypeError" style="color: var(--red-fg); display:none;">Please select an issue type.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Description (optional)</label>
+        <textarea id="description" maxlength="300" placeholder="Anything else the admin should know?"></textarea>
+        <div class="hint"><span id="charCount">0</span>/300 characters. No need to include your name or student ID.</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Report</button>
+    </form>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+const issueSelect = document.getElementById("issueType");
+ISSUE_TYPES.forEach(t => {
+  const opt = document.createElement("option");
+  opt.value = t;
+  opt.textContent = t;
+  issueSelect.appendChild(opt);
+});
+
+document.getElementById("courseCode").value = qs("course") || "";
+document.getElementById("roomNumber").value = qs("room") || "";
+
+const description = document.getElementById("description");
+const charCount = document.getElementById("charCount");
+description.addEventListener("input", () => { charCount.textContent = description.value.length; });
+
+document.getElementById("reportForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const courseCode = document.getElementById("courseCode").value.trim();
+  const roomNumber = document.getElementById("roomNumber").value.trim();
+  const issueType = issueSelect.value;
+
+  let valid = true;
+
+  if (courseCode) {
+    document.getElementById("courseCodeError").style.display = "none";
+  } else {
+    document.getElementById("courseCodeError").style.display = "block";
+    valid = false;
+  }
+
+  if (roomNumber) {
+    document.getElementById("roomNumberError").style.display = "none";
+  } else {
+    document.getElementById("roomNumberError").style.display = "block";
+    valid = false;
+  }
+
+  if (issueType) {
+    document.getElementById("issueTypeError").style.display = "none";
+  } else {
+    document.getElementById("issueTypeError").style.display = "block";
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  addReport({
+    course_code: courseCode,
+    room: roomNumber,
+    issue_type: issueType,
+    reported_by_role: document.getElementById("role").value,
+    description: description.value.trim()
+  });
+
+  window.location.href = `report-confirmation.html?course=${encodeURIComponent(courseCode)}`;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTimetable — Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-scene">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+
+<a href="index.html" class="brand-chip glass" style="text-decoration:none;"><span class="dot"></span> SmartTimetable</a>
+
+<nav class="tab-bar glass">
+  <a href="index.html" class="tab-item"><span class="tab-icon">&#127968;</span><span class="tab-label">Home</span></a>
+  <a href="schedule.html" class="tab-item"><span class="tab-icon">&#128197;</span><span class="tab-label">Schedule</span></a>
+  <a href="report.html" class="tab-item"><span class="tab-icon">&#128681;</span><span class="tab-label">Report</span></a>
+  <a href="admin-login.html" class="tab-item active"><span class="tab-icon">&#128736;</span><span class="tab-label">Admin</span></a>
+</nav>
+
+<main>
+  <div class="container page">
+    <p class="breadcrumb">Admin / Dashboard</p>
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;">
+      <div>
+        <h1>Admin Dashboard</h1>
+        <p class="lead">Overview of reports and classes for the week of 07&ndash;10 July 2026.</p>
+      </div>
+      <a href="#" id="logoutLink" class="btn btn-secondary btn-sm">Log Out</a>
+    </div>
+
+    <div class="summary-grid" id="summaryGrid"></div>
+
+    <h2>Recent Reports</h2>
+    <div class="glass table-card">
+      <div class="table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Course</th><th>Room</th><th>Issue Type</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody id="reportsBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2>Manage Classes</h2>
+    <div class="glass table-card">
+      <div class="table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Course</th><th>Day / Time</th><th>Room</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody id="classesBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+requireAdminLogin();
+
+document.getElementById("logoutLink").addEventListener("click", e => {
+  e.preventDefault();
+  adminLogout();
+});
+
+const reports = getReports();
+const classes = getClasses();
+
+// Summary cards
+const pendingCount = reports.filter(r => r.status === "Pending").length;
+const courseCounts = {};
+reports.forEach(r => { courseCounts[r.course_code] = (courseCounts[r.course_code] || 0) + 1; });
+let mostReported = "—";
+let mostReportedCount = 0;
+Object.entries(courseCounts).forEach(([course, count]) => {
+  if (count > mostReportedCount) { mostReported = course; mostReportedCount = count; }
+});
+
+document.getElementById("summaryGrid").innerHTML = `
+  <div class="glass summary-card">
+    <div class="num">${reports.length}</div>
+    <div class="lbl">Reports received this week</div>
+  </div>
+  <div class="glass summary-card">
+    <div class="num">${escapeHtml(mostReported)}</div>
+    <div class="lbl">Most-reported class${mostReportedCount ? ` (${mostReportedCount} report${mostReportedCount === 1 ? "" : "s"})` : ""}</div>
+  </div>
+  <div class="glass summary-card">
+    <div class="num">${pendingCount}</div>
+    <div class="lbl">Reports pending review</div>
+  </div>
+`;
+
+// Recent reports table
+function classIdForCourse(courseCode) {
+  const match = classes.find(c => c.course_code === courseCode);
+  return match ? match.id : "";
+}
+
+const reportsBody = document.getElementById("reportsBody");
+if (reports.length === 0) {
+  reportsBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color: var(--ink-500);">No reports submitted yet.</td></tr>`;
+} else {
+  reportsBody.innerHTML = reports.map(r => `
+    <tr>
+      <td>${escapeHtml(r.course_code)}</td>
+      <td>${escapeHtml(r.room)}</td>
+      <td>${escapeHtml(r.issue_type)}</td>
+      <td><span class="status-badge ${r.status === "Pending" ? "status-changed" : "status-confirmed"}">${escapeHtml(r.status)}</span></td>
+      <td><a class="btn btn-ghost btn-sm" href="admin-edit.html?id=${encodeURIComponent(classIdForCourse(r.course_code))}">Edit</a></td>
+    </tr>
+  `).join("");
+}
+
+// Manage classes table
+document.getElementById("classesBody").innerHTML = classes.map(c => `
+  <tr>
+    <td>${escapeHtml(c.course_code)} &middot; ${escapeHtml(c.class_name)}</td>
+    <td>${escapeHtml(formatSlots(c))}</td>
+    <td>${escapeHtml(c.room)}</td>
+    <td><span class="status-badge ${statusClass(c.status)}">${escapeHtml(c.status)}</span></td>
+    <td><a class="btn btn-ghost btn-sm" href="admin-edit.html?id=${encodeURIComponent(c.id)}">Edit Status</a></td>
+  </tr>
+`).join("");
+</script>
+
+</body>
+</html>

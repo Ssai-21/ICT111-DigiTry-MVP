@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTimetable — My Schedule</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-scene">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+
+<a href="index.html" class="brand-chip glass" style="text-decoration:none;"><span class="dot"></span> SmartTimetable</a>
+
+<nav class="tab-bar glass">
+  <a href="index.html" class="tab-item"><span class="tab-icon">&#127968;</span><span class="tab-label">Home</span></a>
+  <a href="schedule.html" class="tab-item active"><span class="tab-icon">&#128197;</span><span class="tab-label">Schedule</span></a>
+  <a href="report.html" class="tab-item"><span class="tab-icon">&#128681;</span><span class="tab-label">Report</span></a>
+  <a href="admin-login.html" class="tab-item"><span class="tab-icon">&#128736;</span><span class="tab-label">Admin</span></a>
+</nav>
+
+<main>
+  <div class="container page">
+    <p class="breadcrumb">Home / My Schedule</p>
+    <p class="eyebrow">Week of 07 &ndash; 10 July 2026</p>
+    <h1>My Weekly Schedule</h1>
+    <p class="lead">All your classes for the week &mdash; time, room, lecturer,
+    and live status. Tap a class for full details.</p>
+
+    <div class="search-box glass">
+      <span>&#128269;</span>
+      <input id="searchInput" type="text" placeholder="Search by course code, course name, or room (e.g. ICT 111, 11-A504)…">
+    </div>
+    <p class="search-hint">Live search runs in your browser only &mdash; nothing is sent anywhere.</p>
+
+    <div class="day-nav" id="dayNav">
+      <span class="day-chip active" data-day="all">ALL</span>
+      <span class="day-chip" data-day="Monday">MON</span>
+      <span class="day-chip" data-day="Tuesday">TUE</span>
+      <span class="day-chip" data-day="Wednesday">WED</span>
+      <span class="day-chip" data-day="Thursday">THU</span>
+    </div>
+
+    <style>
+      .day-chip.active {
+        background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+        color: #fff;
+        border-color: transparent;
+      }
+    </style>
+
+    <div id="scheduleList"></div>
+    <p id="emptyState" class="lead" style="display:none;">No classes match your search or filter.</p>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday"];
+let activeDay = "all";
+let query = "";
+
+function classMatches(cls, q) {
+  if (!q) return true;
+  const haystack = `${cls.course_code} ${cls.class_name} ${cls.room}`.toLowerCase();
+  return haystack.includes(q.toLowerCase());
+}
+
+function render() {
+  const classes = getClasses();
+  const list = document.getElementById("scheduleList");
+  list.innerHTML = "";
+  let anyShown = false;
+
+  DAYS.forEach(day => {
+    if (activeDay !== "all" && activeDay !== day) return;
+
+    const dayClasses = classes
+      .filter(c => c.slots.some(s => s.day === day))
+      .filter(c => classMatches(c, query))
+      .sort((a, b) => {
+        const ta = a.slots.find(s => s.day === day).time;
+        const tb = b.slots.find(s => s.day === day).time;
+        return ta.localeCompare(tb);
+      });
+
+    if (dayClasses.length === 0) return;
+    anyShown = true;
+
+    const group = document.createElement("div");
+    group.className = "day-group";
+    group.innerHTML = `<div class="day-heading">${day}</div>`;
+
+    dayClasses.forEach(cls => {
+      const time = cls.slots.find(s => s.day === day).time;
+      const row = document.createElement("a");
+      row.className = "class-row glass";
+      row.href = `class-detail.html?id=${encodeURIComponent(cls.id)}`;
+      row.innerHTML = `
+        <div class="class-time">${time}</div>
+        <div class="class-main">
+          <div class="class-title">${escapeHtml(cls.course_code)} &middot; ${escapeHtml(cls.class_name)}</div>
+          <div class="class-sub">Sec. ${escapeHtml(cls.section)} &middot; ${escapeHtml(cls.lecturer)} &middot; Room ${escapeHtml(cls.room)}</div>
+        </div>
+        <span class="status-badge ${statusClass(cls.status)}">${escapeHtml(cls.status)}</span>
+      `;
+      group.appendChild(row);
+    });
+
+    list.appendChild(group);
+  });
+
+  document.getElementById("emptyState").style.display = anyShown ? "none" : "block";
+}
+
+document.getElementById("searchInput").addEventListener("input", e => {
+  query = e.target.value;
+  render();
+});
+
+document.getElementById("dayNav").addEventListener("click", e => {
+  const chip = e.target.closest(".day-chip");
+  if (!chip) return;
+  document.querySelectorAll(".day-chip").forEach(c => c.classList.remove("active"));
+  chip.classList.add("active");
+  activeDay = chip.dataset.day;
+  render();
+});
+
+render();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTimetable — Update Class Status</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-scene">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+
+<a href="index.html" class="brand-chip glass" style="text-decoration:none;"><span class="dot"></span> SmartTimetable</a>
+
+<nav class="tab-bar glass">
+  <a href="index.html" class="tab-item"><span class="tab-icon">&#127968;</span><span class="tab-label">Home</span></a>
+  <a href="schedule.html" class="tab-item"><span class="tab-icon">&#128197;</span><span class="tab-label">Schedule</span></a>
+  <a href="report.html" class="tab-item"><span class="tab-icon">&#128681;</span><span class="tab-label">Report</span></a>
+  <a href="admin-login.html" class="tab-item active"><span class="tab-icon">&#128736;</span><span class="tab-label">Admin</span></a>
+</nav>
+
+<main>
+  <div class="container page" id="pageContent">
+    <p class="lead">Loading class…</p>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+requireAdminLogin();
+
+const id = qs("id");
+const cls = id ? getClassById(id) : null;
+const content = document.getElementById("pageContent");
+
+if (!cls) {
+  content.innerHTML = `
+    <p class="lead">We couldn't find that class.</p>
+    <a href="admin-dashboard.html" class="btn btn-secondary">Back to Dashboard</a>
+  `;
+} else {
+  content.innerHTML = `
+    <p class="breadcrumb">Admin / Dashboard / Edit Class</p>
+    <h1>Update Class Status</h1>
+    <p class="lead">Review the report and update the class record below.</p>
+
+    <form id="editForm" class="glass form-card">
+      <div class="form-group">
+        <label>Class</label>
+        <select disabled>
+          <option selected>${escapeHtml(cls.course_code)} &middot; ${escapeHtml(cls.class_name)} (Sec. ${escapeHtml(cls.section)}, ${escapeHtml(formatSlots(cls))})</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <fieldset>
+          <legend>Status</legend>
+          <div class="radio-option">
+            <input type="radio" name="status" value="Confirmed" id="statusConfirmed" ${cls.status === "Confirmed" ? "checked" : ""}>
+            <label for="statusConfirmed" style="margin:0; font-weight:400;">Confirmed</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" name="status" value="Room Changed" id="statusChanged" ${cls.status === "Room Changed" ? "checked" : ""}>
+            <label for="statusChanged" style="margin:0; font-weight:400;">Room Changed</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" name="status" value="Cancelled" id="statusCancelled" ${cls.status === "Cancelled" ? "checked" : ""}>
+            <label for="statusCancelled" style="margin:0; font-weight:400;">Cancelled</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <label>New Room (if changed)</label>
+        <input id="newRoom" type="text" placeholder="e.g. 11-208" value="${cls.status === "Room Changed" ? escapeHtml(cls.room) : ""}">
+      </div>
+
+      <div class="form-group">
+        <label>Notes to Students</label>
+        <textarea id="notes" placeholder="e.g. Cancelled by lecturer for this week.">${escapeHtml(cls.note || "")}</textarea>
+      </div>
+
+      <div class="btn-row" style="margin-top: 0;">
+        <button type="submit" class="btn btn-primary" style="flex:1;">Save Update</button>
+        <a href="admin-dashboard.html" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  `;
+
+  document.getElementById("editForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const status = document.querySelector('input[name="status"]:checked').value;
+    const newRoom = document.getElementById("newRoom").value;
+    const notes = document.getElementById("notes").value;
+    updateClassStatus(cls.id, status, newRoom, notes);
+    window.location.href = `admin-confirmation.html?id=${encodeURIComponent(cls.id)}&course=${encodeURIComponent(cls.course_code)}`;
+  });
+}
+</script>
+
+</body>
+</html>

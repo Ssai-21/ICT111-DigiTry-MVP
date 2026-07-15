@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTimetable — Class Updated</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-scene">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+
+<a href="index.html" class="brand-chip glass" style="text-decoration:none;"><span class="dot"></span> SmartTimetable</a>
+
+<nav class="tab-bar glass">
+  <a href="index.html" class="tab-item"><span class="tab-icon">&#127968;</span><span class="tab-label">Home</span></a>
+  <a href="schedule.html" class="tab-item"><span class="tab-icon">&#128197;</span><span class="tab-label">Schedule</span></a>
+  <a href="report.html" class="tab-item"><span class="tab-icon">&#128681;</span><span class="tab-label">Report</span></a>
+  <a href="admin-login.html" class="tab-item active"><span class="tab-icon">&#128736;</span><span class="tab-label">Admin</span></a>
+</nav>
+
+<main>
+  <div class="container page">
+    <div class="glass confirm-wrap">
+      <div class="confirm-icon">&#10003;</div>
+      <h1>Class Updated</h1>
+      <p class="lead" style="margin: 0 auto;">
+        The status has been saved. Students viewing this class in their
+        schedule will now see the updated status and notes.
+      </p>
+      <div class="btn-row" style="justify-content: center;">
+        <a href="admin-dashboard.html" class="btn btn-primary">Back to Dashboard</a>
+        <a href="#" id="viewDetailLink" class="btn btn-secondary">View Student-Facing Detail</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+const id = qs("id");
+document.getElementById("viewDetailLink").href = id
+  ? `class-detail.html?id=${encodeURIComponent(id)}`
+  : "schedule.html";
+</script>
+
+</body>
+</html>
