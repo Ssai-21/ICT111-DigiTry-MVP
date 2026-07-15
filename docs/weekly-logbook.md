@@ -246,4 +246,39 @@ Since data is stored in localStorage, a report submitted or a status change made
 ## Next Actions Before Lab 07
 Build the JSON class-schedule file, wire the schedule list and search/filter to read from it, and connect the report form and admin edit form to localStorage so status changes actually update across the prototype.
 
-## Lecturer / TA Notes
+# Weekly Logbook - Lab 07
+
+## Group Information
+- Group name: DigiTry
+- Project title: Smart Timetable
+- Date: July 15, 2026
+- Repository link: https://github.com/Ssai-21/ICT111-DigiTry-MVP
+
+## What We Completed Today
+- [x] Reviewed requirements, user stories, MVP features, architecture, and wireframes
+- [x] Identified critical assumptions
+- [x] Selected MVP experiment type
+- [x] Defined test users and success metrics
+- [x] Prepared experiment script and feedback form
+- [x] Updated GitHub repository and README
+
+## Member Contributions
+| Member Name | Contribution | Evidence/Commit/Issue Link |
+|---|---|---|
+| Sai Thi Han Win | | |
+| Soe Yu Nwe | | |
+| Rigzang Lhmao | | |
+| Seint Myat Wai | | |
+
+## Key Decisions
+| Decision | Reason | Evidence/Requirement Link |
+|---|---|---|
+| Selected "Clickable prototype" as the MVP experiment type | The required screens were already linked mockups, and this matches the frontend + localStorage architecture from Lab 06 without needing a real backend | /docs/mvp-experiment-plan.md |
+| Turned the static wireframe mockups into a real interactive clickable prototype (JSON-style data + localStorage) instead of testing on the static version | Makes the experiment tasks — searching, submitting a report, updating a class status — actually functional end-to-end instead of just visual | /prototype/smarttimetable-prototype/ |
+| Defined 5 success metrics with fixed numeric targets instead of relying on general impressions | Gives the team an objective decision rule for whether to move to implementation, revise, or revisit requirements | /docs/success-metrics.md |
+
+## Problems and Next Action
+| Problem | Next Action | Responsible Member |
+|---|---|---|
+| Report form task rated lowest in the sample pilot data (~3/5); testers were unsure if the Description field was optional | Add an explicit "optional" label next to Description before running the real test round | |
+| localStorage data does not sync across devices, so a report submitted on one tester's device won't show up on another | Run each test session from a single shared device/browser rather than switching devices mid-session | |
