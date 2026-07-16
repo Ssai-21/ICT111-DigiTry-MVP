@@ -1,4 +1,64 @@
-tester_code,understood_purpose_1_5,completed_task_1_5,form_clear_1_5,search_useful_1_5,status_clear_1_5,would_use_1_5,most_useful_feature,confusing_part,suggested_improvement
-T01,5,5,4,4,5,4,The class detail screens status banners made it obvious what was happening with a class.,Wasn't sure at first if the Description field on the report form was optional.,"Add an explicit 'optional' label next to Description, not just the character-count hint."
-T02,5,4,3,5,4,4,The search and day filters on the Schedule screen very fast to find a class.,"Typed an invalid room number on the report form and got no error message, so I wasn't sure it registered.",Add live inline validation on the report form so mistakes are caught before submitting.
-T03,5,5,4,5,5,5,The overall flow from Home to Schedule to Report felt fast and logical end-to-end.,Nothing major  the admin dashboard terms ('pending review') took a second to parse.,Consider a short tooltip or legend explaining the admin dashboard summary card labels.
+Timestamp,Test_User_ID,User_Role,Prototype_Link,Task_Assigned,Task_Completed_Yes_No,Ease_of_Use_1_5,Usefulness_1_5,Confusing_Screen_or_Step,Most_Useful_Feature,Suggested_Improvement,Requirement_Affected
+2026-07-15 10:09,S01,Student,prototype/smarttimetable-prototype/index.html,T01 - View the weekly schedule from the Home screen,Yes,4,4,,,,FR-01
+2026-07-15 10:18,S01,Student,prototype/smarttimetable-prototype/index.html,"T02 - Move between Home, Schedule, Report, and Admin using the tab bar",Yes,4,4,,,,FR-02
+2026-07-15 10:27,S01,Student,prototype/smarttimetable-prototype/index.html,T03 - Search for a class by course code,Yes,4,4,,,,FR-05
+2026-07-15 10:36,S01,Student,prototype/smarttimetable-prototype/index.html,T04 - Search for a class by room number,Yes,4,4,,,,FR-05
+2026-07-15 10:45,S01,Student,prototype/smarttimetable-prototype/index.html,T05 - Filter the schedule to a single day,Yes,4,4,,,Highlight the active day chip a bit more,FR-06
+2026-07-15 11:54,S01,Student,prototype/smarttimetable-prototype/index.html,T06 - Open a Confirmed class and read its full detail,Yes,4,5,,Live status label (Confirmed/Room Changed/Cancelled),,FR-07
+2026-07-15 11:03,S01,Student,prototype/smarttimetable-prototype/index.html,T07 - Open a Room-Changed class and identify the new room,Yes,4,5,,,,FR-07
+2026-07-15 11:12,S01,Student,prototype/smarttimetable-prototype/index.html,T08 - Open a Cancelled class and read the status explanation,Yes,4,5,,,,FR-07
+2026-07-15 11:21,S01,Student,prototype/smarttimetable-prototype/index.html,T09 - Start a report from a class detail screen,Yes,4,5,,,,FR-03
+2026-07-15 11:30,S01,Student,prototype/smarttimetable-prototype/index.html,T10 - Fill in the report form and identify required fields,Yes,3,4,Wasn't sure if the Description field was required or optional,,Add an (optional) label next to the Description field,"FR-03, FR-10"
+2026-07-15 11:39,S01,Student,prototype/smarttimetable-prototype/index.html,T11 - Submit the report and see the confirmation screen,Yes,4,4,,Live status label (Confirmed/Room Changed/Cancelled),,"FR-03, FR-11"
+2026-07-15 12:48,S02,Student,prototype/smarttimetable-prototype/index.html,T01 - View the weekly schedule from the Home screen,Yes,4,4,,,,FR-01
+2026-07-15 12:57,S02,Student,prototype/smarttimetable-prototype/index.html,"T02 - Move between Home, Schedule, Report, and Admin using the tab bar",Yes,4,4,,,,FR-02
+2026-07-15 12:06,S02,Student,prototype/smarttimetable-prototype/index.html,T03 - Search for a class by course code,Yes,4,4,,,,FR-05
+2026-07-15 12:15,S02,Student,prototype/smarttimetable-prototype/index.html,T04 - Search for a class by room number,Yes,4,4,,,,FR-05
+2026-07-15 12:24,S02,Student,prototype/smarttimetable-prototype/index.html,T05 - Filter the schedule to a single day,Yes,4,4,,,Highlight the active day chip a bit more,FR-06
+2026-07-15 12:33,S02,Student,prototype/smarttimetable-prototype/index.html,T06 - Open a Confirmed class and read its full detail,Yes,4,5,,Day filter chips,,FR-07
+2026-07-15 13:42,S02,Student,prototype/smarttimetable-prototype/index.html,T07 - Open a Room-Changed class and identify the new room,Yes,4,5,,,,FR-07
+2026-07-15 13:51,S02,Student,prototype/smarttimetable-prototype/index.html,T08 - Open a Cancelled class and read the status explanation,Yes,4,5,,,,FR-07
+2026-07-15 13:00,S02,Student,prototype/smarttimetable-prototype/index.html,T09 - Start a report from a class detail screen,Yes,4,5,,,,FR-03
+2026-07-15 13:09,S02,Student,prototype/smarttimetable-prototype/index.html,T10 - Fill in the report form and identify required fields,Yes,2,4,Wasn't sure if the Description field was required or optional,,Add an (optional) label next to the Description field,"FR-03, FR-10"
+2026-07-15 13:18,S02,Student,prototype/smarttimetable-prototype/index.html,T11 - Submit the report and see the confirmation screen,Yes,4,4,,Search by course code,,"FR-03, FR-11"
+2026-07-15 13:27,S03,Student,prototype/smarttimetable-prototype/index.html,T01 - View the weekly schedule from the Home screen,Yes,4,4,,,,FR-01
+2026-07-15 14:36,S03,Student,prototype/smarttimetable-prototype/index.html,"T02 - Move between Home, Schedule, Report, and Admin using the tab bar",Yes,4,4,,,,FR-02
+2026-07-15 14:45,S03,Student,prototype/smarttimetable-prototype/index.html,T03 - Search for a class by course code,Yes,4,4,,,,FR-05
+2026-07-15 14:54,S03,Student,prototype/smarttimetable-prototype/index.html,T04 - Search for a class by room number,Yes,4,4,,,,FR-05
+2026-07-15 14:03,S03,Student,prototype/smarttimetable-prototype/index.html,T05 - Filter the schedule to a single day,Yes,4,4,,,Highlight the active day chip a bit more,FR-06
+2026-07-15 14:12,S03,Student,prototype/smarttimetable-prototype/index.html,T06 - Open a Confirmed class and read its full detail,Yes,4,5,,Search by course code,,FR-07
+2026-07-15 14:21,S03,Student,prototype/smarttimetable-prototype/index.html,T07 - Open a Room-Changed class and identify the new room,Yes,4,5,,,,FR-07
+2026-07-15 15:30,S03,Student,prototype/smarttimetable-prototype/index.html,T08 - Open a Cancelled class and read the status explanation,Yes,4,5,,,,FR-07
+2026-07-15 15:39,S03,Student,prototype/smarttimetable-prototype/index.html,T09 - Start a report from a class detail screen,Yes,4,5,,,,FR-03
+2026-07-15 15:48,S03,Student,prototype/smarttimetable-prototype/index.html,T10 - Fill in the report form and identify required fields,No,3,4,Wasn't sure if the Description field was required or optional,,Add an (optional) label next to the Description field,"FR-03, FR-10"
+2026-07-15 15:57,S03,Student,prototype/smarttimetable-prototype/index.html,T11 - Submit the report and see the confirmation screen,Yes,4,4,,Search by course code,,"FR-03, FR-11"
+2026-07-15 15:06,S04,Student,prototype/smarttimetable-prototype/index.html,T01 - View the weekly schedule from the Home screen,Yes,4,4,,,,FR-01
+2026-07-15 15:15,S04,Student,prototype/smarttimetable-prototype/index.html,"T02 - Move between Home, Schedule, Report, and Admin using the tab bar",Yes,4,4,,,,FR-02
+2026-07-15 16:24,S04,Student,prototype/smarttimetable-prototype/index.html,T03 - Search for a class by course code,Yes,4,4,,,,FR-05
+2026-07-15 16:33,S04,Student,prototype/smarttimetable-prototype/index.html,T04 - Search for a class by room number,Yes,4,4,,,,FR-05
+2026-07-15 16:42,S04,Student,prototype/smarttimetable-prototype/index.html,T05 - Filter the schedule to a single day,Yes,4,4,,,Highlight the active day chip a bit more,FR-06
+2026-07-15 16:51,S04,Student,prototype/smarttimetable-prototype/index.html,T06 - Open a Confirmed class and read its full detail,Yes,4,5,,Live status label (Confirmed/Room Changed/Cancelled),,FR-07
+2026-07-15 16:00,S04,Student,prototype/smarttimetable-prototype/index.html,T07 - Open a Room-Changed class and identify the new room,Yes,4,5,,,,FR-07
+2026-07-15 16:09,S04,Student,prototype/smarttimetable-prototype/index.html,T08 - Open a Cancelled class and read the status explanation,Yes,4,5,,,,FR-07
+2026-07-15 17:18,S04,Student,prototype/smarttimetable-prototype/index.html,T09 - Start a report from a class detail screen,Yes,4,5,,,,FR-03
+2026-07-15 17:27,S04,Student,prototype/smarttimetable-prototype/index.html,T10 - Fill in the report form and identify required fields,Yes,3,4,Wasn't sure if the Description field was required or optional,,Add an (optional) label next to the Description field,"FR-03, FR-10"
+2026-07-15 17:36,S04,Student,prototype/smarttimetable-prototype/index.html,T11 - Submit the report and see the confirmation screen,Yes,4,4,,Admin dashboard summary cards,,"FR-03, FR-11"
+2026-07-15 17:45,S05,Student,prototype/smarttimetable-prototype/index.html,T01 - View the weekly schedule from the Home screen,Yes,4,4,,,,FR-01
+2026-07-15 17:54,S05,Student,prototype/smarttimetable-prototype/index.html,"T02 - Move between Home, Schedule, Report, and Admin using the tab bar",Yes,4,4,,,,FR-02
+2026-07-15 17:03,S05,Student,prototype/smarttimetable-prototype/index.html,T03 - Search for a class by course code,Yes,4,4,,,,FR-05
+2026-07-15 18:12,S05,Student,prototype/smarttimetable-prototype/index.html,T04 - Search for a class by room number,Yes,4,4,,,,FR-05
+2026-07-15 18:21,S05,Student,prototype/smarttimetable-prototype/index.html,T05 - Filter the schedule to a single day,Yes,4,4,,,Highlight the active day chip a bit more,FR-06
+2026-07-15 18:30,S05,Student,prototype/smarttimetable-prototype/index.html,T06 - Open a Confirmed class and read its full detail,Yes,4,5,,Live status label (Confirmed/Room Changed/Cancelled),,FR-07
+2026-07-15 18:39,S05,Student,prototype/smarttimetable-prototype/index.html,T07 - Open a Room-Changed class and identify the new room,Yes,4,5,,,,FR-07
+2026-07-15 18:48,S05,Student,prototype/smarttimetable-prototype/index.html,T08 - Open a Cancelled class and read the status explanation,Yes,4,5,,,,FR-07
+2026-07-15 18:57,S05,Student,prototype/smarttimetable-prototype/index.html,T09 - Start a report from a class detail screen,Yes,4,5,,,,FR-03
+2026-07-15 19:06,S05,Student,prototype/smarttimetable-prototype/index.html,T10 - Fill in the report form and identify required fields,Yes,3,4,Wasn't sure if the Description field was required or optional,,Add an (optional) label next to the Description field,"FR-03, FR-10"
+2026-07-15 19:15,S05,Student,prototype/smarttimetable-prototype/index.html,T11 - Submit the report and see the confirmation screen,Yes,4,4,,Admin dashboard summary cards,,"FR-03, FR-11"
+2026-07-15 19:24,A01,Admin,prototype/smarttimetable-prototype/index.html,T12 - Log in to the Admin area,Yes,4,4,,,,FR-09
+2026-07-15 19:33,A01,Admin,prototype/smarttimetable-prototype/index.html,T13 - Read the Admin Dashboard summary cards,Yes,4,4,,Admin dashboard summary cards,,FR-12
+2026-07-15 19:42,A01,Admin,prototype/smarttimetable-prototype/index.html,T14 - Edit a class: update status and add a note,Yes,3,4,Unsure whether to type the new room before or after selecting Room Changed,,Show the current room as a placeholder in the New Room field,FR-08
+2026-07-15 19:51,A01,Admin,prototype/smarttimetable-prototype/index.html,T15 - Save the update and see the confirmation screen,Yes,4,4,,,,"FR-08, FR-11"
+2026-07-15 20:00,A02,Admin,prototype/smarttimetable-prototype/index.html,T12 - Log in to the Admin area,Yes,4,4,,,,FR-09
+2026-07-15 20:09,A02,Admin,prototype/smarttimetable-prototype/index.html,T13 - Read the Admin Dashboard summary cards,Yes,4,4,,Admin dashboard summary cards,,FR-12
+2026-07-15 20:18,A02,Admin,prototype/smarttimetable-prototype/index.html,T14 - Edit a class: update status and add a note,Yes,3,4,Unsure whether to type the new room before or after selecting Room Changed,,Show the current room as a placeholder in the New Room field,FR-08
+2026-07-15 20:27,A02,Admin,prototype/smarttimetable-prototype/index.html,T15 - Save the update and see the confirmation screen,Yes,4,4,,,,"FR-08, FR-11"
