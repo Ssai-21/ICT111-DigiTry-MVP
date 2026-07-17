@@ -119,4 +119,47 @@ Full targets and how-to-measure detail in `/docs/success-metrics.md`:
 - Search success rate: 70% or higher
 - Usability rating (task ease): average 4 out of 5
 - Feature usefulness rating: average 4 out of 5
+
+ ### Files Added in Lab 07
+- [MVP Experiment Plan](docs/mvp-experiment-plan.md)
+- [Critical Assumptions](docs/critical-assumptions.md)
+- [Experiment Script](docs/experiment-script.md)
+- [Success Metrics](docs/success-metrics.md)
+- [Feedback Form](docs/feedback-form.md)
+- [Weekly Logbook](docs/weekly-logbook.md)
+- `/prototype/smarttimetable-prototype/` — the interactive clickable prototype used to actually run the experiment
+### Connection to Final Prototype
+This experiment is the checkpoint between the wireframes and the final build: the critical assumptions name exactly what could make the final prototype fail, and the success metrics turn "did it work?" into a number the team can actually check against a target. Based on the decision rules in `/docs/success-metrics.md` — if metrics meet target, the team moves straight into the implementation sprint; if some metrics fail, the team revises the affected screen, flow, or label (for example, the report form's required-field clarity) before implementation; if most metrics fail, the team revisits the requirements and problem evidence before building further. Either way, the final prototype is built on top of the same interactive codebase already in `/prototype/smarttimetable-prototype/`, not a rewrite.
  
+## Lab 08: Customer Validation and Analytics Sheet
+ 
+### Validation Objective
+The team ran the Lab 07 experiment plan on the real interactive prototype: 5 student testers and 2 admin/staff testers completed tasks across searching the schedule, checking a class's status, submitting a mismatch report, and — for admin/staff — logging in, reviewing the dashboard, and updating a class's status. The goal was to confirm whether the MVP direction holds up under real use before continuing into implementation.
+ 
+### Prototype Version Tested
+- Version: v1 — interactive clickable prototype (frontend + localStorage, per `docs/technical-architecture.md`)
+- Link: `/prototype/smarttimetable-prototype/index.html`
+- Screenshots: *(not yet added — see Files Added below)*
+### Analytics Summary
+| Metric | Result |
+|---|---:|
+| Total test users | 7 (5 Student, 2 Admin/Staff) — 20 total task attempts logged |
+| Task success rate | 95% (19/20) |
+| Average feedback score | 4.5 / 5 (usefulness) |
+| Average interest level | 4.45 / 5 (95% said they'd use it again) |
+| Main confusion point | Report form required fields (2 of 20 attempts), plus one admin note on the New Room field's order |
+ 
+### MVP Decision
+**Continue with minor revisions.** All five success metrics from `docs/success-metrics.md` were met, so the core concept and workflow are validated — but form completion accuracy landed at exactly its 80% target with no safety margin, and the same two issues (report form validation clarity, admin edit field order) surfaced independently across different testers. Both are small, well-understood UI fixes, not a sign of a wrong requirement or a need to pivot. Full reasoning in `/docs/mvp-decision.md`.
+ 
+### Files Added
+- [Validation Results (raw data)](data/lab08_validation_results.csv)
+- [Validation Results Analytics](data/validation-results-analytics.xlsx)
+- [Customer Validation Summary](docs/customer-validation-summary.md)
+- [Analytics Insights](docs/analytics-insights.md)
+- [MVP Decision](docs/mvp-decision.md)
+- [Test User Notes](docs/test-user-notes.md)
+- [Weekly Logbook](docs/weekly-logbook.md)
+- `/screenshots/validation-test-screens.png` — *(not yet added)*
+## Next Step
+Create GitHub issues for each Lab 08 improvement (report form validation clarity, admin edit field order), make those fixes in `/prototype/smarttimetable-prototype/`, and re-test the report form specifically to confirm completion accuracy moves comfortably above 80% before starting the Lab 09 implementation sprint.
