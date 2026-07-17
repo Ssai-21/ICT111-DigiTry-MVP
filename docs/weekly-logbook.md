@@ -282,3 +282,46 @@ Build the JSON class-schedule file, wire the schedule list and search/filter to 
 |---|---|---|
 | Report form task rated lowest in the sample pilot data (~3/5); testers were unsure if the Description field was optional | Add an explicit "optional" label next to Description before running the real test round | |
 | localStorage data does not sync across devices, so a report submitted on one tester's device won't show up on another | Run each test session from a single shared device/browser rather than switching devices mid-session | |
+
+@Seint Myat Wai 
+Edit weekly-logbook.md and paste this under the Lab-7 section
+
+# Weekly Logbook - Lab 08
+
+## Group Information
+- Group name: DigiTry
+- Project title: Smart Timetable
+- Repository link: https://github.com/Ssai-21/ICT111-DigiTry-MVP
+- Lab date: July 24, 2026
+
+## Work Completed Today
+- [x] Reviewed Lab 07 MVP experiment plan
+- [x] Prepared validation dataset structure
+- [x] Created or updated analytics sheet
+- [x] Wrote customer validation summary
+- [x] Wrote analytics insights
+- [x] Wrote MVP decision
+- [ ] Updated README
+- [ ] Created GitHub issues for prototype improvements
+
+## Member Contributions
+| Member Name | Contribution | GitHub Evidence |
+|---|---|---|
+| Sai Thi Han Win | | |
+| Soe Yu Nwe | | |
+| Rigzang Lhmao | | |
+| Seint Myat Wai | | |
+
+## Problems Found
+Validation testing surfaced two recurring, specific issues rather than a broad concept problem:
+- **Report form (FR-10):** 1 of 5 report submissions failed because the tester missed the required-field error, and a separate tester wasn't sure if the Description field was optional. Form completion accuracy landed at exactly 80% — the minimum target from `success-metrics.md`, with no safety margin.
+- **Admin edit form (FR-09):** Two separate admin sessions flagged the same confusion about whether to enter the new room before or after selecting "Room Changed."
+No technical or documentation problems were found — the Power BI dashboard numbers matched the underlying `lab08_validation_results.csv` data exactly when spot-checked.
+
+## Next Actions
+- Increase the visual weight of required-field markers and the inline error state on the report form
+- Auto-reveal or reposition the "New Room" field on the admin edit form so it only appears once "Room Changed" is selected
+- Add a short "(optional)" hint next to the Description field
+- Re-test the report form with fresh testers to confirm the fix pushes completion accuracy comfortably above 80%
+- Create GitHub issues for each of the above so they're tracked before the next lab
+- Update the main README with the Lab 08 validation results section
