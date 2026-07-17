@@ -283,9 +283,6 @@ Build the JSON class-schedule file, wire the schedule list and search/filter to 
 | Report form task rated lowest in the sample pilot data (~3/5); testers were unsure if the Description field was optional | Add an explicit "optional" label next to Description before running the real test round | |
 | localStorage data does not sync across devices, so a report submitted on one tester's device won't show up on another | Run each test session from a single shared device/browser rather than switching devices mid-session | |
 
-@Seint Myat Wai 
-Edit weekly-logbook.md and paste this under the Lab-7 section
-
 # Weekly Logbook - Lab 08
 
 ## Group Information
