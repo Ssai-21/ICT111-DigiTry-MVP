@@ -1,5 +1,5 @@
-# Smart Timetable
-## Course Information
+#Smart Timetable
+# Course Information
 Course Code: ICT11
 Course Name: Introduction to Information Technology
 Instructor: Dr. Herison Surbakti
@@ -45,12 +45,13 @@ Possible technologies:
 | Lab 5 | Product concept and UI/UX wireframe | Product concept, feature-requirement mapping, wireframe specification, wireframe usability checklist, screen inventory checklist, wireframes, user flow diagram | Completed |
 | Lab 6 | Technical architecture and data structure | Business model canvas, feature-value mapping, technical architecture, data structure, customer segments/value table, sample dataset | Completed |
 | Lab 7 | MVP experiment design | Critical assumptions, MVP experiment plan, experiment script, success metrics, feedback form, interactive clickable prototype | Completed |
-
+| Lab 8 | Customer validation and analytics | Validation dataset, analytics sheet, customer validation summary, analytics insights, MVP decision, test user notes | Completed |
+ 
 ## Lab 05: Product Concept and UI/UX Wireframe
-
+ 
 ### Product Concept
 SmartTimetable is a web-based tool for RSU students and lecturers who currently rely on a static PDF timetable that does not update for cancellations, room changes, or reschedules. It converts the PDF into a searchable, personalized digital schedule, letting students view their own classes, check a class's current status, and flag a mismatch so it can be corrected — solving the trust and accuracy problem confirmed during customer discovery in Lab 03.
-
+ 
 ### Requirement-Driven Screens
 | Screen | Related Requirement IDs | Mockup File |
 |---|---|---|
@@ -69,18 +70,18 @@ Not required by the minimum list above, but included to complete the end-to-end 
 | Report Confirmation | FR-11 | /prototype/wireframe-html/07-report-confirmation.html |
 | Admin Login | FR-09 | /prototype/wireframe-html/08-admin-login.html |
 | Admin Confirmation | FR-11 | /prototype/wireframe-html/11-admin-confirmation.html |
-
+ 
 ### User Flow
 See /diagrams/user-flow.png for the full diagram. The primary path is: Homepage → Schedule List → Class Detail View → (optional) Report a Mismatch → Confirmation
-
+ 
 ### Team Contribution
 All members contributed to the same GitHub repository.
-
+ 
 ## Lab 06 Update - Business Model Canvas and Technical Architecture
-
+ 
 ### Lab 06 Summary
 In Lab 06, our group connected our product concept, requirements, user stories, and wireframes into business logic and technical structure.
-
+ 
 ### Files Added or Updated
 - [Business Model Canvas](docs/business-model-canva.md)
 - [Feature-Value Mapping](docs/feature-value-mapping.md)
@@ -89,30 +90,28 @@ In Lab 06, our group connected our product concept, requirements, user stories, 
 - [Weekly Logbook](docs/weekly-logbook.md)
 - /data/customer_segments_value.csv
 - /data/smarttimetable_sample_records.csv
-
 ### Technical Direction
 Frontend + localStorage/JSON. The team already has the required screens built as static HTML/CSS/JS files, and no member has backend or database experience beyond this course, so the class schedule will be stored in a JSON file and reports/admin status updates will be saved to browser localStorage rather than a real database.
-
+ 
 ### Final Prototype Connection
 The business model canvas confirms who the prototype is for and what value each screen needs to deliver; the feature-value mapping ties each of those screens directly to a requirement ID and a priority, so the team knows the report form, schedule search, status labels, and admin dashboard are all Must-Have for the final build. The technical architecture and data structure then define exactly how those same screens will actually work — what the Class and Report entities look like, what fields and statuses they use, and how data will move between the JSON file, localStorage, and each screen — so Lab 07's clickable prototype is just wiring the already-built mockups to this defined data structure, not redesigning anything.
-
+ 
 ## Current Status
 In Lab 06, the team completed the business model canvas, mapped each MVP feature to its user and business value, selected the prototype platform, defined the technical architecture and main components, and documented the data structure (entities, fields, and status values) along with sample datasets for customer segments and reports.
-
+ 
 ## Lab 07: MVP Experiment Design
-
+ 
 ### Experiment Objective
 We want to test whether students can find their weekly schedule, understand a class's current status, and successfully submit a mismatch report without help — and whether admin/lecturer testers can review and act on those reports from the admin dashboard.
-
+ 
 ### Critical Assumptions
 Top 3 (full list in `/docs/critical-assumptions.md`):
 1. **(High risk)** Students will actually switch to SmartTimetable instead of continuing to rely on the PDF timetable and class group chats for updates.
 2. **(High risk)** Client-side storage (a JSON schedule file plus browser localStorage) is enough to demonstrate the full report-to-status-update loop without a real backend.
 3. **(Medium risk)** Users can understand the report form's required fields and the admin dashboard terms without needing instructions.
-
 ### MVP Experiment Type
 **Selected: Clickable prototype.** The required screens already exist as a real interactive prototype (not just static mockups) in `/prototype/smarttimetable-prototype/`, so testers can navigate the full flow — search, view status, submit a report, and for admin testers, log in and update a class's status — using the actual frontend + localStorage architecture decided in Lab 06, without needing a working backend.
-
+ 
 ### Success Metrics
 Full targets and how-to-measure detail in `/docs/success-metrics.md`:
 - Task completion rate: 70% or higher
@@ -120,18 +119,4 @@ Full targets and how-to-measure detail in `/docs/success-metrics.md`:
 - Search success rate: 70% or higher
 - Usability rating (task ease): average 4 out of 5
 - Feature usefulness rating: average 4 out of 5
-
-### Files Added in Lab 07
-- [MVP Experiment Plan](docs/mvp-experiment-plan.md)
-- [Critical Assumptions](docs/critical-assumptions.md)
-- [Experiment Script](docs/experiment-script.md)
-- [Success Metrics](docs/success-metrics.md)
-- [Feedback Form](docs/feedback-form.md)
-- [Weekly Logbook](docs/weekly-logbook.md)
-- `/prototype/smarttimetable-prototype/` — the interactive clickable prototype used to actually run the experiment
-
-### Connection to Final Prototype
-This experiment is the checkpoint between the wireframes and the final build: the critical assumptions name exactly what could make the final prototype fail, and the success metrics turn "did it work?" into a number the team can actually check against a target. Based on the decision rules in `/docs/success-metrics.md` — if metrics meet target, the team moves straight into the implementation sprint; if some metrics fail, the team revises the affected screen, flow, or label (for example, the report form's required-field clarity) before implementation; if most metrics fail, the team revisits the requirements and problem evidence before building further. Either way, the final prototype is built on top of the same interactive codebase already in `/prototype/smarttimetable-prototype/`, not a rewrite.
-
-## Next Step
-Run the real experiment with the test users defined in `/docs/mvp-experiment-plan.md` (5 students, 2 admin/lecturer staff) using `/docs/experiment-script.md` and `/docs/feedback-form.md`, log results, and apply the decision rule in `/docs/success-metrics.md` before starting the Lab 08 implementation sprint.
+ 
