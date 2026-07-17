@@ -304,10 +304,10 @@ Build the JSON class-schedule file, wire the schedule list and search/filter to 
 ## Member Contributions
 | Member Name | Contribution | GitHub Evidence |
 |---|---|---|
-| Sai Thi Han Win | | |
-| Soe Yu Nwe | | |
-| Rigzang Lhmao | | |
-| Seint Myat Wai | | |
+| Sai Thi Han Win | Uploaded validation-results.csv, validation-results-analytics.xlsx, feedback-form.csv and Validation Dashboard PBIX files in data/  | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
+| Soe Yu Nwe |Created customer-validation-summary.md and analytics-insights.md in docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Rigzang Lhmao | Created mvp-decisions.md and test-user-notes.md in docs/| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Seint Myat Wai | Updated weekly-logbook.md and README.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
 
 ## Problems Found
 Validation testing surfaced two recurring, specific issues rather than a broad concept problem:
