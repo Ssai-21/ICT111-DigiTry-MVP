@@ -322,3 +322,39 @@ No technical or documentation problems were found — the Power BI dashboard num
 - Re-test the report form with fresh testers to confirm the fix pushes completion accuracy comfortably above 80%
 - Create GitHub issues for each of the above so they're tracked before the next lab
 - Update the main README with the Lab 08 validation results section
+
+# Weekly Logbook - Lab 09
+
+## Group Information
+- Group name: DigiTry
+- Project title: Smart Timetable
+- Repository link: https://github.com/Ssai-21/ICT111-DigiTry-MVP
+- Lab date: July 24, 2026
+
+## Work Completed Today
+- Data inventory: Cataloged all Class, Report, and Admin data fields with personal/sensitive-data flags and minimization notes — `docs/data-handling-policy.md` and `data/data_inventory.csv`
+- Privacy review: Data collection summary and data minimization decisions — `docs/privacy-and-data-protection.md`
+- Ethical review: 6-item checklist completed; result "Safe to continue: With revision" — `docs/legal-ethical-checklist.md`
+- IP review: Cataloged every third-party tool/asset used (system fonts, Mermaid, draw.io, Google Forms, Power BI, GitHub) — `docs/ip-and-third-party-assets.md` and `data/third_party_assets_register.csv`
+- Security review: Found the admin dashboard has no real authentication (High risk) — `docs/security-risk-check.md`
+- Risk register: 6 risks logged across Privacy, Ethical, IP, Security, Legal, and Data quality categories — `docs/risk-register.md` and `data/risk_register.csv`
+- Requirements update note: Proposed a clarification to NFR-07 documenting the simulated admin login as an accepted MVP-stage limitation — `docs/updated-requirements-note.md`
+- Process diagram: Mapped the full Lab 09 review flow (feature review → data inventory → privacy → ethics → IP → security → risk register → requirements update → GitHub) — `diagrams/privacy-security-review.png`
+
+## Member Contributions
+| Member | Contribution | GitHub Evidence |
+|---|---|---|
+| Sai Thi Han Win | Drew Privacy and security review diagram and updated weekly-logbook and README.md |https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
+| Soe Yu Nwe | Created and uploaded data inventory, risk register, third party assests register data sets into data/ and data handling policy, ip and third part assets into docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
+| Rigzang Lhmao | Created legal ethical checklist, privacy and data protection and risk register in docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
+| Seint Myat Wai | Created security risk check, updated requirements note and user consent statement in docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
+
+## Decisions Made
+- Documented the admin login's lack of real authentication as an accepted MVP-stage limitation rather than fixing it immediately — flagged as High risk/severity and required before any deployment beyond the class demo.
+- Chose to propose a clarification to NFR-07 rather than silently changing `system-requirements.md`, per the traceability rule in `docs/updated-requirements-note.md`.
+
+## Issues / Blockers
+The admin access-control gap (R-04 in the risk register) is the one unresolved high-risk item from this review. It needs a GitHub issue and a real fix before final submission — everything else found this week is low/medium risk with a mitigation already identified.
+
+## Next Action Before Lab 10
+Create GitHub issues for R-04 (admin authentication) and R-01 (report form Description field privacy hint); implement these alongside the two outstanding Lab 08 UI fixes (report form required-field visibility, admin edit field order) before the next review.
