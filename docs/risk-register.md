@@ -1,0 +1,13 @@
+# Risk Register
+
+| Risk ID | Category | Risk Description | Affected Feature / Requirement | Severity | Likelihood | Mitigation Action | Owner | GitHub Evidence | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| R-01 | Privacy | Report form's optional free-text Description field could unintentionally capture personal information (names, ID numbers). | FR-03, FR-15 | Medium | Low | Add guidance text next to the Description field; review submissions before any wider release. | Rigzang Lhmao | docs/data-structure.md | Open |
+| R-02 | Ethical | Admin dashboard could be perceived as monitoring lecturers rather than helping fix schedule logistics, if report framing isn't kept neutral. | FR-09, FR-12 | Low | Low | Keep all report/dashboard wording focused on "schedule accuracy," not lecturer performance. | Soe Yu Nwe | docs/wireframe-specification.md | Open (low priority) |
+| R-03 | IP | External tools used to produce diagrams and the analytics dashboard (Mermaid, draw.io, Power BI) need confirmed license compliance for student project use. | FR-16 (traceability) | Low | Low | Confirmed via `docs/ip-and-third-party-assets.md`; only free/open-source tools used, no paid or restricted assets. | Rigzang Lhmao | docs/ip-and-third-party-assets.md | Closed |
+| R-04 | Security | Admin dashboard and edit actions have no real authentication — any user who reaches the admin URL can update a class's status, conflicting with NFR-07. | FR-09, NFR-07 | High | High | Documented as an accepted MVP-stage limitation; real authentication required before any deployment beyond the class demo. | Sai Thi Han Win | prototype/smarttimetable-prototype/admin-login.html | Open |
+| R-05 | Legal | Lecturer names are shown publicly on the schedule without an explicit opt-in from lecturers themselves. | FR-01, FR-05 | Low | Low | Confirm with RIC/lecturers that names may be shown — same information is already public on the current PDF timetable. | Soe Yu Nwe | docs/data-structure.md | Open |
+| R-06 | Data quality | Fictional sample data (classes, reports) could be mistaken for real schedule data if shared outside the class demo. | FR-04, FR-15 | Medium | Medium | Clearly label the prototype as a class MVP demo everywhere it's shared (README, homepage). | Rigzang Lhmao | README.md | Open |
+
+## Overall Risk Decision
+Safe to continue building, **with revision**. The one high-priority item is R-04 (no real admin authentication) — an accepted, documented MVP-stage limitation rather than an oversight, but it must be resolved before any deployment beyond the classroom demo. All other risks are low-to-medium and already have low-effort mitigations identified or in progress.
