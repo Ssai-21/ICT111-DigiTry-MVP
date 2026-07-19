@@ -1,0 +1,8 @@
+Asset_Name,Type,Source_URL,License_or_Permission,Used_In,Credit_Required,Risk_Level,Action
+System font stack (SF Pro Display / Segoe UI),Font,OS-provided (Apple / Microsoft),"Included with the operating system, no separate license",All prototype screens (style.css),No,None,Keep
+"Unicode emoji icons (e.g. house, calendar, wrench)",Icon / symbol,Unicode Standard,"Public, royalty-free","All prototype screens (tab bar, cards)",No,None,Keep
+Mermaid.js / Mermaid Live Editor,Diagramming library,https://mermaid.js.org,MIT License (open source),"diagrams/data-flow.png, diagrams/system-architecture.png",Optional,None,Keep
+draw.io / diagrams.net,Diagramming tool,https://app.diagrams.net,Free / Apache 2.0,Editing and exporting diagrams in /diagrams,No,None,Keep
+Google Forms,Survey tool / service,https://forms.google.com,Google Terms of Service (free tier),Lab 03 customer discovery survey (data/raw-responses.xlsx),No,Low (confirm no PII collected),Keep
+Microsoft Power BI Desktop,Analytics software,https://powerbi.microsoft.com,Free desktop version,Lab-08_Customer_Validation_Dashboard-Team_DigiTry.pbix,No,None,Keep
+GitHub,Hosting platform / service,https://github.com,"GitHub Terms of Service (public repo, free tier)",Entire project repository,No,Low (public visibility — confirm no real credentials or PII are ever committed),"Keep, monitor"

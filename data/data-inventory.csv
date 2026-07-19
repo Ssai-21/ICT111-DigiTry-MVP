@@ -1,0 +1,11 @@
+Data_Field,Example_Value,Purpose,Personal_Data,Sensitive_Data,Visibility,Keep_Remove_Replace,Responsible_Action
+class_id,C001,Unique internal identifier for a scheduled class,No,No,Internal,Keep,None needed
+course_code,ICT 111,Identifies which course a class belongs to,No,No,Public,Keep,None needed
+room,11-A504,Shows students where a class meets,No,No,Public,Keep,None needed
+lecturer,Dr. Herison,Identifies who teaches the class,Yes,No,Public,Keep,Confirm with RIC that publishing lecturer names is acceptable (already public on the current PDF timetable)
+status,Confirmed / Room Changed / Cancelled,Shows the live status of a class,No,No,Public,Keep,None needed
+report_id,ST001,Unique identifier for a submitted mismatch report,No,No,Admin-only,Keep,None needed
+reported_by_role,Student,"Records the reporter's role only, not their identity",No,No,Admin-only,Keep,Confirm no free-text name field is ever added
+issue_type / description,Room Change / free-text notes,Describes the reported problem,No,Potentially (free text),Admin-only,Replace,Add a hint reminding reporters not to include names or ID numbers in the free-text field; review submissions before wider release
+admin username / password,admin / demo password,Simulated login gate for the admin dashboard,No (shared demo account),Yes,Admin-only,Replace,Replace with real authentication before any production deployment; never commit real credentials to GitHub
+localStorage report/status data,Browser-stored reports and class overrides,Lets the prototype demo persistently on one device,No,No,Private (device-local only),Keep,Already documented in technical-architecture.md that data does not sync across devices
