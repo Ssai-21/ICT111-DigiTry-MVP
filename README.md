@@ -5,7 +5,7 @@ Course Name: Introduction to Information Technology
 Instructor: Dr. Herison Surbakti
 Project Type: 14-Labs Continuous IT Startup MVP Development
 ## Team Name
-DigiTry
+Team DigiTry
 ## Team Members and Roles
 | Name | Role | Responsibility |
 |---|---|---|
@@ -160,6 +160,33 @@ The team ran the Lab 07 experiment plan on the real interactive prototype: 5 stu
 - [MVP Decision](docs/mvp-decision.md)
 - [Test User Notes](docs/test-user-notes.md)
 - [Weekly Logbook](docs/weekly-logbook.md)
-- `/screenshots/validation-test-screens.png` — *(not yet added)*
+
+## Lab 09 - Responsible IT Check
+ 
+### Responsible Design Summary
+The team reviewed SmartTimetable for privacy, ethical, IP, and basic security risks before continuing into implementation. The main finding: the admin dashboard currently has no real authentication — it's a simulated pass-through login, so any user who reaches the admin URLs can view and edit class status, which conflicts with NFR-07. This is documented as an accepted MVP-stage limitation with a required fix before any deployment beyond the class demo, not a silent gap. Lower-priority findings include the report form's optional free-text Description field (could unintentionally capture personal information), lecturer names being shown publicly on the schedule (already public on the current PDF timetable, but not yet explicitly confirmed with lecturers), and the need to clearly label all sample/demo data so it's never mistaken for real schedule data. Full reasoning for each is in `docs/risk-register.md`.
+ 
+### Files Added
+- [Legal and Ethical Checklist](docs/legal-ethical-checklist.md)
+- [Privacy and Data Protection](docs/privacy-and-data-protection.md)
+- [IP and Third-Party Assets](docs/ip-and-third-party-assets.md)
+- [Security Risk Check](docs/security-risk-check.md)
+- [Risk Register](docs/risk-register.md)
+- [Updated Requirements Note](docs/updated-requirements-note.md)
+- [Weekly Logbook](docs/weekly-logbook.md)
+- [Data Handling Policy](docs/data-handling-policy.md)
+- [User Consent Statement](docs/user-consent-statement.md)
+- `data/data_inventory.csv` — *(supporting dataset for the Data Handling Policy)*
+- `data/risk_register.csv` — *(supporting dataset for the Risk Register)*
+- `data/third_party_assets_register.csv` — *(supporting dataset for the IP and Third-Party Assets register)*
+- [Privacy/Security Review Diagram](diagrams/privacy-security-review.png)
+### Requirement Update
+`system-requirements.md` has **not** been changed yet. A proposed clarification to **NFR-07** — documenting that admin access control is currently simulated, not a real security boundary, for the MVP stage — is recorded in `docs/updated-requirements-note.md`, pending team approval before the requirements file itself is edited.
+ 
+### Team Contributions
+- **Sai Thi Han Win** — Drew the Privacy and Security Review diagram, updated the weekly logbook and README.md
+- **Soe Yu Nwe** — Created and uploaded the data inventory, risk register, and third-party assets register datasets to `data/`, and the Data Handling Policy and IP and Third-Party Assets docs to `docs/`
+- **Rigzang Lhmao** — Created the Legal and Ethical Checklist, Privacy and Data Protection, and Risk Register docs
+- **Seint Myat Wai** — Created the Security Risk Check, Updated Requirements Note, and User Consent Statement docs
 ## Next Step
-Create GitHub issues for each Lab 08 improvement (report form validation clarity, admin edit field order), make those fixes in `/prototype/smarttimetable-prototype/`, and re-test the report form specifically to confirm completion accuracy moves comfortably above 80% before starting the Lab 09 implementation sprint.
+Create GitHub issues for R-04 (admin authentication) and R-01 (report form Description field privacy hint) from `docs/risk-register.md`, implement both alongside the two outstanding Lab 08 UI fixes, and re-test before starting Lab 10.
