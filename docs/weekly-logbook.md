@@ -323,38 +323,46 @@ No technical or documentation problems were found — the Power BI dashboard num
 - Create GitHub issues for each of the above so they're tracked before the next lab
 - Update the main README with the Lab 08 validation results section
 
-# Weekly Logbook - Lab 09
+# Weekly Logbook - Lab 10
 
-## Group Information
-- Group name: DigiTry
-- Project title: Smart Timetable
-- Repository link: https://github.com/Ssai-21/ICT111-DigiTry-MVP
-- Lab date: July 24, 2026
+## Lab Topic
+MVP Implementation Sprint 1
 
-## Work Completed Today
-- Data inventory: Cataloged all Class, Report, and Admin data fields with personal/sensitive-data flags and minimization notes — `docs/data-handling-policy.md` and `data/data_inventory.csv`
-- Privacy review: Data collection summary and data minimization decisions — `docs/privacy-and-data-protection.md`
-- Ethical review: 6-item checklist completed; result "Safe to continue: With revision" — `docs/legal-ethical-checklist.md`
-- IP review: Cataloged every third-party tool/asset used (system fonts, Mermaid, draw.io, Google Forms, Power BI, GitHub) — `docs/ip-and-third-party-assets.md` and `data/third_party_assets_register.csv`
-- Security review: Found the admin dashboard has no real authentication (High risk) — `docs/security-risk-check.md`
-- Risk register: 6 risks logged across Privacy, Ethical, IP, Security, Legal, and Data quality categories — `docs/risk-register.md` and `data/risk_register.csv`
-- Requirements update note: Proposed a clarification to NFR-07 documenting the simulated admin login as an accepted MVP-stage limitation — `docs/updated-requirements-note.md`
-- Process diagram: Mapped the full Lab 09 review flow (feature review → data inventory → privacy → ethics → IP → security → risk register → requirements update → GitHub) — `diagrams/privacy-security-review.png`
+## What We Built Today
+- Rebuilt the interactive prototype as a single-page app: `/prototype/index.html`, `/prototype/style.css`, and `/prototype/script.js`, using hash-based routing (`#schedule`, `#class`, `#report`, `#admin-dashboard`, etc.) instead of separate page loads
+- Verified the full loop end-to-end in a headless browser test: submit a report → log in as admin → dashboard shows the report → update a class's status → change reflects back on the student-facing detail view → the related report auto-resolves
+- Documented feature-to-requirement implementation status for all 16 requirements (`docs/feature-implementation-status.md`) and the Sprint 1 implementation plan (`docs/implementation-plan.md`)
 
-## Member Contributions
-| Member | Contribution | GitHub Evidence |
+## Requirement IDs Addressed
+- FR-01: Homepage — implemented and working
+- FR-03: Report submission form — implemented, validated, saves to localStorage
+- FR-05: Schedule record list — implemented, dynamic
+- FR-06: Search/filter — implemented, live client-side
+- FR-07: Detail view — implemented, dynamic per class
+- FR-08: Status tracking — implemented; admin update reflects on the student-facing view
+- FR-09: Admin function — implemented, but login is still simulated (no real authentication yet)
+- FR-12: Dashboard/summary — implemented, computed live from data
+
+## Contribution by Members
+| Member | Contribution | Evidence |
 |---|---|---|
-| Sai Thi Han Win | Drew Privacy and security review diagram and updated weekly-logbook and README.md |https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/ |
-| Soe Yu Nwe | Created and uploaded data inventory, risk register, third party assests register data sets into data/ and data handling policy, ip and third part assets into docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
-| Rigzang Lhmao | Created legal ethical checklist, privacy and data protection and risk register in docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
-| Seint Myat Wai | Created security risk check, updated requirements note and user consent statement in docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
+| Sai Thi Han Win | | |
+| Soe Yu Nwe | | |
+| Rigzang Lhmao | | |
+| Seint Myat Wai | | |
 
-## Decisions Made
-- Documented the admin login's lack of real authentication as an accepted MVP-stage limitation rather than fixing it immediately — flagged as High risk/severity and required before any deployment beyond the class demo.
-- Chose to propose a clarification to NFR-07 rather than silently changing `system-requirements.md`, per the traceability rule in `docs/updated-requirements-note.md`.
+## Screenshots Added
+- /screenshots/homepage.png
+- /screenshots/input-form.png
+- /screenshots/record-list.png
+- /screenshots/detail-view.png
+- /screenshots/admin-view.png
 
-## Issues / Blockers
-The admin access-control gap (R-04 in the risk register) is the one unresolved high-risk item from this review. It needs a GitHub issue and a real fix before final submission — everything else found this week is low/medium risk with a mitigation already identified.
 
-## Next Action Before Lab 10
-Create GitHub issues for R-04 (admin authentication) and R-01 (report form Description field privacy hint); implement these alongside the two outstanding Lab 08 UI fixes (report form required-field visibility, admin edit field order) before the next review.
+## Problems Faced
+- Consolidating 9 separate HTML files into a single-page app meant rewriting navigation as hash-based routing instead of separate page loads — resolved by building a small router and testing every route in a headless browser before treating it as done.
+- The admin dashboard and edit screens need to stay protected from direct access even in a single-page app — resolved by checking the login flag inside the router before rendering those views, same behavior as the multi-page version.
+
+## Plan for Next Lab
+- Implement the outstanding responsible-design fixes: report form required-field visibility (FR-10), admin edit field order (FR-08), and real admin authentication (FR-09)
+- Confirm `/prototype/prototype-link.md` is not needed, since this prototype is plain HTML/CSS/JS and not built on Figma, Google Sheets, Airtable, or a similar platform
