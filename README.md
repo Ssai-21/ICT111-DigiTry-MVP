@@ -188,5 +188,40 @@ The team reviewed SmartTimetable for privacy, ethical, IP, and basic security ri
 - **Soe Yu Nwe** — Created and uploaded the data inventory, risk register, and third-party assets register datasets to `data/`, and the Data Handling Policy and IP and Third-Party Assets docs to `docs/`
 - **Rigzang Lhmao** — Created the Legal and Ethical Checklist, Privacy and Data Protection, and Risk Register docs
 - **Seint Myat Wai** — Created the Security Risk Check, Updated Requirements Note, and User Consent Statement docs
+and edit README.md in main, remove Next Step section and paste with this
+
+## Lab 10 - MVP Implementation Sprint 1
+ 
+### Sprint Goal
+Our goal in Lab 10 is to begin building the first working version of the prototype based on the approved requirements, wireframes, architecture, and responsible-design checks.
+ 
+### Implementation Approach
+- Platform/tools: HTML / CSS / JavaScript (frontend-only), no framework
+- Backend status: Simulated backend — sample class data embedded directly in `script.js` (standing in for a JSON file), no real server or database
+- Data storage/simulation: Submitted reports and admin status/room/note updates are saved to browser `localStorage`, merged with the base sample data at render time
+- Prototype link or folder: `/prototype/index.html` — rebuilt this sprint as a single-page app with hash-based routing (`#schedule`, `#class`, `#report`, `#admin-dashboard`, etc.), consolidating the earlier multi-page version
+### Features Implemented in Sprint 1
+| Feature | Requirement ID | Status | Evidence |
+|---|---|---|---|
+| Homepage | FR-01 | Working | `/prototype/index.html` (`#home`) |
+| Input form | FR-03 | Working | `/prototype/index.html` (`#report`) |
+| Record list | FR-05 | Working | `/prototype/index.html` (`#schedule`) |
+| Search/filter | FR-06 | Working | `/prototype/index.html` (`#schedule`) |
+| Detail view | FR-07 | Working | `/prototype/index.html` (`#class`) |
+| Status tracking | FR-08 | Working | `/prototype/index.html` (`#class`, `#admin-edit`) |
+| Admin view | FR-09 | Working, authentication simulated | `/prototype/index.html` (`#admin-login`, `#admin-dashboard`, `#admin-edit`) |
+| Dashboard | FR-12 | Working | `/prototype/index.html` (`#admin-dashboard`) |
+ 
+Full requirement-by-requirement status for all 16 FRs is in `docs/feature-implementation-status.md`; the full sprint plan is in `docs/implementation-plan.md`.
+ 
+### Screenshots
+- Homepage: *(not yet added)*
+- Input form: *(not yet added)*
+- Record list: *(not yet added)*
+- Detail view: *(not yet added)*
+- Admin/status view: *(not yet added)*
+### Team Contribution
+All group members contributed to the same GitHub repository/page.
+ 
 ## Next Step
-Create GitHub issues for R-04 (admin authentication) and R-01 (report form Description field privacy hint) from `docs/risk-register.md`, implement both alongside the two outstanding Lab 08 UI fixes, and re-test before starting Lab 10.
+Capture and add the 5 required screenshots to `/screenshots/`, and implement the outstanding responsible-design fixes flagged in `docs/risk-register.md`: report form required-field visibility (FR-10), admin edit field order (FR-08), and real admin authentication (FR-09) before Lab 11.
