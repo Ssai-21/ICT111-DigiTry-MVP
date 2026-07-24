@@ -3,8 +3,6 @@
    Combines: sample data, localStorage helpers, and a small
    hash-based router so the whole prototype runs from one
    index.html + style.css + script.js, with no build step.
-   See /docs/technical-architecture.md and /docs/data-structure.md
-   for the platform and field decisions this follows.
    ============================================================ */
 
 /* ---------------------------------------------------------
@@ -56,6 +54,41 @@ const ISSUE_TYPES = [
   "Other"
 ];
 
+/* Sample issue-report dataset (RIC Summer/2026 records). data.json is the
+   source of truth and is fetched on load; this inline copy keeps the admin
+   dashboard populated when the prototype is opened via file://, where
+   Chrome blocks fetch() of local files with a CORS error. */
+const SAMPLE_REPORTS_FALLBACK = [
+  { record_id: "ST001", issue_type: "Room Change", course_name: "ICT 111 - Introduction to Information Technology", reported_by_role: "Student", room: "Building 11 Room A504", report_date: "2026-07-01", status: "Resolved", days_open: 1, admin_action: "Room corrected in system", priority: "High" },
+  { record_id: "ST002", issue_type: "Cancellation", course_name: "ICT 401 - Seminar in ICT", reported_by_role: "Lecturer", room: "Building 11 Room 304", report_date: "2026-07-01", status: "Closed", days_open: 0, admin_action: "Confirmed and marked cancelled", priority: "High" },
+  { record_id: "ST003", issue_type: "Wrong Time", course_name: "ICT 110 - Web Systems and Technologies", reported_by_role: "Student", room: "Building 11 Room A504", report_date: "2026-07-02", status: "In Progress", days_open: 2, admin_action: "Checking with lecturer", priority: "Medium" },
+  { record_id: "ST004", issue_type: "Room Change", course_name: "ILE 126 - English in TED", reported_by_role: "Student", room: "Building 11 Room 208", report_date: "2026-07-02", status: "Resolved", days_open: 1, admin_action: "Room updated after report", priority: "High" },
+  { record_id: "ST005", issue_type: "Wrong Lecturer", course_name: "ICT 105 - Fundamental Technology Entrepreneurship", reported_by_role: "Student", room: "Building 3 Room 216D", report_date: "2026-07-03", status: "Pending", days_open: 3, admin_action: "Not yet reviewed", priority: "Low" },
+  { record_id: "ST006", issue_type: "Cancellation", course_name: "ICT 111 - Introduction to Information Technology", reported_by_role: "Student", room: "Building 11 Room A504", report_date: "2026-07-03", status: "Closed", days_open: 0, admin_action: "Confirmed and marked cancelled", priority: "High" },
+  { record_id: "ST007", issue_type: "Other", course_name: "IRS 164 - Digital Skills in Everyday Life", reported_by_role: "Lecturer", room: "Building 6 Room A501", report_date: "2026-07-04", status: "In Progress", days_open: 2, admin_action: "Investigating double booking", priority: "High" },
+  { record_id: "ST008", issue_type: "Room Change", course_name: "ICT 105 - Fundamental Technology Entrepreneurship", reported_by_role: "Student", room: "Building 3 Room 216D", report_date: "2026-07-04", status: "Pending", days_open: 1, admin_action: "Duplicate of ST005, merged", priority: "Low" },
+  { record_id: "ST009", issue_type: "Wrong Time", course_name: "ICT 402 - Research Methodology", reported_by_role: "Student", room: "Building 6 Room 302B", report_date: "2026-07-05", status: "Resolved", days_open: 1, admin_action: "Time corrected in schedule", priority: "Medium" },
+  { record_id: "ST010", issue_type: "Cancellation", course_name: "ICT 401 - Seminar in ICT", reported_by_role: "Student", room: "Building 11 Room 305", report_date: "2026-07-05", status: "Pending", days_open: 2, admin_action: "Waiting for lecturer confirmation", priority: "Medium" },
+  { record_id: "ST011", issue_type: "Room Change", course_name: "ITE 201 - IT Community", reported_by_role: "Lecturer", room: "Building 11 Room 302", report_date: "2026-07-06", status: "In Progress", days_open: 1, admin_action: "Reviewing requested room change", priority: "Medium" },
+  { record_id: "ST012", issue_type: "Wrong Lecturer", course_name: "ICT 110 - Web Systems and Technologies", reported_by_role: "Student", room: "Building 11 Room A504", report_date: "2026-07-06", status: "Resolved", days_open: 0, admin_action: "Lecturer name corrected", priority: "Low" }
+];
+
+let SAMPLE_REPORTS = SAMPLE_REPORTS_FALLBACK;
+
+async function loadSampleReports() {
+  try {
+    const res = await fetch("data.json");
+    if (!res.ok) return;
+    const json = await res.json();
+    if (Array.isArray(json) && json.length) {
+      SAMPLE_REPORTS = json;
+      if (parseHash().view === "admin-dashboard") render();
+    }
+  } catch (e) {
+    /* file:// or offline — SAMPLE_REPORTS_FALLBACK above is already in use */
+  }
+}
+
 /* ---------------------------------------------------------
    2. SHARED LOGIC (localStorage helpers, formatting)
    --------------------------------------------------------- */
@@ -87,6 +120,68 @@ function formatSlots(cls) {
   return Object.entries(byTime)
     .map(([time, days]) => `${days.join(" & ")}, ${time}`)
     .join(" · ");
+}
+
+function splitCourseName(name) {
+  const idx = name.indexOf(" - ");
+  return idx === -1 ? { code: name, title: "" } : { code: name.slice(0, idx), title: name.slice(idx + 3) };
+}
+
+function reportStatusClass(status) {
+  if (status === "Resolved" || status === "Closed") return "status-confirmed";
+  if (status === "In Progress") return "status-progress";
+  return "status-changed"; // Pending
+}
+
+function priorityClass(priority) {
+  if (priority === "High") return "priority-high";
+  if (priority === "Medium") return "priority-medium";
+  return "priority-low";
+}
+
+function daysSince(dateStr) {
+  const then = new Date(dateStr + "T00:00:00");
+  const now = new Date();
+  return Math.max(0, Math.round((now - then) / 86400000));
+}
+
+/* Merges live (student/lecturer-submitted) reports with the seeded sample
+   dataset into one shape so the admin dashboard reads as a single feed. */
+function unifiedReports() {
+  const sample = SAMPLE_REPORTS.map(r => {
+    const { code } = splitCourseName(r.course_name);
+    return {
+      id: r.record_id,
+      course: code,
+      room: r.room,
+      role: r.reported_by_role,
+      issueType: r.issue_type,
+      status: r.status,
+      priority: r.priority,
+      daysOpen: r.days_open,
+      adminAction: r.admin_action,
+      date: r.report_date
+    };
+  });
+  const live = getReports().map(r => ({
+    id: r.report_id,
+    course: r.course_code,
+    room: r.room,
+    role: r.reported_by_role,
+    issueType: r.issue_type,
+    status: r.status,
+    priority: r.priority,
+    daysOpen: daysSince(r.date_reported),
+    adminAction: r.admin_action,
+    date: r.date_reported
+  }));
+  return [...live, ...sample].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+function openReportCountForCourse(courseCode) {
+  return unifiedReports().filter(r =>
+    r.course === courseCode && (r.status === "Pending" || r.status === "In Progress")
+  ).length;
 }
 
 function getOverrides() {
@@ -230,13 +325,16 @@ function render() {
       app.innerHTML = renderAdminConfirmation(params);
       break;
     default:
-      app.innerHTML = `<p class="lead">Page not found.</p><a class="btn btn-secondary" href="#home">Back home</a>`;
+      app.innerHTML = `<p class="lead">Page not found.</p><a class="btn btn-secondary" href="#home">Back to Home</a>`;
   }
   window.scrollTo(0, 0);
 }
 
 window.addEventListener("hashchange", render);
-window.addEventListener("DOMContentLoaded", render);
+window.addEventListener("DOMContentLoaded", () => {
+  render();
+  loadSampleReports();
+});
 
 /* ---------------------------------------------------------
    4. SCREEN: Home
@@ -266,19 +364,19 @@ function renderHome() {
 
     <div class="grid-3" style="margin-top: 40px;">
       <div class="card glass">
-        <div class="icon">&#128197;</div>
+        <div class="icon" aria-hidden="true">&#128197;</div>
         <h3>Weekly schedule list</h3>
         <p>See every class for the week in one place &mdash; time, room, and
         course &mdash; instead of scrolling a static PDF.</p>
       </div>
       <div class="card glass">
-        <div class="icon">&#128269;</div>
+        <div class="icon" aria-hidden="true">&#128269;</div>
         <h3>Search by course or room</h3>
         <p>Type a course code or room number to find exactly what you need,
         instantly.</p>
       </div>
       <div class="card glass">
-        <div class="icon">&#9989;</div>
+        <div class="icon" aria-hidden="true">&#9989;</div>
         <h3>Confirmed / Changed / Cancelled</h3>
         <p>Every class shows a clear status label, so you know whether to
         trust the schedule or expect something different.</p>
@@ -304,7 +402,7 @@ function renderHome() {
     </div>
 
     <p style="margin-top: 34px; font-size: .85rem; color: var(--ink-500);">
-      Are you a lecturer or admin? <a href="#admin-login" style="color: var(--accent-purple); font-weight: 700;">Go to the admin area &rarr;</a>
+      Are you a lecturer or admin? <a href="#admin-login" style="color: var(--accent-text); font-weight: 700;">Go to the admin area &rarr;</a>
     </p>
   `;
 }
@@ -326,8 +424,8 @@ function renderScheduleShell() {
     and live status. Tap a class for full details.</p>
 
     <div class="search-box glass">
-      <span>&#128269;</span>
-      <input id="searchInput" type="text" placeholder="Search by course code, course name, or room (e.g. ICT 111, 11-A504)…">
+      <span aria-hidden="true">&#128269;</span>
+      <input id="searchInput" type="text" aria-label="Search classes by course code, course name, or room" placeholder="Search by course code, course name, or room (e.g. ICT 111, 11-A504)…">
     </div>
     <p class="search-hint">Live search runs in your browser only &mdash; nothing is sent anywhere.</p>
 
@@ -338,14 +436,6 @@ function renderScheduleShell() {
       <span class="day-chip" data-day="Wednesday">WED</span>
       <span class="day-chip" data-day="Thursday">THU</span>
     </div>
-
-    <style>
-      .day-chip.active {
-        background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-        color: #fff;
-        border-color: transparent;
-      }
-    </style>
 
     <div id="scheduleList"></div>
     <p id="emptyState" class="lead" style="display:none;">No classes match your search or filter.</p>
@@ -364,6 +454,7 @@ function renderScheduleList() {
   if (!list) return;
   list.innerHTML = "";
   let anyShown = false;
+  let rowIndex = 0;
 
   DAYS.forEach(day => {
     if (scheduleActiveDay !== "all" && scheduleActiveDay !== day) return;
@@ -386,16 +477,22 @@ function renderScheduleList() {
 
     dayClasses.forEach(cls => {
       const time = cls.slots.find(s => s.day === day).time;
+      const openCount = openReportCountForCourse(cls.course_code);
       const row = document.createElement("a");
       row.className = "class-row glass";
       row.href = `#class?id=${encodeURIComponent(cls.id)}`;
+      row.style.animationDelay = `${Math.min(rowIndex, 10) * 35}ms`;
+      rowIndex++;
       row.innerHTML = `
         <div class="class-time">${time}</div>
         <div class="class-main">
           <div class="class-title">${escapeHtml(cls.course_code)} &middot; ${escapeHtml(cls.class_name)}</div>
           <div class="class-sub">Sec. ${escapeHtml(cls.section)} &middot; ${escapeHtml(cls.lecturer)} &middot; Room ${escapeHtml(cls.room)}</div>
         </div>
-        <span class="status-badge ${statusClass(cls.status)}">${escapeHtml(cls.status)}</span>
+        <div class="class-status-col">
+          <span class="status-badge ${statusClass(cls.status)}">${escapeHtml(cls.status)}</span>
+          ${openCount ? `<span class="report-flag">${openCount} open report${openCount === 1 ? "" : "s"}</span>` : ""}
+        </div>
       `;
       group.appendChild(row);
     });
@@ -512,7 +609,7 @@ function renderReportShell(params) {
       </div>
 
       <div class="form-group">
-        <label>I am a *</label>
+        <label for="role">Your Role *</label>
         <select id="role" required>
           <option value="Student">Student</option>
           <option value="Lecturer">Lecturer</option>
@@ -520,28 +617,28 @@ function renderReportShell(params) {
       </div>
 
       <div class="form-group">
-        <label>Course Code *</label>
-        <input id="courseCode" type="text" placeholder="e.g. ICT 401" value="${escapeHtml(courseCode)}" required>
-        <div class="hint" id="courseCodeError" style="color: var(--red-fg); display:none;">Course code is required.</div>
+        <label for="courseCode">Course Code *</label>
+        <input id="courseCode" type="text" placeholder="e.g. ICT 401" value="${escapeHtml(courseCode)}" required aria-describedby="courseCodeError">
+        <div class="hint" id="courseCodeError" role="alert" style="color: var(--danger-fg); display:none;">Course code is required.</div>
       </div>
 
       <div class="form-group">
-        <label>Room Number *</label>
-        <input id="roomNumber" type="text" placeholder="e.g. 11-304" value="${escapeHtml(roomNumber)}" required>
-        <div class="hint" id="roomNumberError" style="color: var(--red-fg); display:none;">Room number is required.</div>
+        <label for="roomNumber">Room Number *</label>
+        <input id="roomNumber" type="text" placeholder="e.g. 11-304" value="${escapeHtml(roomNumber)}" required aria-describedby="roomNumberError">
+        <div class="hint" id="roomNumberError" role="alert" style="color: var(--danger-fg); display:none;">Room number is required.</div>
       </div>
 
       <div class="form-group">
-        <label>Issue Type *</label>
-        <select id="issueType" required>
+        <label for="issueType">Issue Type *</label>
+        <select id="issueType" required aria-describedby="issueTypeError">
           <option value="" selected disabled>Select an issue type…</option>
           ${options}
         </select>
-        <div class="hint" id="issueTypeError" style="color: var(--red-fg); display:none;">Please select an issue type.</div>
+        <div class="hint" id="issueTypeError" role="alert" style="color: var(--danger-fg); display:none;">Please select an issue type.</div>
       </div>
 
       <div class="form-group">
-        <label>Description (optional)</label>
+        <label for="description">Description (optional)</label>
         <textarea id="description" maxlength="300" placeholder="Anything else the admin should know?"></textarea>
         <div class="hint"><span id="charCount">0</span>/300 characters. No need to include your name or student ID.</div>
       </div>
@@ -556,6 +653,11 @@ function bindReportEvents() {
   const charCount = document.getElementById("charCount");
   description.addEventListener("input", () => { charCount.textContent = description.value.length; });
 
+  function setFieldError(inputId, errorId, hasError) {
+    document.getElementById(errorId).style.display = hasError ? "block" : "none";
+    document.getElementById(inputId).setAttribute("aria-invalid", hasError ? "true" : "false");
+  }
+
   document.getElementById("reportForm").addEventListener("submit", e => {
     e.preventDefault();
 
@@ -565,26 +667,14 @@ function bindReportEvents() {
 
     let valid = true;
 
-    if (courseCode) {
-      document.getElementById("courseCodeError").style.display = "none";
-    } else {
-      document.getElementById("courseCodeError").style.display = "block";
-      valid = false;
-    }
+    setFieldError("courseCode", "courseCodeError", !courseCode);
+    if (!courseCode) valid = false;
 
-    if (roomNumber) {
-      document.getElementById("roomNumberError").style.display = "none";
-    } else {
-      document.getElementById("roomNumberError").style.display = "block";
-      valid = false;
-    }
+    setFieldError("roomNumber", "roomNumberError", !roomNumber);
+    if (!roomNumber) valid = false;
 
-    if (issueType) {
-      document.getElementById("issueTypeError").style.display = "none";
-    } else {
-      document.getElementById("issueTypeError").style.display = "block";
-      valid = false;
-    }
+    setFieldError("issueType", "issueTypeError", !issueType);
+    if (!issueType) valid = false;
 
     if (!valid) return;
 
@@ -608,7 +698,7 @@ function renderReportConfirmation(params) {
   const course = params.get("course") || "your class";
   return `
     <div class="glass confirm-wrap">
-      <div class="confirm-icon">&#10003;</div>
+      <div class="confirm-icon" aria-hidden="true">&#10003;</div>
       <h1>Report Received</h1>
       <p class="lead" style="margin: 0 auto;">
         Thanks &mdash; your report for <strong>${escapeHtml(course)}</strong> has been
@@ -617,7 +707,7 @@ function renderReportConfirmation(params) {
       </p>
       <div class="btn-row" style="justify-content: center;">
         <a href="#schedule" class="btn btn-primary">Back to My Schedule</a>
-        <a href="#home" class="btn btn-secondary">Return Home</a>
+        <a href="#home" class="btn btn-secondary">Back to Home</a>
       </div>
     </div>
   `;
@@ -638,12 +728,12 @@ function renderAdminLogin() {
       </p>
 
       <div class="form-group">
-        <label>Email</label>
+        <label for="email">Email</label>
         <input id="email" type="email" value="admin@ric.ac.th">
       </div>
 
       <div class="form-group">
-        <label>Password</label>
+        <label for="password">Password</label>
         <input id="password" type="password" value="demopass">
       </div>
 
@@ -667,7 +757,7 @@ function bindAdminLoginEvents() {
 function renderAdminDashboard() {
   return `
     <p class="breadcrumb">Admin / Dashboard</p>
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;">
+    <div class="dash-head">
       <div>
         <h1>Admin Dashboard</h1>
         <p class="lead">Overview of reports and classes for the week of 07&ndash;10 July 2026.</p>
@@ -677,12 +767,21 @@ function renderAdminDashboard() {
 
     <div class="summary-grid" id="summaryGrid"></div>
 
-    <h2>Recent Reports</h2>
+    <div class="section-head">
+      <h2>Reported Issues</h2>
+    </div>
+    <div class="chip-row" id="reportFilter">
+      <span class="filter-chip active" data-status="all">All</span>
+      <span class="filter-chip" data-status="Pending">Pending</span>
+      <span class="filter-chip" data-status="In Progress">In Progress</span>
+      <span class="filter-chip" data-status="Resolved">Resolved</span>
+      <span class="filter-chip" data-status="Closed">Closed</span>
+    </div>
     <div class="glass table-card">
       <div class="table-scroll">
         <table class="admin-table">
           <thead>
-            <tr><th>Course</th><th>Room</th><th>Issue Type</th><th>Status</th><th>Action</th></tr>
+            <tr><th scope="col">Course</th><th scope="col">Room</th><th scope="col">Reported By</th><th scope="col">Issue Type</th><th scope="col">Priority</th><th scope="col">Days Open</th><th scope="col">Status</th><th scope="col">Action</th></tr>
           </thead>
           <tbody id="reportsBody"></tbody>
         </table>
@@ -694,7 +793,7 @@ function renderAdminDashboard() {
       <div class="table-scroll">
         <table class="admin-table">
           <thead>
-            <tr><th>Course</th><th>Day / Time</th><th>Room</th><th>Status</th><th>Action</th></tr>
+            <tr><th scope="col">Course</th><th scope="col">Day / Time</th><th scope="col">Room</th><th scope="col">Status</th><th scope="col">Action</th></tr>
           </thead>
           <tbody id="classesBody"></tbody>
         </table>
@@ -709,52 +808,84 @@ function bindAdminDashboardEvents() {
     adminLogout();
   });
 
-  const reports = getReports();
   const classes = getClasses();
-
-  const pendingCount = reports.filter(r => r.status === "Pending").length;
-  const courseCounts = {};
-  reports.forEach(r => { courseCounts[r.course_code] = (courseCounts[r.course_code] || 0) + 1; });
-  let mostReported = "—";
-  let mostReportedCount = 0;
-  Object.entries(courseCounts).forEach(([course, count]) => {
-    if (count > mostReportedCount) { mostReported = course; mostReportedCount = count; }
-  });
-
-  document.getElementById("summaryGrid").innerHTML = `
-    <div class="glass summary-card">
-      <div class="num">${reports.length}</div>
-      <div class="lbl">Reports received this week</div>
-    </div>
-    <div class="glass summary-card">
-      <div class="num">${escapeHtml(mostReported)}</div>
-      <div class="lbl">Most-reported class${mostReportedCount ? ` (${mostReportedCount} report${mostReportedCount === 1 ? "" : "s"})` : ""}</div>
-    </div>
-    <div class="glass summary-card">
-      <div class="num">${pendingCount}</div>
-      <div class="lbl">Reports pending review</div>
-    </div>
-  `;
+  let statusFilter = "all";
 
   function classIdForCourse(courseCode) {
     const match = classes.find(c => c.course_code === courseCode);
     return match ? match.id : "";
   }
 
-  const reportsBody = document.getElementById("reportsBody");
-  if (reports.length === 0) {
-    reportsBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color: var(--ink-500);">No reports submitted yet.</td></tr>`;
-  } else {
-    reportsBody.innerHTML = reports.map(r => `
-      <tr>
-        <td>${escapeHtml(r.course_code)}</td>
-        <td>${escapeHtml(r.room)}</td>
-        <td>${escapeHtml(r.issue_type)}</td>
-        <td><span class="status-badge ${r.status === "Pending" ? "status-changed" : "status-confirmed"}">${escapeHtml(r.status)}</span></td>
-        <td><a class="btn btn-ghost btn-sm" href="#admin-edit?id=${encodeURIComponent(classIdForCourse(r.course_code))}">Edit</a></td>
-      </tr>
-    `).join("");
+  function renderSummary() {
+    const all = unifiedReports();
+    const open = all.filter(r => r.status === "Pending" || r.status === "In Progress");
+    const avgDays = all.length ? all.reduce((sum, r) => sum + r.daysOpen, 0) / all.length : 0;
+
+    const courseCounts = {};
+    all.forEach(r => { courseCounts[r.course] = (courseCounts[r.course] || 0) + 1; });
+    let mostReported = "—";
+    let mostReportedCount = 0;
+    Object.entries(courseCounts).forEach(([course, count]) => {
+      if (count > mostReportedCount) { mostReported = course; mostReportedCount = count; }
+    });
+
+    document.getElementById("summaryGrid").innerHTML = `
+      <div class="glass summary-card">
+        <div class="num">${all.length}</div>
+        <div class="lbl">Total reports</div>
+      </div>
+      <div class="glass summary-card">
+        <div class="num">${open.length}</div>
+        <div class="lbl">Open &middot; needs review</div>
+      </div>
+      <div class="glass summary-card">
+        <div class="num">${avgDays.toFixed(1)}</div>
+        <div class="lbl">Avg. days open</div>
+      </div>
+      <div class="glass summary-card">
+        <div class="num">${escapeHtml(mostReported)}</div>
+        <div class="lbl">Most-reported course${mostReportedCount ? ` (${mostReportedCount})` : ""}</div>
+      </div>
+    `;
   }
+
+  function renderReportsTable() {
+    const rows = unifiedReports().filter(r => statusFilter === "all" || r.status === statusFilter);
+    const reportsBody = document.getElementById("reportsBody");
+    if (rows.length === 0) {
+      reportsBody.innerHTML = `<tr><td colspan="8" style="text-align:center; color: var(--ink-500);">No reports match this filter.</td></tr>`;
+      return;
+    }
+    reportsBody.innerHTML = rows.map(r => {
+      const canReview = (r.status === "Pending" || r.status === "In Progress") && classIdForCourse(r.course);
+      return `
+      <tr>
+        <td>${escapeHtml(r.course)}</td>
+        <td>${escapeHtml(r.room)}</td>
+        <td>${escapeHtml(r.role)}</td>
+        <td>${escapeHtml(r.issueType)}</td>
+        <td><span class="priority-tag ${priorityClass(r.priority)}">${escapeHtml(r.priority)}</span></td>
+        <td>${r.daysOpen}</td>
+        <td><span class="status-badge ${reportStatusClass(r.status)}">${escapeHtml(r.status)}</span></td>
+        <td>${canReview
+          ? `<a class="btn btn-ghost btn-sm" href="#admin-edit?id=${encodeURIComponent(classIdForCourse(r.course))}">Review</a>`
+          : `<span class="hint">&mdash;</span>`}</td>
+      </tr>
+    `;
+    }).join("");
+  }
+
+  document.getElementById("reportFilter").addEventListener("click", e => {
+    const chip = e.target.closest(".filter-chip");
+    if (!chip) return;
+    document.querySelectorAll("#reportFilter .filter-chip").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    statusFilter = chip.dataset.status;
+    renderReportsTable();
+  });
+
+  renderSummary();
+  renderReportsTable();
 
   document.getElementById("classesBody").innerHTML = classes.map(c => `
     <tr>
@@ -787,8 +918,8 @@ function renderAdminEdit(id) {
 
     <form id="editForm" class="glass form-card">
       <div class="form-group">
-        <label>Class</label>
-        <select disabled>
+        <label for="classDisplay">Class</label>
+        <select id="classDisplay" disabled>
           <option selected>${escapeHtml(cls.course_code)} &middot; ${escapeHtml(cls.class_name)} (Sec. ${escapeHtml(cls.section)}, ${escapeHtml(formatSlots(cls))})</option>
         </select>
       </div>
@@ -812,12 +943,12 @@ function renderAdminEdit(id) {
       </div>
 
       <div class="form-group">
-        <label>New Room (if changed)</label>
+        <label for="newRoom">New Room (if changed)</label>
         <input id="newRoom" type="text" placeholder="e.g. 11-208" value="${cls.status === "Room Changed" ? escapeHtml(cls.room) : ""}">
       </div>
 
       <div class="form-group">
-        <label>Notes to Students</label>
+        <label for="notes">Notes to Students</label>
         <textarea id="notes" placeholder="e.g. Cancelled by lecturer for this week.">${escapeHtml(cls.note || "")}</textarea>
       </div>
 
@@ -851,7 +982,7 @@ function renderAdminConfirmation(params) {
   const id = params.get("id") || "";
   return `
     <div class="glass confirm-wrap">
-      <div class="confirm-icon">&#10003;</div>
+      <div class="confirm-icon" aria-hidden="true">&#10003;</div>
       <h1>Class Updated</h1>
       <p class="lead" style="margin: 0 auto;">
         The status has been saved. Students viewing this class in their
