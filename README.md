@@ -222,6 +222,45 @@ Full requirement-by-requirement status for all 16 FRs is in `docs/feature-implem
 - Admin/status view: *(not yet added)*
 ### Team Contribution
 All group members contributed to the same GitHub repository/page.
+
+## Lab 11: MVP Implementation Sprint 2 and Startup Metrics
  
+### Prototype Progress
+Lab 10 shipped a working single-page prototype; Lab 11 focused on making its data and admin dashboard feel real rather than adding new screens. The admin dashboard is now seeded with 12 realistic historical reports (`prototype/data.json`, loaded via `loadSampleReports()`, with an inline fallback so it still works when opened directly from disk). Live and seeded reports are merged into a single feed (`unifiedReports()`), so the dashboard reads as one consistent list instead of two separate sources. Status filter chips (All / Pending / In Progress / Resolved / Closed) and new metrics (average days open, most-reported course) were added to the dashboard. The report form's validation also gained `aria-invalid`, `aria-describedby`, and `role="alert"` for accessibility — though a real headless test pass this lab confirmed the *visual* prominence issue from Lab 08 (testers missing the required-field error) is still open, since the input itself gets no border/background change, only the small text below it.
+ 
+### Implemented / Improved Features
+| Requirement ID | Feature | Status | Evidence |
+|---|---|---|---|
+| FR-03 | Report form validation accessibility | Partially Completed | `setFieldError()` adds ARIA attributes; visual highlight still missing (`docs/prototype-testing-notes.md`) |
+| FR-06 | Admin dashboard status filter chips | Completed | Filter chips (All/Pending/In Progress/Resolved/Closed) tested and working |
+| FR-08 | Status tracking, seeded historical data | Completed | 12 seeded reports in `prototype/data.json`; status updates confirmed to persist and reflect on the student-facing view |
+| FR-12 | Dashboard metrics expansion | Completed | Added average days-open and most-reported-course metrics, computed live from `unifiedReports()` |
+ 
+Full requirement-by-requirement status for all 16 FRs is in `docs/feature-implementation-status.md`.
+ 
+### Startup/Product Metrics
+A dedicated Power BI dashboard was built for this lab — `Lab11_TeamDigiTry_Startup_Metrics.pbix` — using 12 DAX measures defined in `docs/lab11_dax_measures.txt` against `data/lab11_prototype_records.csv` (15 reports) and `data/lab11_activity_log.csv` (36 activity events). It currently surfaces 4 measures as headline cards (Total Records, New Submissions, Pending Cases, Resolution Rate), plus a category breakdown, a status breakdown, an activity-over-time line chart, and a requirement-traceability pivot table. Current values: Total Records = 15, New Submissions = 14, Pending Cases = 6, Resolution Rate = 60.0%, Average Resolution Days = 2.27, Mobile Activity Rate = 44.4%. Full metric definitions, all 12 measures, and interpretation are in `docs/startup-metrics.md`. Task Completion Rate (95%) and Average Feedback Score (4.5/5) remain documented separately, carried over from the Lab 08 Power BI validation dashboard.
+ 
+### Prototype Screenshots
+- Homepage: `screenshots/Image (8).jpg`
+- Schedule/record list: `screenshots/Image (9).jpg`
+- Detail view: `screenshots/Image (10).jpg`
+- Report/input form: `screenshots/Image (11).jpg`
+- Admin dashboard: `screenshots/Image (12).jpg`
+- Power BI Customer Validation Dashboard: `screenshots/Customer_Validation_Dashboard.png`
+### Member Contributions
+- **Sai Thi Han Win** — Built the seeded sample-reports data layer (`data.json`, fallback array, `unifiedReports()`) and the admin dashboard filter chips/metrics
+- **Soe Yu Nwe** — Added accessibility attributes to the report form's validation
+- **Rigzang Lhmao** — Captured and added the 5 prototype screenshots to `/screenshots/`; updated `docs/feature-implementation-status.md`
+- **Seint Myat Wai** — Ran the Lab 11 test pass (`docs/prototype-testing-notes.md`) and documented the startup metrics (`docs/startup-metrics.md`)
+### Remaining Work
+- Add a visual highlight (border/background) to invalid report form fields — the ARIA fix alone didn't resolve the Lab 08 usability finding
+- Reorder or auto-reveal the admin edit form's "New Room" field so it only appears when "Room Changed" is selected
+- Add real authentication to the admin login before any deployment beyond the class demo
+- Test responsive design on an actual phone, not just browser resize
+- Rename the generically-named screenshots (`Image (8).jpg`, etc.) to descriptive filenames
+- Add an issue-type breakdown card to the dashboard (Room Change is currently the most common category among seeded reports, but this isn't surfaced in the UI yet)
+- Add cards for the remaining 8 defined DAX measures (Average Resolution Days, Search Actions, Admin Updates, Dashboard Views, Average Processing Time, Mobile Activity Rate, Resolved Cases, Total Activity Events) — all are computable today but not yet visualized
+- Push `Lab11_TeamDigiTry_Startup_Metrics.pbix` to the repository (e.g. under `/data/`, matching where the Lab 08 dashboard is stored)
 ## Next Step
-Capture and add the 5 required screenshots to `/screenshots/`, and implement the outstanding responsible-design fixes flagged in `docs/risk-register.md`: report form required-field visibility (FR-10), admin edit field order (FR-08), and real admin authentication (FR-09) before Lab 11.
+Implement the outstanding fixes listed under Remaining Work above, starting with the report form's visual validation state and the admin edit field order, before starting Lab 12.
