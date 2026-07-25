@@ -346,10 +346,10 @@ MVP Implementation Sprint 1
 ## Contribution by Members
 | Member | Contribution | Evidence |
 |---|---|---|
-| Sai Thi Han Win | | |
-| Soe Yu Nwe | | |
-| Rigzang Lhmao | | |
-| Seint Myat Wai | | |
+| Sai Thi Han Win | Built prototype  | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
+| Soe Yu Nwe | Created future implementation plan and implementation plans| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
+| Rigzang Lhmao | Uploaded required screenshots of the prototype| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
+| Seint Myat Wai | Updated weekly log book and README.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main/|
 
 ## Screenshots Added
 - /screenshots/homepage.png
