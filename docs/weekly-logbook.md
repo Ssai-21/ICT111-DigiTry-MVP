@@ -445,7 +445,37 @@ Total Reports, Pending Cases, Resolved/Closed Cases, and Most-Reported Course �
 - **Documentation:** Lab 10's `docs/feature-implementation-status.md` was committed as `docs/future-implementation-plan.md` instead — filenames don't match what later labs reference.
 - **No teamwork or technical blockers this lab** — all planned work was completed and verified working.
 
-## Next Action Before Lab 12
-Fix the report form's visual validation state and the admin edit field order (both confirmed still open this lab), add real admin authentication, test responsive design on an actual phone, and rename the screenshot files to descriptive names.
+# Weekly Logbook - Lab 12
 
+## Group Name
+DigiTry
 
+## Project Title
+Smart Timetable
+
+## Lab Date
+August 14, 2026
+
+## Work Completed Today
+
+| Member Name | Contribution | File/Commit Evidence |
+| --- | --- | --- |
+| | | |
+| | | |
+| | | |
+
+## Landing Page Progress
+Built `/landing-page/index.html`, `style.css`, and `script.js` — a standalone landing page reusing the prototype's actual design tokens and components (not a separate visual style) so it reads as part of the same product. Includes a hero section with the main CTA ("Try the Prototype"), a problem/solution section grounded in the Lab 03 discovery findings, a features section mapped to real requirement IDs, a target-user section (Students / Lecturers / Admin & Staff), and a closing CTA banner. `script.js` adds smooth-scroll navigation, a scroll-reveal animation for the cards, and a local CTA-click log (`localStorage`) that mirrors the prototype's own "no real backend" architecture rather than sending data anywhere.
+
+## Go-to-Market Progress
+Documented in `docs/go-to-market-plan.md`, `docs/marketing-message.md`, and `docs/landing-page-content.md`. Target early users are RIC students in the team's own sections first, then lecturers and admin/staff as a secondary group for the report-review workflow. Selected channels: ICT111 class group chat, campus QR poster, Instagram story, RIC student Line group, and word of mouth — chosen to reach real RIC students rather than a broad public audience. Main message leads with the PDF timetable's unreliability before introducing the product, tested against the "5-second clarity" checklist in `docs/marketing-message.md`.
+
+## Metrics Plan
+Documented in `docs/acquisition-metrics.md`: landing page views, CTA click rate, demo attempts, feedback responses, and interest conversion rate, tracked per channel in `data/acquisition-metrics.csv`. Targets: 20+ views per channel per week, 30%+ CTA click-through, 10+ demo attempts combined, 5+ feedback responses, 20%+ interest conversion. Sample data already validates the tracking structure works (155 views, 42% click-through, 26% conversion across the seeded example).
+
+## Problems Encountered
+- No real campaign has been run yet — all current acquisition numbers are seeded sample data (`data/acquisition-metrics.csv`), not real traffic, so the metrics plan is untested against actual channel performance.
+- The landing page's CTA leads straight to the prototype, which still has the two known open usability issues from Lab 08/11 (report form validation visibility, admin edit field order) — promoting it now risks first-time visitors hitting those rough edges before they're fixed.
+
+## Next Action Before Lab 13
+Run the actual channel outreach (starting with the ICT111 class group chat as a soft launch), log real numbers into `data/acquisition-metrics.csv`, and fix the two outstanding Lab 08/11 usability issues before pushing to wider channels (QR poster, Instagram, Line group).
