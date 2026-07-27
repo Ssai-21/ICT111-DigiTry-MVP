@@ -262,5 +262,33 @@ A dedicated Power BI dashboard was built for this lab — `Lab11_TeamDigiTry_Sta
 - Add an issue-type breakdown card to the dashboard (Room Change is currently the most common category among seeded reports, but this isn't surfaced in the UI yet)
 - Add cards for the remaining 8 defined DAX measures (Average Resolution Days, Search Actions, Admin Updates, Dashboard Views, Average Processing Time, Mobile Activity Rate, Resolved Cases, Total Activity Events) — all are computable today but not yet visualized
 - Push `Lab11_TeamDigiTry_Startup_Metrics.pbix` to the repository (e.g. under `/data/`, matching where the Lab 08 dashboard is stored)
+
+## Lab 12 - Landing Page and Digital Go-to-Market
+ 
+### Landing Page
+- Landing page folder/link: `/landing-page/index.html`
+- Main CTA: "Try the Prototype"
+- Prototype/demo link: `/prototype/index.html`
+### Go-to-Market Plan
+- Target early users: RIC students in the team's own sections first (ICT111, ICT402, etc.), then lecturers and admin/staff as a secondary group for the report-review workflow
+- Selected channels: ICT111 class group chat, campus QR poster, Instagram story, RIC student Line group, word of mouth
+- Main marketing message: "SmartTimetable is a searchable, always-up-to-date class schedule for RIC students and lecturers, so a cancelled class or last-minute room change never catches you by surprise."
+### Acquisition Metrics
+- Metric 1: Landing page views — target at least 20 views per channel per week
+- Metric 2: CTA click rate (CTA clicks / landing page views) — target at least 30%
+- Metric 3: Interest conversion (demo attempts / landing page views) — target at least 20%
+Full metric definitions and current sample-data values are in `docs/acquisition-metrics.md`; live tracking in `data/acquisition-metrics.csv`.
+ 
+### Screenshots
+- Landing page screenshot: `/screenshots/landing-page.png` *(not yet added)*
+- CTA screenshot: `/screenshots/call-to-action.png` *(not yet added)*
+### Requirement Alignment
+The landing page's feature section maps directly to real requirement IDs rather than generic marketing copy: weekly schedule list (FR-05), search by course/room (FR-06), live status labels (FR-07, FR-08), report a mismatch (FR-03, FR-10), and the admin dashboard (FR-09, FR-12) — see `docs/landing-page-content.md` for the full table. The main CTA leads directly into the working prototype (`/prototype/index.html`), not a separate mockup, so anyone who clicks through is testing the actual FR-01–FR-16 implementation, not a promotional stand-in for it. The landing page's Responsible Data Message also reflects FR-15 (privacy and responsible data handling) — no names, IDs, or contact info are collected, and CTA click tracking stays local to the visitor's browser.
+ 
+### Member Contributions
+| Member | Contribution | Commit/Issue Evidence |
+| --- | --- | --- |
+| | | |
+ 
 ## Next Step
-Implement the outstanding fixes listed under Remaining Work above, starting with the report form's visual validation state and the admin edit field order, before starting Lab 12.
+Run the real channel outreach (starting with the ICT111 class group chat as a soft launch), log real numbers into `data/acquisition-metrics.csv`, and fix the two outstanding Lab 08/11 usability issues before pushing to wider channels before Lab 13.
