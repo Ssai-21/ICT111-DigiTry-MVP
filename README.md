@@ -215,11 +215,11 @@ Our goal in Lab 10 is to begin building the first working version of the prototy
 Full requirement-by-requirement status for all 16 FRs is in `docs/feature-implementation-status.md`; the full sprint plan is in `docs/implementation-plan.md`.
  
 ### Screenshots
-- Homepage: *(not yet added)*
-- Input form: *(not yet added)*
-- Record list: *(not yet added)*
-- Detail view: *(not yet added)*
-- Admin/status view: *(not yet added)*
+- Homepage
+- Input form
+- Record list
+- Detail view
+- Admin/status view
 ### Team Contribution
 All group members contributed to the same GitHub repository/page.
 
@@ -249,10 +249,10 @@ A dedicated Power BI dashboard was built for this lab — `Lab11_TeamDigiTry_Sta
 - Admin dashboard: `screenshots/Image (12).jpg`
 - Power BI Customer Validation Dashboard: `screenshots/Customer_Validation_Dashboard.png`
 ### Member Contributions
-- **Sai Thi Han Win** — Built the seeded sample-reports data layer (`data.json`, fallback array, `unifiedReports()`) and the admin dashboard filter chips/metrics
-- **Soe Yu Nwe** — Added accessibility attributes to the report form's validation
-- **Rigzang Lhmao** — Captured and added the 5 prototype screenshots to `/screenshots/`; updated `docs/feature-implementation-status.md`
-- **Seint Myat Wai** — Ran the Lab 11 test pass (`docs/prototype-testing-notes.md`) and documented the startup metrics (`docs/startup-metrics.md`)
+- **Sai Thi Han Win** — Built startup/product metrics dashboard and updated the prototype
+- **Soe Yu Nwe** — Completed future implementations and prototype testing
+- **Rigzang Lhmao** — Captured and added the 5 updated prototype screenshots to `/screenshots/`; created `docs/startup-metrics.md`
+- **Seint Myat Wai** — Updated weekly log book and README.md
 ### Remaining Work
 - Add a visual highlight (border/background) to invalid report form fields — the ARIA fix alone didn't resolve the Lab 08 usability finding
 - Reorder or auto-reveal the admin edit form's "New Room" field so it only appears when "Room Changed" is selected
