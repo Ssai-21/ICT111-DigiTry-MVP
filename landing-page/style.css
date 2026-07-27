@@ -1,0 +1,338 @@
+/* SmartTimetable — landing page
+   Design tokens copied 1:1 from /prototype/style.css so this page reads as
+   part of the same product, not a separate poster. Only new component
+   classes (mini-nav, grid-2, final-cta, site-footer, etc.) are landing-page
+   specific — see the second half of this file. */
+
+:root {
+  --accent-solid: oklch(56% 0.19 275);
+  --accent-solid-hover: oklch(50% 0.19 275);
+  --accent-solid-active: oklch(45% 0.19 275);
+
+  --accent: oklch(56% 0.19 275);
+  --accent-text: oklch(45% 0.18 275);
+  --accent-tint: oklch(94% 0.03 275);
+  --accent-line: oklch(85% 0.06 275);
+
+  --ink-900: oklch(20% 0.02 275);
+  --ink-700: oklch(38% 0.018 275);
+  --ink-500: oklch(50% 0.016 275);
+  --ink-300: oklch(70% 0.012 275);
+
+  --surface: oklch(98.5% 0.003 275);
+  --surface-card: oklch(100% 0 0);
+  --surface-sunken: oklch(96.3% 0.005 275);
+  --border: oklch(90% 0.01 275);
+  --border-strong: oklch(82% 0.014 275);
+
+  --danger-fg: oklch(45% 0.19 25);
+  --danger-bg: oklch(94% 0.06 25);
+  --danger-line: oklch(84% 0.11 25);
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  --shadow-sm: 0 1px 2px oklch(20% 0.02 275 / 0.07);
+  --shadow-md: 0 10px 24px oklch(20% 0.02 275 / 0.12);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --z-nav: 40;
+  --z-toast: 60;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: oklch(72% 0.16 275);
+    --accent-text: oklch(78% 0.15 275);
+    --accent-tint: oklch(28% 0.05 275);
+    --accent-line: oklch(40% 0.08 275);
+
+    --ink-900: oklch(96% 0.006 275);
+    --ink-700: oklch(84% 0.01 275);
+    --ink-500: oklch(66% 0.012 275);
+    --ink-300: oklch(46% 0.012 275);
+
+    --surface: oklch(16% 0.012 275);
+    --surface-card: oklch(20.5% 0.014 275);
+    --surface-sunken: oklch(24% 0.016 275);
+    --border: oklch(32% 0.016 275);
+    --border-strong: oklch(40% 0.02 275);
+
+    --danger-fg: oklch(80% 0.15 25);
+    --danger-bg: oklch(28% 0.06 25);
+    --danger-line: oklch(42% 0.1 25);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.45);
+
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; min-height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, Arial, sans-serif;
+  color: var(--ink-900);
+  background: var(--surface);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+a { color: inherit; }
+img, svg { max-width: 100%; }
+
+.skip-link {
+  position: fixed;
+  top: -50px;
+  left: 12px;
+  z-index: var(--z-toast);
+  background: var(--accent-solid);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: top 160ms var(--ease-out);
+}
+.skip-link:focus { top: 12px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Surfaces / layout (shared with prototype) ---------- */
+
+.glass {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+.page {
+  padding: 108px 0 40px;
+  opacity: 1;
+  transform: none;
+  animation: pageIn 280ms var(--ease-out) forwards;
+}
+@keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .page { animation: fadeOnly 200ms ease forwards; } }
+@keyframes fadeOnly { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 780px) { .page { padding: 96px 0 40px; } }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .75rem;
+  font-weight: 800;
+  color: var(--accent-text);
+  margin: 0 0 8px;
+}
+
+h1 { font-size: 1.75rem; margin: 0 0 10px; letter-spacing: -.02em; font-weight: 800; text-wrap: balance; }
+h2 { font-size: 1.4rem; margin: 0 0 16px; letter-spacing: -.01em; font-weight: 800; text-wrap: balance; }
+h3 { text-wrap: balance; margin: 8px 0 6px; font-size: 1.02rem; }
+p.lead { color: var(--ink-700); font-size: 1.02rem; max-width: 62ch; text-wrap: pretty; }
+
+.gradient-text { color: var(--accent-text); }
+
+/* ---------- Brand chip ---------- */
+
+.brand-chip {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-weight: 800;
+  font-size: .92rem;
+  text-decoration: none;
+  color: var(--ink-900);
+  background: color-mix(in oklab, var(--surface-card) 78%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+.brand-chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+/* ---------- Buttons (shared with prototype) ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .95rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 140ms var(--ease-out), box-shadow 160ms ease, background-color 160ms ease, opacity 160ms ease;
+  font-family: inherit;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary { background: var(--accent-solid); color: #fff; box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--accent-solid-hover); }
+.btn-primary:active { background: var(--accent-solid-active); }
+
+.btn-secondary { background: var(--surface-card); color: var(--accent-text); border-color: var(--border-strong); }
+.btn-secondary:hover { background: var(--surface-sunken); }
+
+.btn-sm { min-height: 36px; padding: 8px 14px; font-size: .8rem; }
+
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+
+/* ---------- Hero (shared with prototype) ---------- */
+
+.hero-card { padding: 44px 36px; margin-top: 4px; position: relative; overflow: hidden; }
+.hero-card::before {
+  content: "";
+  position: absolute;
+  top: -120px; right: -100px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-tint), transparent 70%);
+  pointer-events: none;
+}
+.hero-card > * { position: relative; }
+.hero-card h1 { font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.6rem); }
+
+.hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.hero-badge {
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--ink-700);
+}
+
+/* ---------- Feature / card grids (shared with prototype) ---------- */
+
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 4px; }
+
+.card {
+  padding: 20px;
+  transition: transform 200ms var(--ease-out), box-shadow 200ms ease, border-color 200ms ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+.card.in-view { opacity: 1; transform: none; transition: opacity 420ms var(--ease-out), transform 420ms var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { .card { opacity: 1; transform: none; } }
+
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+.card.in-view:hover { transform: translateY(-3px); }
+
+.card p { margin: 0; color: var(--ink-700); font-size: .92rem; }
+.card .icon {
+  font-size: 1.25rem;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--accent-tint);
+}
+.card .icon-danger { background: var(--danger-bg); }
+
+/* ============================================================
+   Landing-page-only sections below this line
+   ============================================================ */
+
+section { margin-top: 48px; }
+section:first-of-type { margin-top: 40px; }
+
+/* Secondary in-page nav, sits below the brand chip on desktop */
+.mini-nav {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: color-mix(in oklab, var(--surface-card) 78%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+.mini-nav a:not(.btn) {
+  padding: 9px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--ink-700);
+  font-weight: 700;
+  font-size: .85rem;
+  transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+.mini-nav a:not(.btn):hover { color: var(--ink-900); background: var(--surface-sunken); }
+.mini-nav .btn-sm { margin-left: 4px; }
+
+@media (max-width: 780px) {
+  .mini-nav a:not(.btn) { display: none; }
+  .mini-nav { top: 14px; right: 14px; }
+}
+
+/* Problem / Solution two-up */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.card-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-size: .7rem;
+  font-weight: 800;
+  color: var(--ink-500);
+  margin: 2px 0 2px;
+}
+.problem-card .card-eyebrow { color: var(--danger-fg); }
+.solution-card .card-eyebrow { color: var(--accent-text); }
+.problem-card, .solution-card { padding: 26px; }
+
+/* Final CTA banner */
+.final-cta {
+  padding: 46px 36px;
+  margin-top: 56px;
+  text-align: center;
+}
+.final-cta .eyebrow { display: block; }
+.final-cta p.lead { text-align: center; }
+.cta-note {
+  min-height: 1.2em;
+  margin: 12px 0 0;
+  font-size: .85rem;
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 40px;
+  padding: 28px 0 40px;
+  border-top: 1px solid var(--border);
+  color: var(--ink-500);
+  font-size: .82rem;
+}
+.site-footer p { margin: 4px 0; }
+.site-footer a { color: var(--accent-text); font-weight: 600; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
