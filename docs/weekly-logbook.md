@@ -364,7 +364,6 @@ Total Reports, Pending Cases, Resolved/Closed Cases, and Most-Reported Course â€
 ## Next Action Before Lab 12
 Fix the report form's visual validation state and the admin edit field order (both confirmed still open this lab), add real admin authentication, test responsive design on an actual phone, and rename the screenshot files to descriptive names.
 
-@Seint Myat Wai Edit weekly-logbook.md and paste this under the lab10 section
 # Weekly Logbook - Lab 11
 
 ## Lab Topic
