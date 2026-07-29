@@ -1,0 +1,35 @@
+TestID,TestDate,TestUserID,UserRole,DeviceType,PrototypeVersion,TaskName,TaskCompleted,CompletionTimeSeconds,EaseOfUseScore,UsefulnessScore,ConfusionPoint,MostUsefulFeature,WouldUseAgain,InterestLevel,RequirementID,MVPDecisionSignal,Notes
+T001,2026-08-20,S01,Student,Mobile,v1,T01 - Open homepage and explain what the system is for,Yes,58,4,5,None,Live status label (Confirmed/Room Changed/Cancelled),Yes,5,FR-01,Validated,
+T002,2026-08-20,S01,Student,Mobile,v1,T02 - Submit a schedule mismatch report,Yes,95,4,5,None,,Yes,5,"FR-03, FR-10, FR-11",Validated,
+T003,2026-08-20,S01,Student,Mobile,v1,T03 - Search/filter the schedule,Yes,72,4,5,None,Search by course code,Yes,5,"FR-05, FR-06",Validated,Day-filter chips felt a little small to tap accurately
+T004,2026-08-20,S01,Student,Mobile,v1,T04 - View a class's detail and status,Yes,64,4,5,None,Class detail view,Yes,5,"FR-07, FR-08",Validated,
+T005,2026-08-20,S01,Student,Mobile,v1,T05 - Review the admin dashboard,Yes,60,4,5,None,,Yes,5,FR-12,Validated,
+T006,2026-08-20,S01,Student,Mobile,v1,T06 - Submit the report form with a required field left blank,Yes,110,4,5,None,,Yes,5,FR-10,Validated,Noticed the error text without help
+T007,2026-08-20,S02,Student,Mobile,v1,T01 - Open homepage and explain what the system is for,Yes,58,4,5,None,Live status label (Confirmed/Room Changed/Cancelled),Yes,5,FR-01,Validated,
+T008,2026-08-20,S02,Student,Mobile,v1,T02 - Submit a schedule mismatch report,Yes,95,4,5,None,,Yes,5,"FR-03, FR-10, FR-11",Validated,
+T009,2026-08-20,S02,Student,Mobile,v1,T03 - Search/filter the schedule,Yes,72,4,5,None,Search by course code,Yes,5,"FR-05, FR-06",Validated,Day-filter chips felt a little small to tap accurately
+T010,2026-08-20,S02,Student,Mobile,v1,T04 - View a class's detail and status,Yes,64,4,5,None,Class detail view,Yes,5,"FR-07, FR-08",Validated,
+T011,2026-08-20,S02,Student,Mobile,v1,T05 - Review the admin dashboard,Yes,60,4,5,None,,Yes,5,FR-12,Validated,
+T012,2026-08-20,S02,Student,Mobile,v1,T06 - Submit the report form with a required field left blank,Partial,110,2,5,Missed the required-field error at first glance; only small text below the field changed,,Yes,4,FR-10,Revise,Same issue as Lab 08/11 — no visual highlight on the invalid input itself
+T013,2026-08-20,S03,Student,Laptop,v1,T01 - Open homepage and explain what the system is for,Yes,58,4,5,None,Live status label (Confirmed/Room Changed/Cancelled),Yes,5,FR-01,Validated,
+T014,2026-08-20,S03,Student,Laptop,v1,T02 - Submit a schedule mismatch report,Yes,95,4,5,None,,Yes,5,"FR-03, FR-10, FR-11",Validated,
+T015,2026-08-20,S03,Student,Laptop,v1,T03 - Search/filter the schedule,Yes,72,4,5,None,Search by course code,Yes,5,"FR-05, FR-06",Validated,
+T016,2026-08-20,S03,Student,Laptop,v1,T04 - View a class's detail and status,Yes,64,4,5,None,Class detail view,Yes,5,"FR-07, FR-08",Validated,
+T017,2026-08-20,S03,Student,Laptop,v1,T05 - Review the admin dashboard,Yes,60,4,5,None,,Yes,5,FR-12,Validated,
+T018,2026-08-20,S03,Student,Laptop,v1,T06 - Submit the report form with a required field left blank,Partial,110,2,5,Missed the required-field error at first glance; only small text below the field changed,,Yes,4,FR-10,Revise,Same issue as Lab 08/11 — no visual highlight on the invalid input itself
+T019,2026-08-20,S04,Student,Laptop,v1,T01 - Open homepage and explain what the system is for,Yes,58,4,5,None,Live status label (Confirmed/Room Changed/Cancelled),Yes,5,FR-01,Validated,
+T020,2026-08-20,S04,Student,Laptop,v1,T02 - Submit a schedule mismatch report,Yes,95,4,5,None,,Yes,5,"FR-03, FR-10, FR-11",Validated,
+T021,2026-08-20,S04,Student,Laptop,v1,T03 - Search/filter the schedule,Yes,72,4,5,None,Search by course code,Yes,5,"FR-05, FR-06",Validated,
+T022,2026-08-20,S04,Student,Laptop,v1,T04 - View a class's detail and status,Yes,64,4,5,None,Class detail view,Yes,5,"FR-07, FR-08",Validated,
+T023,2026-08-20,S04,Student,Laptop,v1,T05 - Review the admin dashboard,Yes,60,4,5,None,,Yes,5,FR-12,Validated,
+T024,2026-08-20,S04,Student,Laptop,v1,T06 - Submit the report form with a required field left blank,Yes,110,4,5,None,,Yes,5,FR-10,Validated,Noticed the error text without help
+T025,2026-08-20,S05,Student,Desktop,v1,T01 - Open homepage and explain what the system is for,Yes,58,4,5,None,Live status label (Confirmed/Room Changed/Cancelled),Yes,5,FR-01,Validated,
+T026,2026-08-20,S05,Student,Desktop,v1,T02 - Submit a schedule mismatch report,Yes,95,4,5,None,,Yes,5,"FR-03, FR-10, FR-11",Validated,
+T027,2026-08-20,S05,Student,Desktop,v1,T03 - Search/filter the schedule,Yes,72,4,5,None,Search by course code,Yes,5,"FR-05, FR-06",Validated,
+T028,2026-08-20,S05,Student,Desktop,v1,T04 - View a class's detail and status,Yes,64,4,5,None,Class detail view,Yes,5,"FR-07, FR-08",Validated,
+T029,2026-08-20,S05,Student,Desktop,v1,T05 - Review the admin dashboard,Yes,60,4,5,None,,Yes,5,FR-12,Validated,
+T030,2026-08-20,S05,Student,Desktop,v1,T06 - Submit the report form with a required field left blank,Yes,110,4,5,None,,Yes,5,FR-10,Validated,Noticed the error text without help
+T031,2026-08-20,A01,Admin,Laptop,v1,T05 - Review the admin dashboard,Yes,55,5,5,None,Dashboard summary cards,Yes,5,FR-12,Validated,
+T032,2026-08-20,A01,Admin,Laptop,v1,T07 - Update a class's status to Room Changed and enter a new room,Partial,128,3,4,Unsure whether to enter the new room before or after selecting Room Changed,Admin status update form,Yes,4,"FR-08, FR-09",Revise,Same field-order issue as Lab 08/11 — still not reordered
+T033,2026-08-20,A02,Admin,Desktop,v1,T05 - Review the admin dashboard,Yes,55,5,5,None,Dashboard summary cards,Yes,5,FR-12,Validated,
+T034,2026-08-20,A02,Admin,Desktop,v1,T07 - Update a class's status to Room Changed and enter a new room,Partial,128,3,4,Unsure whether to enter the new room before or after selecting Room Changed,Admin status update form,Yes,4,"FR-08, FR-09",Revise,Same field-order issue as Lab 08/11 — still not reordered
