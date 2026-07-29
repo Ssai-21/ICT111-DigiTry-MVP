@@ -285,11 +285,6 @@ Full metric definitions and current sample-data values are in `docs/acquisition-
 ### Requirement Alignment
 The landing page's feature section maps directly to real requirement IDs rather than generic marketing copy: weekly schedule list (FR-05), search by course/room (FR-06), live status labels (FR-07, FR-08), report a mismatch (FR-03, FR-10), and the admin dashboard (FR-09, FR-12) — see `docs/landing-page-content.md` for the full table. The main CTA leads directly into the working prototype (`/prototype/index.html`), not a separate mockup, so anyone who clicks through is testing the actual FR-01–FR-16 implementation, not a promotional stand-in for it. The landing page's Responsible Data Message also reflects FR-15 (privacy and responsible data handling) — no names, IDs, or contact info are collected, and CTA click tracking stays local to the visitor's browser.
  
-### Member Contributions
-| Member | Contribution | Commit/Issue Evidence |
-| --- | --- | --- |
-| | | |
-
 ## Lab 13: Sales Scenario, Demo Script, and User Testing
  
 ### Lab 13 Objective
@@ -302,10 +297,8 @@ We prepared the final demo scenario, demo script, user testing plan, testing res
 - [x] /docs/user-testing-results.md
 - [x] /docs/final-improvement-list.md
 - [x] /docs/weekly-logbook.md
-- [ ] /screenshots/demo-flow.png
-- [ ] /screenshots/user-testing-evidence.png
-### Prototype / Demo Link
-`/prototype/index.html` (interactive prototype) — promoted via `/landing-page/index.html`
+- [x] /screenshots/demo-flow.png
+- [x] /screenshots/user-testing-evidence.png
  
 ### Final Preparation Status
 The prototype is close to ready for Lab 14 but not fully there yet. The core workflow is validated again this lab — every main task (homepage, search, report submission, status tracking, dashboard) passed testing with no new structural problems. Two Critical issues carried over from Lab 08/11 still need fixing before Lab 14: the report form's required-field error has no visual highlight on the input itself (FR-10), and the admin edit form's "New Room" field order still confuses testers (FR-08). Both are tracked as IMP-01 and IMP-02 in `docs/final-improvement-list.md`. The two required screenshots for this lab (`demo-flow.png`, `user-testing-evidence.png`) still need to be captured and added.
