@@ -298,8 +298,8 @@ Build the JSON class-schedule file, wire the schedule list and search/filter to 
 - [x] Wrote customer validation summary
 - [x] Wrote analytics insights
 - [x] Wrote MVP decision
-- [ ] Updated README
-- [ ] Created GitHub issues for prototype improvements
+- [x] Updated README
+- [x] Created GitHub issues for prototype improvements
 
 ## Member Contributions
 | Member Name | Contribution | GitHub Evidence |
@@ -323,158 +323,205 @@ No technical or documentation problems were found — the Power BI dashboard num
 - Create GitHub issues for each of the above so they're tracked before the next lab
 - Update the main README with the Lab 08 validation results section
 
-# Weekly Logbook - Lab 11
-
-## Lab Topic
-MVP Implementation Sprint 2 and Startup Metrics
-
-## Group Case
-Smart Timetable (Team DigiTry) — a searchable, status-aware digital replacement for RIC's static PDF class timetable.
-
-## Work Completed Today
-- Seeded the admin dashboard with 12 realistic historical reports (`prototype/data.json`), with an inline fallback array so it still works when opened directly from disk via `file://`
-- Merged seeded and live reports into a single feed (`unifiedReports()`) so the dashboard reads as one consistent list
-- Added status filter chips (All/Pending/In Progress/Resolved/Closed) and new metrics (average days open, most-reported course) to the admin dashboard
-- Added `aria-invalid`, `aria-describedby`, and `role="alert"` to the report form's validation for accessibility
-- Ran a full headless test pass on the live prototype (`docs/prototype-testing-notes.md`) — all 7 main test cases passed, including a real login → dashboard → status update → confirm-it-reflects round trip
-- Updated `docs/feature-implementation-status.md` with real Lab 10 vs. Lab 11 status per requirement
-- Documented `docs/startup-metrics.md` with metrics computed from the live prototype data plus the Lab 08 validation results
-
-## Member Contributions
-| Member Name | Contribution | File/Feature Updated | GitHub Evidence |
-|---|---|---|---|
-| Sai Thi Han Win | | `prototype/data.json`, `prototype/script.js` | |
-| Soe Yu Nwe | | `prototype/script.js` (report form validation) | |
-| Rigzang Lhmao | | `screenshots/`, `docs/feature-implementation-status.md` | |
-| Seint Myat Wai | | `docs/prototype-testing-notes.md`, `docs/startup-metrics.md` | |
-
-## Requirements Addressed
-FR-03 (partially — accessibility only, not visual), FR-06 (dashboard filter chips), FR-08 (seeded historical status data, confirmed persistence), FR-12 (new dashboard metrics)
-
-## Metrics Added
-Total Reports, Pending Cases, Resolved/Closed Cases, and Most-Reported Course — all computed live on the Admin Dashboard. Task Completion Rate and Average Feedback Score carried over from the Lab 08 Power BI validation dashboard. Full detail and current values in `docs/startup-metrics.md`.
-
-## Problems Found
-- **UI/UX:** Confirmed via direct testing that FR-10's Lab 08 finding is still open — the report form's required-field error text is now more accessible (ARIA attributes), but the input itself still gets no visual highlight, so a sighted tester could still miss it.
-- **UI/UX:** FR-08's admin edit field order (New Room field position) also still hasn't been fixed since Lab 08.
-- **Documentation:** Found a leftover internal note accidentally pasted into the live README.md ("and edit README.md in main, remove Next Step section and paste with this") — removed while updating the file.
-- **Documentation:** Lab 10's `docs/feature-implementation-status.md` was committed as `docs/future-implementation-plan.md` instead — filenames don't match what later labs reference.
-- **No teamwork or technical blockers this lab** — all planned work was completed and verified working.
-
-## Next Action Before Lab 12
-Fix the report form's visual validation state and the admin edit field order (both confirmed still open this lab), add real admin authentication, test responsive design on an actual phone, and rename the screenshot files to descriptive names.
-
-# Weekly Logbook - Lab 11
-
-## Lab Topic
-MVP Implementation Sprint 2 and Startup Metrics
-
-## Group Case
-Smart Timetable (Team DigiTry) — a searchable, status-aware digital replacement for RIC's static PDF class timetable.
-
-## Work Completed Today
-- Seeded the admin dashboard with 12 realistic historical reports (`prototype/data.json`), with an inline fallback array so it still works when opened directly from disk via `file://`
-- Merged seeded and live reports into a single feed (`unifiedReports()`) so the dashboard reads as one consistent list
-- Added status filter chips (All/Pending/In Progress/Resolved/Closed) and new metrics (average days open, most-reported course) to the admin dashboard
-- Added `aria-invalid`, `aria-describedby`, and `role="alert"` to the report form's validation for accessibility
-- Ran a full headless test pass on the live prototype (`docs/prototype-testing-notes.md`) — all 7 main test cases passed, including a real login → dashboard → status update → confirm-it-reflects round trip
-- Updated `docs/feature-implementation-status.md` with real Lab 10 vs. Lab 11 status per requirement
-- Documented `docs/startup-metrics.md` with metrics computed from the live prototype data plus the Lab 08 validation results
-
-## Member Contributions
-| Member Name | Contribution | File/Feature Updated | GitHub Evidence |
-|---|---|---|---|
-| Sai Thi Han Win | | `prototype/data.json`, `prototype/script.js` | |
-| Soe Yu Nwe | | `prototype/script.js` (report form validation) | |
-| Rigzang Lhmao | | `screenshots/`, `docs/feature-implementation-status.md` | |
-| Seint Myat Wai | | `docs/prototype-testing-notes.md`, `docs/startup-metrics.md` | |
-
-## Requirements Addressed
-FR-03 (partially — accessibility only, not visual), FR-06 (dashboard filter chips), FR-08 (seeded historical status data, confirmed persistence), FR-12 (new dashboard metrics)
-
-## Metrics Added
-Total Reports, Pending Cases, Resolved/Closed Cases, and Most-Reported Course — all computed live on the Admin Dashboard. Task Completion Rate and Average Feedback Score carried over from the Lab 08 Power BI validation dashboard. Full detail and current values in `docs/startup-metrics.md`.
-
-## Problems Found
-- **UI/UX:** Confirmed via direct testing that FR-10's Lab 08 finding is still open — the report form's required-field error text is now more accessible (ARIA attributes), but the input itself still gets no visual highlight, so a sighted tester could still miss it.
-- **UI/UX:** FR-08's admin edit field order (New Room field position) also still hasn't been fixed since Lab 08.
-- **Documentation:** Found a leftover internal note accidentally pasted into the live README.md ("and edit README.md in main, remove Next Step section and paste with this") — removed while updating the file.
-- **Documentation:** Lab 10's `docs/feature-implementation-status.md` was committed as `docs/future-implementation-plan.md` instead — filenames don't match what later labs reference.
-- **No teamwork or technical blockers this lab** — all planned work was completed and verified working.
-
-## Next Action Before Lab 12
-Fix the report form's visual validation state and the admin edit field order (both confirmed still open this lab), add real admin authentication, test responsive design on an actual phone, and rename the screenshot files to descriptive names.
-
-@Seint Myat Wai Edit weekly-logbook.md and paste this under the lab10 section
-# Weekly Logbook - Lab 11
-
-## Lab Topic
-MVP Implementation Sprint 2 and Startup Metrics
-
-## Group Case
-Smart Timetable (Team DigiTry) — a searchable, status-aware digital replacement for RIC's static PDF class timetable.
-
-## Work Completed Today
-- Seeded the admin dashboard with 12 realistic historical reports (`prototype/data.json`), with an inline fallback array so it still works when opened directly from disk via `file://`
-- Merged seeded and live reports into a single feed (`unifiedReports()`) so the dashboard reads as one consistent list
-- Added status filter chips (All/Pending/In Progress/Resolved/Closed) and new metrics (average days open, most-reported course) to the admin dashboard
-- Added `aria-invalid`, `aria-describedby`, and `role="alert"` to the report form's validation for accessibility
-- Ran a full headless test pass on the live prototype (`docs/prototype-testing-notes.md`) — all 7 main test cases passed, including a real login → dashboard → status update → confirm-it-reflects round trip
-- Updated `docs/feature-implementation-status.md` with real Lab 10 vs. Lab 11 status per requirement
-- Documented `docs/startup-metrics.md` with metrics computed from the live prototype data plus the Lab 08 validation results
-
-## Member Contributions
-| Member Name | Contribution | File/Feature Updated | GitHub Evidence |
-|---|---|---|---|
-| Sai Thi Han Win | | `prototype/data.json`, `prototype/script.js` | |
-| Soe Yu Nwe | | `prototype/script.js` (report form validation) | |
-| Rigzang Lhmao | | `screenshots/`, `docs/feature-implementation-status.md` | |
-| Seint Myat Wai | | `docs/prototype-testing-notes.md`, `docs/startup-metrics.md` | |
-
-## Requirements Addressed
-FR-03 (partially — accessibility only, not visual), FR-06 (dashboard filter chips), FR-08 (seeded historical status data, confirmed persistence), FR-12 (new dashboard metrics)
-
-## Metrics Added
-Total Reports, Pending Cases, Resolved/Closed Cases, and Most-Reported Course — all computed live on the Admin Dashboard. Task Completion Rate and Average Feedback Score carried over from the Lab 08 Power BI validation dashboard. Full detail and current values in `docs/startup-metrics.md`.
-
-## Problems Found
-- **UI/UX:** Confirmed via direct testing that FR-10's Lab 08 finding is still open — the report form's required-field error text is now more accessible (ARIA attributes), but the input itself still gets no visual highlight, so a sighted tester could still miss it.
-- **UI/UX:** FR-08's admin edit field order (New Room field position) also still hasn't been fixed since Lab 08.
-- **Documentation:** Found a leftover internal note accidentally pasted into the live README.md ("and edit README.md in main, remove Next Step section and paste with this") — removed while updating the file.
-- **Documentation:** Lab 10's `docs/feature-implementation-status.md` was committed as `docs/future-implementation-plan.md` instead — filenames don't match what later labs reference.
-- **No teamwork or technical blockers this lab** — all planned work was completed and verified working.
-
-# Weekly Logbook - Lab 12
-
+# Weekly Logbook - Lab 09
+ 
 ## Group Name
-DigiTry
-
+Team DigiTry
+ 
+## Date
+July 29, 2026
+ 
+## Members Present
+Sai Thi Han Win, Soe Yu Nwe, Rigzang Lhmao, Seint Myat Wai
+ 
+## Work Completed Today
+- Data inventory: Cataloged all Class, Report, and Admin data fields with personal/sensitive-data flags and minimization notes — `docs/data-handling-policy.md` and `data/data_inventory.csv`
+- Privacy review: Data collection summary and data minimization decisions — `docs/privacy-and-data-protection.md`
+- Ethical review: 6-item checklist completed; result "Safe to continue: With revision" — `docs/legal-ethical-checklist.md`
+- IP review: Cataloged every third-party tool/asset used (system fonts, Mermaid, draw.io, Google Forms, Power BI, GitHub) — `docs/ip-and-third-party-assets.md` and `data/third_party_assets_register.csv`
+- Security review: Found the admin dashboard has no real authentication (High risk) — `docs/security-risk-check.md`
+- Risk register: 6 risks logged across Privacy, Ethical, IP, Security, Legal, and Data quality categories — `docs/risk-register.md` and `data/risk_register.csv`
+- Requirements update note: Proposed a clarification to NFR-07 documenting the simulated admin login as an accepted MVP-stage limitation — `docs/updated-requirements-note.md`
+- Process diagram: Mapped the full Lab 09 review flow (feature review → data inventory → privacy → ethics → IP → security → risk register → requirements update → GitHub) — `diagrams/privacy-security-review.mmd`
+## Member Contributions
+| Member Name | Contribution | Evidence / Commit Link |
+|---|---|---|
+| Sai Thi Han Win | Drew Privacy and security review diagram and updated weekly-logbook and README.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Soe Yu Nwe | Created and uploaded data inventory, risk register, third party assests register data sets into data/ and data handling policy, ip and third part assets into docs/| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Rigzang Lhmao | Created legal ethical checklist, privacy and data protection and risk register in docs/| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Seint Myat Wai | Created security risk check, updated requirements note and user consent statement in docs/| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+ 
+## Decisions Made
+- Documented the admin login's lack of real authentication as an accepted MVP-stage limitation rather than fixing it immediately — flagged as High risk/severity and required before any deployment beyond the class demo.
+- Chose to propose a clarification to NFR-07 rather than silently changing `system-requirements.md`, per the traceability rule in `docs/updated-requirements-note.md`.
+## Issues / Blockers
+The admin access-control gap (R-04 in the risk register) is the one unresolved high-risk item from this review. It needs a GitHub issue and a real fix before final submission — everything else found this week is low/medium risk with a mitigation already identified.
+ 
+## Next Action Before Lab 10
+Create GitHub issues for R-04 (admin authentication) and R-01 (report form Description field privacy hint); implement these alongside the two outstanding Lab 08 UI fixes (report form required-field visibility, admin edit field order) before the next review.
+ 
+---
+ 
+# Weekly Logbook - Lab 10
+ 
+## Lab Topic
+MVP Implementation Sprint 1
+ 
+## What We Built Today
+- Rebuilt the interactive prototype as a single-page app: `/prototype/index.html`, `/prototype/style.css`, and `/prototype/script.js`, using hash-based routing (`#schedule`, `#class`, `#report`, `#admin-dashboard`, etc.) instead of separate page loads
+- Verified the full loop end-to-end in a headless browser test: submit a report → log in as admin → dashboard shows the report → update a class's status → change reflects back on the student-facing detail view → the related report auto-resolves
+- Documented feature-to-requirement implementation status for all 16 requirements (`docs/feature-implementation-status.md`) and the Sprint 1 implementation plan (`docs/implementation-plan.md`)
+## Requirement IDs Addressed
+- FR-01: Homepage — implemented and working
+- FR-03: Report submission form — implemented, validated, saves to localStorage
+- FR-05: Schedule record list — implemented, dynamic
+- FR-06: Search/filter — implemented, live client-side
+- FR-07: Detail view — implemented, dynamic per class
+- FR-08: Status tracking — implemented; admin update reflects on the student-facing view
+- FR-09: Admin function — implemented, but login is still simulated (no real authentication yet)
+- FR-12: Dashboard/summary — implemented, computed live from data
+## Contribution by Members
+| Member | Contribution | GitHub Evidence |
+|---|---|---|
+| Sai Thi Han Win | Built prototype| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Soe Yu Nwe | Created future implementation plan and implementation plans| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Rigzang Lhmao | Uploaded required screenshots of the prototype| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Seint Myat Wai | Updated weekly log book and README.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+ 
+## Screenshots Added
+- /screenshots/homepage.png
+- /screenshots/input-form.png
+- /screenshots/record-list.png
+- /screenshots/detail-view.png
+- /screenshots/admin-view.png
+ 
+## Problems Faced
+- Consolidating 9 separate HTML files into a single-page app meant rewriting navigation as hash-based routing instead of separate page loads — resolved by building a small router and testing every route in a headless browser before treating it as done.
+- The admin dashboard and edit screens need to stay protected from direct access even in a single-page app — resolved by checking the login flag inside the router before rendering those views, same behavior as the multi-page version.
+## Plan for Next Lab
+- Capture and add the 5 required screenshots to `/screenshots/`
+- Implement the outstanding responsible-design fixes: report form required-field visibility (FR-10), admin edit field order (FR-08), and real admin authentication (FR-09)
+- Confirm `/prototype/prototype-link.md` is not needed, since this prototype is plain HTML/CSS/JS and not built on Figma, Google Sheets, Airtable, or a similar platform
+---
+ 
+# Weekly Logbook - Lab 11
+ 
+## Lab Topic
+MVP Implementation Sprint 2 and Startup Metrics
+ 
+## Group Case
+Smart Timetable (Team DigiTry) — a searchable, status-aware digital replacement for RIC's static PDF class timetable.
+ 
+## Work Completed Today
+- Seeded the admin dashboard with 12 realistic historical reports (`prototype/data.json`), with an inline fallback array so it still works when opened directly from disk via `file://`
+- Merged seeded and live reports into a single feed (`unifiedReports()`) so the dashboard reads as one consistent list
+- Added status filter chips (All/Pending/In Progress/Resolved/Closed) and new metrics (average days open, most-reported course) to the admin dashboard
+- Added `aria-invalid`, `aria-describedby`, and `role="alert"` to the report form's validation for accessibility
+- Ran a full headless test pass on the live prototype (`docs/prototype-testing-notes.md`) — all 7 main test cases passed, including a real login → dashboard → status update → confirm-it-reflects round trip
+- Updated `docs/feature-implementation-status.md` with real Lab 10 vs. Lab 11 status per requirement
+- Documented `docs/startup-metrics.md` with metrics computed from the live prototype data plus the Lab 08 validation results
+- Built the Power BI startup/product metrics dashboard (`Lab11_TeamDigiTry_Startup_Metrics.pbix`), using 12 DAX measures against `data/lab11_prototype_records.csv` and `data/lab11_activity_log.csv`
+## Member Contributions
+| Member Name | Contribution | GitHub Evidence |
+|---|---|---|
+| Sai Thi Han Win | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Soe Yu Nwe | Created future implementation status and prototype testing notes| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Rigzang Lhmao | Created startup metrics and uploaded the required screenshots of the updated prototype| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Seint Myat Wai | Updated weekly logbook and README.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+ 
+## Requirements Addressed
+FR-03 (partially — accessibility only, not visual), FR-06 (dashboard filter chips), FR-08 (seeded historical status data, confirmed persistence), FR-12 (new dashboard metrics)
+ 
+## Metrics Added
+Total Records, Total Activity Events, New Submissions, Pending Cases, Resolved Cases, Resolution Rate, Average Resolution Days, Search Actions, Admin Updates, Dashboard Views, Average Processing Time, Mobile Activity Rate — 12 DAX measures defined in `docs/lab11_dax_measures.txt`, with 4 surfaced as dashboard cards (Total Records, New Submissions, Pending Cases, Resolution Rate) plus category/status breakdown charts. Full detail in `docs/startup-metrics.md`.
+ 
+## Problems Found
+- **UI/UX:** Confirmed via direct testing that FR-10's Lab 08 finding is still open — the report form's required-field error text is now more accessible (ARIA attributes), but the input itself still gets no visual highlight, so a sighted tester could still miss it.
+- **UI/UX:** FR-08's admin edit field order (New Room field position) also still hasn't been fixed since Lab 08.
+- **Documentation:** Found a leftover internal note accidentally pasted into the live README.md — removed while updating the file.
+- **Documentation:** Lab 10's `docs/feature-implementation-status.md` was committed as `docs/future-implementation-plan.md` instead — filenames don't match what later labs reference.
+- **No teamwork or technical blockers this lab** — all planned work was completed and verified working.
+## Next Action Before Lab 12
+Fix the report form's visual validation state and the admin edit field order (both confirmed still open this lab), add real admin authentication, test responsive design on an actual phone, and rename the screenshot files to descriptive names.
+ 
+---
+ 
+# Weekly Logbook - Lab 12
+ 
+## Group Name
+Team DigiTry
+ 
 ## Project Title
 Smart Timetable
-
+ 
 ## Lab Date
 August 14, 2026
-
+ 
 ## Work Completed Today
-
+ 
 | Member Name | Contribution | File/Commit Evidence |
 | --- | --- | --- |
-| | | |
-| | | |
-| | | |
-
+| Sai Thi Han Win | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Soe Yu Nwe | Uploaded acquisition metrics data set and created acquisition metrics.md in docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Rigzang Lhmao | Created go to market plan and marketing message| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Seint Myat Wai | Created landing page content and Updated weekly log book and README.md | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+ 
 ## Landing Page Progress
 Built `/landing-page/index.html`, `style.css`, and `script.js` — a standalone landing page reusing the prototype's actual design tokens and components (not a separate visual style) so it reads as part of the same product. Includes a hero section with the main CTA ("Try the Prototype"), a problem/solution section grounded in the Lab 03 discovery findings, a features section mapped to real requirement IDs, a target-user section (Students / Lecturers / Admin & Staff), and a closing CTA banner. `script.js` adds smooth-scroll navigation, a scroll-reveal animation for the cards, and a local CTA-click log (`localStorage`) that mirrors the prototype's own "no real backend" architecture rather than sending data anywhere.
-
+ 
 ## Go-to-Market Progress
 Documented in `docs/go-to-market-plan.md`, `docs/marketing-message.md`, and `docs/landing-page-content.md`. Target early users are RIC students in the team's own sections first, then lecturers and admin/staff as a secondary group for the report-review workflow. Selected channels: ICT111 class group chat, campus QR poster, Instagram story, RIC student Line group, and word of mouth — chosen to reach real RIC students rather than a broad public audience. Main message leads with the PDF timetable's unreliability before introducing the product, tested against the "5-second clarity" checklist in `docs/marketing-message.md`.
-
+ 
 ## Metrics Plan
 Documented in `docs/acquisition-metrics.md`: landing page views, CTA click rate, demo attempts, feedback responses, and interest conversion rate, tracked per channel in `data/acquisition-metrics.csv`. Targets: 20+ views per channel per week, 30%+ CTA click-through, 10+ demo attempts combined, 5+ feedback responses, 20%+ interest conversion. Sample data already validates the tracking structure works (155 views, 42% click-through, 26% conversion across the seeded example).
-
+ 
 ## Problems Encountered
 - No real campaign has been run yet — all current acquisition numbers are seeded sample data (`data/acquisition-metrics.csv`), not real traffic, so the metrics plan is untested against actual channel performance.
 - The landing page's CTA leads straight to the prototype, which still has the two known open usability issues from Lab 08/11 (report form validation visibility, admin edit field order) — promoting it now risks first-time visitors hitting those rough edges before they're fixed.
-
+## Next Action Before Lab 13
+Run the actual channel outreach (starting with the ICT111 class group chat as a soft launch), log real numbers into `data/acquisition-metrics.csv`, and fix the two outstanding Lab 08/11 usability issues before pushing to wider channels (QR poster, Instagram, Line group).
+ 
+---
+ 
+# Weekly Logbook - Lab 13
+ 
+## Group Name
+Team DigiTry
+ 
+## Project Title
+Smart Timetable
+ 
+## Date
+August 20, 2026
+ 
+## Members and Contributions
+| Member | Contribution This Lab | GitHub Evidence |
+| --- | --- | --- |
+| Sai Thi Han Win | Fixed the prototype for the final version, created final improvement list, uploaded user testing results data and demo flow diagram| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Soe Yu Nwe | Created sales scenario and demo script| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Rigzang Lhmao | Created user testing plan and user testing results.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Seint Myat Wai | Updated weekly logbook and README.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+ 
+## Work Completed
+- Sales scenario: Written around a real Lab 03-grounded situation (a student walking to a moved class), with a value message and a sample pitch conversation — `docs/sales-scenario.md`
+- Demo script: 8-step flow mapped to real hash routes in the prototype, with presenter roles assigned across all 4 members — `docs/demo-script.md`
+- User testing plan: 5 base tasks plus 2 added tasks (T06, T07) specifically targeting the two known open issues from Lab 08/11, plus real-device mobile testing for the first time — `docs/user-testing-plan.md`
+- User testing results: T01–T05 completion verified directly against the live prototype code via an automated test pass; T06/T07 and tester quotes are illustrative sample data pending a real testing session — `docs/user-testing-results.md` and `data/user-testing-results.csv`
+- Final improvement list: 8 items pulled from across the whole project (Lab 08 findings, Lab 09 risk register, Lab 10 filename issue, Lab 11 remaining dashboard cards), prioritized Critical/Important/Useful/Future — `docs/final-improvement-list.md`
+- Screenshots: Not yet captured at the time — `demo-flow.png` and `user-testing-evidence.png`
+  
+## Key Decisions
+- Confirmed the two Critical issues from Lab 08/11 (report form validation visibility, admin edit field order) are still genuinely open — verified directly against the current prototype code rather than assumed — and prioritized them as Critical (IMP-01, IMP-02) to fix before Lab 14.
+- Decided this testing round should include real-device mobile testing for the first time, since every previous round only checked responsiveness via browser resize.
+## Problems Encountered
+- No real user testing session had happened yet for this lab — `docs/user-testing-results.md` mixed verified automated results with illustrative tester quotes, pending replacement with real notes once the 7-person session in `docs/user-testing-plan.md` actually runs.
+- The two Critical usability issues (FR-10, FR-08) had persisted across three labs (8, 11, and this one) without being fixed — treated as a priority blocker, not routine polish.
+## Next Actions Before Lab 14
+Fix IMP-01 and IMP-02 from `docs/final-improvement-list.md`, run the real 7-person testing session defined in `docs/user-testing-plan.md`, capture the two missing screenshots (`demo-flow.png`, `user-testing-evidence.png`), and rehearse the demo script as a full run-through.
+ 
+## Requirement Traceability Notes
+FR-10 and FR-08 need final checking before Lab 14, since both have open, unresolved usability issues despite technically "working." FR-09 (admin authentication) also needs a team decision — either implement real authentication or explicitly document it as an accepted MVP-stage limitation in the final submission, rather than leaving it ambiguous. FR-14 (mobile-friendly) needs one more check after the day-chip touch-target sizing is addressed.
+ 
+*(Update: IMP-01, IMP-02, and IMP-03 were addressed after this lab — see the prototype fixes applied for FR-10, FR-08, and FR-09.)*
 ## Next Action Before Lab 13
 Run the actual channel outreach (starting with the ICT111 class group chat as a soft launch), log real numbers into `data/acquisition-metrics.csv`, and fix the two outstanding Lab 08/11 usability issues before pushing to wider channels (QR poster, Instagram, Line group).
