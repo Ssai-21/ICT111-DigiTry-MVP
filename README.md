@@ -83,7 +83,7 @@ All members contributed to the same GitHub repository.
 In Lab 06, our group connected our product concept, requirements, user stories, and wireframes into business logic and technical structure.
  
 ### Files Added or Updated
-- [Business Model Canvas](docs/business-model-canva.md)
+- [Business Model Canvas](docs/business-model-canvas.md)
 - [Feature-Value Mapping](docs/feature-value-mapping.md)
 - [Technical Architecture](docs/technical-architecture.md)
 - [Data Structure](docs/data-structure.md)
@@ -110,7 +110,7 @@ Top 3 (full list in `/docs/critical-assumptions.md`):
 2. **(High risk)** Client-side storage (a JSON schedule file plus browser localStorage) is enough to demonstrate the full report-to-status-update loop without a real backend.
 3. **(Medium risk)** Users can understand the report form's required fields and the admin dashboard terms without needing instructions.
 ### MVP Experiment Type
-**Selected: Clickable prototype.** The required screens already exist as a real interactive prototype (not just static mockups) in `/prototype/smarttimetable-prototype/`, so testers can navigate the full flow — search, view status, submit a report, and for admin testers, log in and update a class's status — using the actual frontend + localStorage architecture decided in Lab 06, without needing a working backend.
+**Selected: Clickable prototype.** The required screens already exist as a real interactive prototype (not just static mockups) in `/prototype/final-prototype//`, so testers can navigate the full flow — search, view status, submit a report, and for admin testers, log in and update a class's status — using the actual frontend + localStorage architecture decided in Lab 06, without needing a working backend.
  
 ### Success Metrics
 Full targets and how-to-measure detail in `/docs/success-metrics.md`:
@@ -127,9 +127,9 @@ Full targets and how-to-measure detail in `/docs/success-metrics.md`:
 - [Success Metrics](docs/success-metrics.md)
 - [Feedback Form](docs/feedback-form.md)
 - [Weekly Logbook](docs/weekly-logbook.md)
-- `/prototype/smarttimetable-prototype/` — the interactive clickable prototype used to actually run the experiment
+- `/prototype/final-prototype//` — the interactive clickable prototype used to actually run the experiment
 ### Connection to Final Prototype
-This experiment is the checkpoint between the wireframes and the final build: the critical assumptions name exactly what could make the final prototype fail, and the success metrics turn "did it work?" into a number the team can actually check against a target. Based on the decision rules in `/docs/success-metrics.md` — if metrics meet target, the team moves straight into the implementation sprint; if some metrics fail, the team revises the affected screen, flow, or label (for example, the report form's required-field clarity) before implementation; if most metrics fail, the team revisits the requirements and problem evidence before building further. Either way, the final prototype is built on top of the same interactive codebase already in `/prototype/smarttimetable-prototype/`, not a rewrite.
+This experiment is the checkpoint between the wireframes and the final build: the critical assumptions name exactly what could make the final prototype fail, and the success metrics turn "did it work?" into a number the team can actually check against a target. Based on the decision rules in `/docs/success-metrics.md` — if metrics meet target, the team moves straight into the implementation sprint; if some metrics fail, the team revises the affected screen, flow, or label (for example, the report form's required-field clarity) before implementation; if most metrics fail, the team revisits the requirements and problem evidence before building further. Either way, the final prototype is built on top of the same interactive codebase already in `/prototype/final-prototype//`, not a rewrite.
  
 ## Lab 08: Customer Validation and Analytics Sheet
  
@@ -138,7 +138,7 @@ The team ran the Lab 07 experiment plan on the real interactive prototype: 5 stu
  
 ### Prototype Version Tested
 - Version: v1 — interactive clickable prototype (frontend + localStorage, per `docs/technical-architecture.md`)
-- Link: `/prototype/smarttimetable-prototype/index.html`
+- Link: `/prototype/final-prototype//final-prototype/index.html`
 - Screenshots: *(not yet added — see Files Added below)*
 ### Analytics Summary
 | Metric | Result |
@@ -153,7 +153,7 @@ The team ran the Lab 07 experiment plan on the real interactive prototype: 5 stu
 **Continue with minor revisions.** All five success metrics from `docs/success-metrics.md` were met, so the core concept and workflow are validated — but form completion accuracy landed at exactly its 80% target with no safety margin, and the same two issues (report form validation clarity, admin edit field order) surfaced independently across different testers. Both are small, well-understood UI fixes, not a sign of a wrong requirement or a need to pivot. Full reasoning in `/docs/mvp-decision.md`.
  
 ### Files Added
-- [Validation Results (raw data)](data/lab08_validation_results.csv)
+- [Validation Results (raw data)](data/validation-results.csv)
 - [Validation Results Analytics](data/validation-results-analytics.xlsx)
 - [Customer Validation Summary](docs/customer-validation-summary.md)
 - [Analytics Insights](docs/analytics-insights.md)
@@ -176,9 +176,9 @@ The team reviewed SmartTimetable for privacy, ethical, IP, and basic security ri
 - [Weekly Logbook](docs/weekly-logbook.md)
 - [Data Handling Policy](docs/data-handling-policy.md)
 - [User Consent Statement](docs/user-consent-statement.md)
-- `data/data_inventory.csv` — *(supporting dataset for the Data Handling Policy)*
-- `data/risk_register.csv` — *(supporting dataset for the Risk Register)*
-- `data/third_party_assets_register.csv` — *(supporting dataset for the IP and Third-Party Assets register)*
+- `data/data-inventory.csv` — *(supporting dataset for the Data Handling Policy)*
+- `data/risk-register.csv` — *(supporting dataset for the Risk Register)*
+- `data/third-party-assets-register.csv` — *(supporting dataset for the IP and Third-Party Assets register)*
 - [Privacy/Security Review Diagram](diagrams/privacy-security-review.png)
 ### Requirement Update
 `system-requirements.md` has **not** been changed yet. A proposed clarification to **NFR-07** — documenting that admin access control is currently simulated, not a real security boundary, for the MVP stage — is recorded in `docs/updated-requirements-note.md`, pending team approval before the requirements file itself is edited.
@@ -199,18 +199,18 @@ Our goal in Lab 10 is to begin building the first working version of the prototy
 - Platform/tools: HTML / CSS / JavaScript (frontend-only), no framework
 - Backend status: Simulated backend — sample class data embedded directly in `script.js` (standing in for a JSON file), no real server or database
 - Data storage/simulation: Submitted reports and admin status/room/note updates are saved to browser `localStorage`, merged with the base sample data at render time
-- Prototype link or folder: `/prototype/index.html` — rebuilt this sprint as a single-page app with hash-based routing (`#schedule`, `#class`, `#report`, `#admin-dashboard`, etc.), consolidating the earlier multi-page version
+- Prototype link or folder: `/prototype/final-prototype/index.html` — rebuilt this sprint as a single-page app with hash-based routing (`#schedule`, `#class`, `#report`, `#admin-dashboard`, etc.), consolidating the earlier multi-page version
 ### Features Implemented in Sprint 1
 | Feature | Requirement ID | Status | Evidence |
 |---|---|---|---|
-| Homepage | FR-01 | Working | `/prototype/index.html` (`#home`) |
-| Input form | FR-03 | Working | `/prototype/index.html` (`#report`) |
-| Record list | FR-05 | Working | `/prototype/index.html` (`#schedule`) |
-| Search/filter | FR-06 | Working | `/prototype/index.html` (`#schedule`) |
-| Detail view | FR-07 | Working | `/prototype/index.html` (`#class`) |
-| Status tracking | FR-08 | Working | `/prototype/index.html` (`#class`, `#admin-edit`) |
-| Admin view | FR-09 | Working, authentication simulated | `/prototype/index.html` (`#admin-login`, `#admin-dashboard`, `#admin-edit`) |
-| Dashboard | FR-12 | Working | `/prototype/index.html` (`#admin-dashboard`) |
+| Homepage | FR-01 | Working | `/prototype/final-prototype/index.html` (`#home`) |
+| Input form | FR-03 | Working | `/prototype/final-prototype/index.html` (`#report`) |
+| Record list | FR-05 | Working | `/prototype/final-prototype/index.html` (`#schedule`) |
+| Search/filter | FR-06 | Working | `/prototype/final-prototype/index.html` (`#schedule`) |
+| Detail view | FR-07 | Working | `/prototype/final-prototype/index.html` (`#class`) |
+| Status tracking | FR-08 | Working | `/prototype/final-prototype/index.html` (`#class`, `#admin-edit`) |
+| Admin view | FR-09 | Working, authentication simulated | `/prototype/final-prototype/index.html` (`#admin-login`, `#admin-dashboard`, `#admin-edit`) |
+| Dashboard | FR-12 | Working | `/prototype/final-prototype/index.html` (`#admin-dashboard`) |
  
 Full requirement-by-requirement status for all 16 FRs is in `docs/feature-implementation-status.md`; the full sprint plan is in `docs/implementation-plan.md`.
  
@@ -226,28 +226,28 @@ All group members contributed to the same GitHub repository/page.
 ## Lab 11: MVP Implementation Sprint 2 and Startup Metrics
  
 ### Prototype Progress
-Lab 10 shipped a working single-page prototype; Lab 11 focused on making its data and admin dashboard feel real rather than adding new screens. The admin dashboard is now seeded with 12 realistic historical reports (`prototype/data.json`, loaded via `loadSampleReports()`, with an inline fallback so it still works when opened directly from disk). Live and seeded reports are merged into a single feed (`unifiedReports()`), so the dashboard reads as one consistent list instead of two separate sources. Status filter chips (All / Pending / In Progress / Resolved / Closed) and new metrics (average days open, most-reported course) were added to the dashboard. The report form's validation also gained `aria-invalid`, `aria-describedby`, and `role="alert"` for accessibility — though a real headless test pass this lab confirmed the *visual* prominence issue from Lab 08 (testers missing the required-field error) is still open, since the input itself gets no border/background change, only the small text below it.
+Lab 10 shipped a working single-page prototype; Lab 11 focused on making its data and admin dashboard feel real rather than adding new screens. The admin dashboard is now seeded with 12 realistic historical reports (`prototype/final-prototype/data.json`, loaded via `loadSampleReports()`, with an inline fallback so it still works when opened directly from disk). Live and seeded reports are merged into a single feed (`unifiedReports()`), so the dashboard reads as one consistent list instead of two separate sources. Status filter chips (All / Pending / In Progress / Resolved / Closed) and new metrics (average days open, most-reported course) were added to the dashboard. The report form's validation also gained `aria-invalid`, `aria-describedby`, and `role="alert"` for accessibility — though a real headless test pass this lab confirmed the *visual* prominence issue from Lab 08 (testers missing the required-field error) is still open, since the input itself gets no border/background change, only the small text below it.
  
 ### Implemented / Improved Features
 | Requirement ID | Feature | Status | Evidence |
 |---|---|---|---|
 | FR-03 | Report form validation accessibility | Partially Completed | `setFieldError()` adds ARIA attributes; visual highlight still missing (`docs/prototype-testing-notes.md`) |
 | FR-06 | Admin dashboard status filter chips | Completed | Filter chips (All/Pending/In Progress/Resolved/Closed) tested and working |
-| FR-08 | Status tracking, seeded historical data | Completed | 12 seeded reports in `prototype/data.json`; status updates confirmed to persist and reflect on the student-facing view |
+| FR-08 | Status tracking, seeded historical data | Completed | 12 seeded reports in `prototype/final-prototype/data.json`; status updates confirmed to persist and reflect on the student-facing view |
 | FR-12 | Dashboard metrics expansion | Completed | Added average days-open and most-reported-course metrics, computed live from `unifiedReports()` |
  
 Full requirement-by-requirement status for all 16 FRs is in `docs/feature-implementation-status.md`.
  
 ### Startup/Product Metrics
-A dedicated Power BI dashboard was built for this lab — `Lab11_TeamDigiTry_Startup_Metrics.pbix` — using 12 DAX measures defined in `docs/lab11_dax_measures.txt` against `data/lab11_prototype_records.csv` (15 reports) and `data/lab11_activity_log.csv` (36 activity events). It currently surfaces 4 measures as headline cards (Total Records, New Submissions, Pending Cases, Resolution Rate), plus a category breakdown, a status breakdown, an activity-over-time line chart, and a requirement-traceability pivot table. Current values: Total Records = 15, New Submissions = 14, Pending Cases = 6, Resolution Rate = 60.0%, Average Resolution Days = 2.27, Mobile Activity Rate = 44.4%. Full metric definitions, all 12 measures, and interpretation are in `docs/startup-metrics.md`. Task Completion Rate (95%) and Average Feedback Score (4.5/5) remain documented separately, carried over from the Lab 08 Power BI validation dashboard.
+A dedicated Power BI dashboard was built for this lab — `Lab11_TeamDigiTry_Startup_Metrics.pbix` — using 12 DAX measures against `data/lab11_prototype_records.csv` (15 reports) and `data/lab11_activity_log.csv` (36 activity events). It currently surfaces 4 measures as headline cards (Total Records, New Submissions, Pending Cases, Resolution Rate), plus a category breakdown, a status breakdown, an activity-over-time line chart, and a requirement-traceability pivot table. Current values: Total Records = 15, New Submissions = 14, Pending Cases = 6, Resolution Rate = 60.0%, Average Resolution Days = 2.27, Mobile Activity Rate = 44.4%. Full metric definitions, all 12 measures, and interpretation are in `docs/startup-metrics.md`. Task Completion Rate (95%) and Average Feedback Score (4.5/5) remain documented separately, carried over from the Lab 08 Power BI validation dashboard.
  
 ### Prototype Screenshots
-- Homepage: `screenshots/Image (8).jpg`
-- Schedule/record list: `screenshots/Image (9).jpg`
-- Detail view: `screenshots/Image (10).jpg`
-- Report/input form: `screenshots/Image (11).jpg`
-- Admin dashboard: `screenshots/Image (12).jpg`
-- Power BI Customer Validation Dashboard: `screenshots/Customer_Validation_Dashboard.png`
+- Homepage: `screenshots/home-page.jpg`
+- Schedule/record list: `screenshots/input-filter.jpg`
+- Detail view: `screenshots/detal-view.jpg`
+- Report/input form: `screenshots/input-view.jpg`
+- Admin dashboard: `screenshots/admin-view.jpg`
+- Power BI Customer Validation Dashboard: `screenshots/customer-validation-dashboard.png`
 ### Member Contributions
 - **Sai Thi Han Win** — Built startup/product metrics dashboard and updated the prototype
 - **Soe Yu Nwe** — Completed future implementations and prototype testing
@@ -266,9 +266,9 @@ A dedicated Power BI dashboard was built for this lab — `Lab11_TeamDigiTry_Sta
 ## Lab 12 - Landing Page and Digital Go-to-Market
  
 ### Landing Page
-- Landing page folder/link: `/landing-page/index.html`
+- Landing page folder/link: `/landing-page/final-prototype/index.html`
 - Main CTA: "Try the Prototype"
-- Prototype/demo link: `/prototype/index.html`
+- Prototype/demo link: `/prototype/final-prototype/index.html`
 ### Go-to-Market Plan
 - Target early users: RIC students in the team's own sections first (ICT111, ICT402, etc.), then lecturers and admin/staff as a secondary group for the report-review workflow
 - Selected channels: ICT111 class group chat, campus QR poster, Instagram story, RIC student Line group, word of mouth
@@ -283,7 +283,7 @@ Full metric definitions and current sample-data values are in `docs/acquisition-
 - Landing page screenshot: `/screenshots/landing-page.png` *(not yet added)*
 - CTA screenshot: `/screenshots/call-to-action.png` *(not yet added)*
 ### Requirement Alignment
-The landing page's feature section maps directly to real requirement IDs rather than generic marketing copy: weekly schedule list (FR-05), search by course/room (FR-06), live status labels (FR-07, FR-08), report a mismatch (FR-03, FR-10), and the admin dashboard (FR-09, FR-12) — see `docs/landing-page-content.md` for the full table. The main CTA leads directly into the working prototype (`/prototype/index.html`), not a separate mockup, so anyone who clicks through is testing the actual FR-01–FR-16 implementation, not a promotional stand-in for it. The landing page's Responsible Data Message also reflects FR-15 (privacy and responsible data handling) — no names, IDs, or contact info are collected, and CTA click tracking stays local to the visitor's browser.
+The landing page's feature section maps directly to real requirement IDs rather than generic marketing copy: weekly schedule list (FR-05), search by course/room (FR-06), live status labels (FR-07, FR-08), report a mismatch (FR-03, FR-10), and the admin dashboard (FR-09, FR-12) — see `docs/landing-page-content.md` for the full table. The main CTA leads directly into the working prototype (`/prototype/final-prototype/index.html`), not a separate mockup, so anyone who clicks through is testing the actual FR-01–FR-16 implementation, not a promotional stand-in for it. The landing page's Responsible Data Message also reflects FR-15 (privacy and responsible data handling) — no names, IDs, or contact info are collected, and CTA click tracking stays local to the visitor's browser.
  
 ## Lab 13: Sales Scenario, Demo Script, and User Testing
  
@@ -327,8 +327,8 @@ The PDF timetable doesn't update for cancellations, room changes, or double-book
  
 ### Final Prototype
 - Prototype folder: `/prototype/final-prototype/` (all usability and login fixes merged and verified — this is the definitive version)
-- Landing page: `/landing-page/index.html`
-- Final demo link: run locally via `/prototype/final-prototype/index.html`
+- Landing page: `/landing-page/final-prototype/index.html`
+- Final demo link: run locally via `/prototype/final-prototype/final-prototype/index.html`
 ### Final Documentation
 - System requirements: `/docs/system-requirements.md`
 - User stories: `/docs/user-stories.md`
@@ -343,7 +343,7 @@ The PDF timetable doesn't update for cancellations, room changes, or double-book
 `final-homepage.png`, `final-input-form.png`, `final-record-list.png`, `final-detail-view.png`, `final-dashboard.png`, `final-admin-view.png` — *(not yet captured, see Final Submission Notes)*
  
 ### Pitch
-- Final pitch outline: `/pitch/final-pitch-outline.md`
+- Final pitch outline: `pitch/final-pitch.pptx`
 ### Data and Diagrams
 - Final sample data: `/data/` (includes `customer_segments_value.csv`, `lab11_prototype_records.csv`, `lab11_activity_log.csv`, `lab11_data_dictionary.csv`, validation and acquisition datasets)
 - Final diagrams: `/diagrams/` (user flow, use case, system architecture, data flow, privacy/security review, experiment flow, validation-result flow, implementation flow, implementation-metrics flow, landing-page-to-prototype flow, user-testing flow, final-demo flow)
