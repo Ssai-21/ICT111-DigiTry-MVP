@@ -1,0 +1,4 @@
+segment_id,segment_name,need,value_expected,possible_channel
+CS01,Student checking their schedule,View accurate and up-to-date class times and rooms,Avoid arriving late or going to the wrong or cancelled class,Mobile-friendly website
+CS02,Student or lecturer reporting a mismatch,Submit a schedule mismatch report quickly,Confidence that a wrong or outdated class listing will get fixed,Web form
+CS03,Admin or lecturer managing records,Review reports and update a class's status,Organized single source of truth for class status changes,Admin panel
