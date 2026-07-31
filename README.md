@@ -347,6 +347,4 @@ The PDF timetable doesn't update for cancellations, room changes, or double-book
 ### Data and Diagrams
 - Final sample data: `/data/` (includes `customer_segments_value.csv`, `lab11_prototype_records.csv`, `lab11_activity_log.csv`, `lab11_data_dictionary.csv`, validation and acquisition datasets)
 - Final diagrams: `/diagrams/` (user flow, use case, system architecture, data flow, privacy/security review, experiment flow, validation-result flow, implementation flow, implementation-metrics flow, landing-page-to-prototype flow, user-testing flow, final-demo flow)
-### Final Submission Notes
-All 16 requirements are Completed. Outstanding before presentation: capture and upload the 6 final screenshots listed above, create the drafted GitHub Issues on the actual repository, and fix two remaining filename mismatches (`validation-results-analytics.xlsx` vs. the required `validation-results.xlsx`; Lab 10 screenshot names).
  
