@@ -521,7 +521,47 @@ Fix IMP-01 and IMP-02 from `docs/final-improvement-list.md`, run the real 7-pers
  
 ## Requirement Traceability Notes
 FR-10 and FR-08 need final checking before Lab 14, since both have open, unresolved usability issues despite technically "working." FR-09 (admin authentication) also needs a team decision — either implement real authentication or explicitly document it as an accepted MVP-stage limitation in the final submission, rather than leaving it ambiguous. FR-14 (mobile-friendly) needs one more check after the day-chip touch-target sizing is addressed.
- 
+
+ # Weekly Logbook - Lab 14
+
+## Group Name
+Team DigiTry
+
+## Date
+August 26, 2026
+
+## Members Present
+Sai Thi Han Win, Soe Yu Nwe, Rigzang Lhmao, Seint Myat Wai
+
+## What We Completed Today
+- Audited the final prototype against `system-requirements.md` and confirmed all 16 requirements are now Completed, including the three (FR-08, FR-09, FR-10) that were still Partial after Lab 13
+- Verified the three prepared usability/security fixes from `docs/final-improvement-list.md` (report form validation highlight, admin edit field order, real admin login check) are actually merged into `/prototype/final-prototype/`
+- Wrote the full final documentation set: `final-prototype-report.md`, `final-demo-script.md`, `final-reflection.md`, `requirement-traceability-matrix.md`, `final-submission-checklist.md`, and `pitch/final-pitch-outline.md`
+- Ran a full requirement-by-requirement and file-by-file audit of the entire repository against every lab's official task sheet, not just the earlier template checklists, and resolved the gaps found (missing diagrams, typo'd filenames, missing Lab 11 Power BI dataset files)
+- Compiled a full set of GitHub Issues covering every lab's required tracking evidence
+
+## Final Prototype Updates
+`/prototype/final-prototype/` is confirmed as the definitive final prototype folder — all known usability and login issues from Lab 08 through Lab 13 are fixed and verified here. The homepage, schedule search/filter, class detail with live status, report form with visible validation, admin login with real credential checking, admin edit with auto-revealing New Room field, and admin dashboard with live metrics are all working end to end, confirmed via automated testing.
+
+## Final Documentation Updates
+`docs/feature-implementation-status.md` updated so FR-08, FR-09, and FR-10 now read Completed instead of Partial. `docs/requirement-traceability-matrix.md` created, connecting all 16 requirements to their evidence, user story, screen, and final screenshot. `docs/final-prototype-report.md`, `final-demo-script.md`, and `final-reflection.md` completed in full. `docs/final-submission-checklist.md` created and used to confirm what's left before submission.
+
+## GitHub Contributions Today
+| Member | File/Issue/Commit Updated | Evidence Link |
+|---|---|---|
+| Sai Thi Han Win | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Soe Yu Nwe | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Rigzang Lhmao | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Seint Myat Wai | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+
+## Problems Found Before Submission
+- The 6 required final screenshots (`final-homepage.png` through `final-admin-view.png`) still need to be captured from `/prototype/final-prototype/` and added to `/screenshots/`
+- README.md still needs its Lab 14 section added
+- Two filename mismatches remain open from earlier labs: `data/validation-results-analytics.xlsx` vs. the required `validation-results.xlsx` name, and the Lab 10 screenshot names not matching the task sheet exactly
+- GitHub Issues have been drafted but not yet created on the actual repository — pending manual creation
+
+## Action Before Final Presentation
+Capture and upload the 6 final screenshots, add the Lab 14 section to README.md, create the drafted GitHub Issues, do a final read-through of every document for spelling and broken links, and rehearse the demo script as a full timed run-through before presenting.
 *(Update: IMP-01, IMP-02, and IMP-03 were addressed after this lab — see the prototype fixes applied for FR-10, FR-08, and FR-09.)*
 ## Next Action Before Lab 13
 Run the actual channel outreach (starting with the ICT111 class group chat as a soft launch), log real numbers into `data/acquisition-metrics.csv`, and fix the two outstanding Lab 08/11 usability issues before pushing to wider channels (QR poster, Instagram, Line group).
