@@ -1,0 +1,17 @@
+Column,Table,Meaning,Data Type,Example,Why Students Need It
+RecordID,PrototypeRecords,Unique mismatch report ID,Text,R001,Connects record data to activity log.
+SubmittedDate,PrototypeRecords,Date the report was submitted,Date,2026-07-15,Used for trends and prototype activity.
+LastUpdatedDate,PrototypeRecords,Last status update date,Date,2026-07-16,Used for operational progress.
+ItemCategory,PrototypeRecords,"Type of schedule issue reported (Room Change, Cancellation, Wrong Time, Wrong Lecturer, Other)",Text,Room Change,Used for category metric.
+Location,PrototypeRecords,Room the reported class meets in,Text,Building 11 Room A504,Used for operational insight.
+Priority,PrototypeRecords,Urgency level,Text,High,Used to filter cases.
+CurrentStatus,PrototypeRecords,Current progress status (Pending / Claimed / Returned / Closed),Text,Pending,Used for status metric.
+ResolutionDays,PrototypeRecords,Days from submission to resolution or current update,Whole Number,3,Used for average resolution days.
+RequirementID,PrototypeRecords,Requirement supported by record,Text,FR-08,Used for requirement traceability.
+OwnerRole,PrototypeRecords,Role responsible for resolving the record,Text,Admin,Used for management view.
+EventID,ActivityLog,Unique activity event ID,Text,E001,Used to count activity events.
+EventDateTime,ActivityLog,Date/time of the action,Date/Time,2026-07-15 09:15,Used for activity timeline.
+UserRole,ActivityLog,"Who performed the action (Student, Lecturer, Admin)",Text,Student,Used for slicer/filter.
+ActionType,ActivityLog,"What action happened (SubmitReport, SearchRecord, ViewDetail, UpdateStatus, AdminReview, ViewDashboard)",Text,SearchRecord,Used to measure behavior.
+DeviceType,ActivityLog,Device used,Text,Mobile,Used to compare mobile/laptop usage.
+ProcessingTimeMinutes,ActivityLog,Time spent on the action,Whole Number,5,Used for operational metric.
