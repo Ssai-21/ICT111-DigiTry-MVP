@@ -131,6 +131,47 @@ function formatSlots(cls) {
     .join(" · ");
 }
 
+/* Fixed "current moment" for the dashboard's Up Next / Today's Classes
+   widgets — this prototype's whole schedule is a static demo week
+   (07-10 July 2026), so "now" is a fixed point inside that week rather
+   than the visitor's real clock, the same way renderScheduleShell()
+   already hardcodes "Week of 07-10 July 2026" instead of computing it. */
+const DEMO_NOW = { day: "Tuesday", time: "10:30" };
+
+function timeRangeStart(timeStr) { return timeStr.split("–")[0]; }
+function timeRangeEnd(timeStr) { return timeStr.split("–")[1]; }
+
+function worstStatus(statuses) {
+  if (statuses.includes("Cancelled")) return "Cancelled";
+  if (statuses.includes("Room Changed")) return "Room Changed";
+  return "Confirmed";
+}
+
+/* Collapses per-section class rows (e.g. ICT 105 sections 130 & 131)
+   into one card per distinct course for the dashboard's course grid. */
+function uniqueCourses(classes) {
+  const map = new Map();
+  classes.forEach(c => {
+    const key = c.course_code + "|" + c.class_name;
+    if (!map.has(key)) {
+      map.set(key, {
+        course_code: c.course_code,
+        class_name: c.class_name,
+        lecturers: new Set(),
+        rooms: new Set(),
+        sections: new Set(),
+        statuses: []
+      });
+    }
+    const entry = map.get(key);
+    entry.lecturers.add(c.lecturer);
+    entry.rooms.add(c.room);
+    entry.sections.add(c.section);
+    entry.statuses.push(c.status);
+  });
+  return Array.from(map.values());
+}
+
 function splitCourseName(name) {
   const idx = name.indexOf(" - ");
   return idx === -1 ? { code: name, title: "" } : { code: name.slice(0, idx), title: name.slice(idx + 3) };
@@ -278,6 +319,7 @@ function parseHash() {
 
 const TAB_MAP = {
   "home": "home",
+  "dashboard": "dashboard",
   "schedule": "schedule", "class": "schedule",
   "report": "report", "report-confirmation": "report",
   "admin-login": "admin", "admin-dashboard": "admin",
@@ -305,9 +347,12 @@ function render() {
     case "home":
       app.innerHTML = renderHome();
       break;
+    case "dashboard":
+      app.innerHTML = renderStudentDashboard();
+      break;
     case "schedule":
-      app.innerHTML = renderScheduleShell();
-      bindScheduleEvents();
+      app.innerHTML = renderScheduleShell(params);
+      bindScheduleEvents(params);
       break;
     case "class":
       app.innerHTML = renderClassDetail(params.get("id"));
@@ -457,6 +502,158 @@ function renderHome() {
 }
 
 /* ---------------------------------------------------------
+   4b. SCREEN: Student Dashboard
+   --------------------------------------------------------- */
+
+function renderNextCard(entry) {
+  if (!entry) {
+    return `
+      <div class="glass next-card next-card-empty">
+        <span class="icon" aria-hidden="true">${ICONS.checkCircle}</span>
+        <div class="next-body">
+          <p class="eyebrow">All caught up</p>
+          <div class="next-title">No more classes today</div>
+          <p class="class-sub">Check the full weekly schedule to plan ahead.</p>
+        </div>
+        <a class="btn btn-secondary btn-sm" href="#schedule">View Schedule</a>
+      </div>
+    `;
+  }
+
+  const { cls, time } = entry;
+  const start = timeRangeStart(time);
+  const end = timeRangeEnd(time);
+  const inProgress = DEMO_NOW.time >= start && DEMO_NOW.time < end;
+
+  return `
+    <div class="glass next-card">
+      <div class="next-time">${escapeHtml(time)}</div>
+      <div class="next-body">
+        <p class="eyebrow">${inProgress ? "Happening now" : "Up next"}</p>
+        <div class="next-title">${escapeHtml(cls.course_code)} &middot; ${escapeHtml(cls.class_name)}</div>
+        <p class="class-sub">Room ${escapeHtml(cls.room)} &middot; ${escapeHtml(cls.lecturer)}</p>
+      </div>
+      <span class="status-badge ${statusClass(cls.status)}">${escapeHtml(cls.status)}</span>
+      <a class="btn btn-primary btn-sm" href="#class?id=${encodeURIComponent(cls.id)}">View Details</a>
+    </div>
+  `;
+}
+
+function renderTodayList(entries) {
+  return `
+    <div>
+      ${entries.map(({ cls, time }) => {
+        const start = timeRangeStart(time);
+        const end = timeRangeEnd(time);
+        const isNow = DEMO_NOW.time >= start && DEMO_NOW.time < end;
+        const openCount = openReportCountForCourse(cls.course_code);
+        return `
+          <a class="class-row glass" href="#class?id=${encodeURIComponent(cls.id)}">
+            <div class="class-time">${escapeHtml(time)}</div>
+            <div class="class-main">
+              <div class="class-title">${escapeHtml(cls.course_code)} &middot; ${escapeHtml(cls.class_name)}</div>
+              <div class="class-sub">Room ${escapeHtml(cls.room)} &middot; ${escapeHtml(cls.lecturer)}</div>
+            </div>
+            <div class="class-status-col">
+              <span class="status-badge ${statusClass(cls.status)}">${escapeHtml(cls.status)}</span>
+              ${isNow ? `<span class="status-badge now-badge">Now</span>` : ""}
+              ${openCount ? `<span class="report-flag">${openCount} open report${openCount === 1 ? "" : "s"}</span>` : ""}
+            </div>
+          </a>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+function renderCourseCard(course, i) {
+  const status = worstStatus(course.statuses);
+  const sections = Array.from(course.sections).sort().join(", ");
+  const lecturers = Array.from(course.lecturers).join(" &middot; ");
+  const rooms = Array.from(course.rooms).join(", ");
+  const openCount = openReportCountForCourse(course.course_code);
+
+  return `
+    <div class="card glass course-card" data-reveal style="--reveal-i:${i};">
+      <div class="course-card-head">
+        <div>
+          <p class="eyebrow">${escapeHtml(course.course_code)}</p>
+          <h3>${escapeHtml(course.class_name)}</h3>
+        </div>
+        <span class="status-badge ${statusClass(status)}">${escapeHtml(status)}</span>
+      </div>
+      <p class="class-sub">Sec. ${escapeHtml(sections)} &middot; ${escapeHtml(lecturers)}</p>
+      <p class="class-sub">Room ${escapeHtml(rooms)}</p>
+      ${openCount ? `<p class="report-flag">${openCount} open report${openCount === 1 ? "" : "s"}</p>` : ""}
+      <a class="btn btn-ghost btn-sm" href="#schedule?q=${encodeURIComponent(course.course_code)}">View in Schedule</a>
+    </div>
+  `;
+}
+
+function renderStudentDashboard() {
+  const classes = getClasses();
+
+  const todayEntries = classes
+    .filter(c => c.slots.some(s => s.day === DEMO_NOW.day))
+    .map(c => ({ cls: c, time: c.slots.find(s => s.day === DEMO_NOW.day).time }))
+    .sort((a, b) => a.time.localeCompare(b.time));
+
+  const weekTotal = classes.reduce((sum, c) => sum + c.slots.length, 0);
+  const needsAttention = classes.filter(c => c.status === "Cancelled" || c.status === "Room Changed").length;
+  const openReportsTotal = classes.reduce((sum, c) => sum + openReportCountForCourse(c.course_code), 0);
+  const nextEntry = todayEntries.find(e => timeRangeEnd(e.time) > DEMO_NOW.time);
+
+  const courses = uniqueCourses(classes);
+
+  return `
+    <p class="breadcrumb">Home / Dashboard</p>
+    <p class="eyebrow">Week of 07 &ndash; 10 July 2026</p>
+    <h1>Your Dashboard</h1>
+    <p class="lead">A quick look at today's classes, what's coming up next, and every
+    course on your schedule this week.</p>
+
+    <div class="summary-grid">
+      <div class="glass summary-card" data-reveal style="--reveal-i:0;">
+        <div class="num" data-countup>${weekTotal}</div>
+        <div class="lbl">Classes this week</div>
+      </div>
+      <div class="glass summary-card" data-reveal style="--reveal-i:1;">
+        <div class="num" data-countup>${todayEntries.length}</div>
+        <div class="lbl">Classes today &middot; ${escapeHtml(DEMO_NOW.day)}</div>
+      </div>
+      <div class="glass summary-card" data-reveal style="--reveal-i:2;">
+        <div class="num" data-countup>${openReportsTotal}</div>
+        <div class="lbl">Open reports on your courses</div>
+      </div>
+      <div class="glass summary-card" data-reveal style="--reveal-i:3;">
+        <div class="num" data-countup>${needsAttention}</div>
+        <div class="lbl">Classes needing your attention</div>
+      </div>
+    </div>
+
+    ${renderNextCard(nextEntry)}
+
+    <div class="section-head">
+      <h2>${escapeHtml(DEMO_NOW.day)}'s Classes</h2>
+    </div>
+    ${todayEntries.length
+      ? renderTodayList(todayEntries)
+      : `<p class="lead">No classes scheduled for ${escapeHtml(DEMO_NOW.day)}.</p>`}
+
+    <h2>Your Courses</h2>
+    <p class="lead">Every course you're enrolled in this term, at a glance.</p>
+    <div class="course-grid">
+      ${courses.map(renderCourseCard).join("")}
+    </div>
+
+    <div class="btn-row">
+      <a href="#schedule" class="btn btn-primary">View Full Weekly Schedule</a>
+      <a href="#report" class="btn btn-secondary">Report a Schedule Issue</a>
+    </div>
+  `;
+}
+
+/* ---------------------------------------------------------
    5. SCREEN: Schedule
    --------------------------------------------------------- */
 
@@ -464,7 +661,8 @@ const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday"];
 let scheduleActiveDay = "all";
 let scheduleQuery = "";
 
-function renderScheduleShell() {
+function renderScheduleShell(params) {
+  const initialQuery = (params && params.get("q")) || "";
   return `
     <p class="breadcrumb">Home / My Schedule</p>
     <p class="eyebrow">Week of 07 &ndash; 10 July 2026</p>
@@ -474,7 +672,7 @@ function renderScheduleShell() {
 
     <div class="search-box glass">
       <span class="search-icon" aria-hidden="true">${ICONS.search}</span>
-      <input id="searchInput" type="text" aria-label="Search classes by course code, course name, or room" placeholder="Search by course code, course name, or room (e.g. ICT 111, 11-A504)…">
+      <input id="searchInput" type="text" aria-label="Search classes by course code, course name, or room" placeholder="Search by course code, course name, or room (e.g. ICT 111, 11-A504)…" value="${escapeHtml(initialQuery)}">
     </div>
     <p class="search-hint">Live search runs in your browser only &mdash; nothing is sent anywhere.</p>
 
@@ -554,8 +752,8 @@ function renderScheduleList() {
   if (window.Enhance) Enhance.afterRender("schedule");
 }
 
-function bindScheduleEvents() {
-  scheduleQuery = "";
+function bindScheduleEvents(params) {
+  scheduleQuery = (params && params.get("q")) || "";
   scheduleActiveDay = "all";
   document.getElementById("searchInput").addEventListener("input", e => {
     scheduleQuery = e.target.value;
