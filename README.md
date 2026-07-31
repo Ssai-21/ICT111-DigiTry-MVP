@@ -303,5 +303,50 @@ We prepared the final demo scenario, demo script, user testing plan, testing res
 ### Final Preparation Status
 The prototype is close to ready for Lab 14 but not fully there yet. The core workflow is validated again this lab — every main task (homepage, search, report submission, status tracking, dashboard) passed testing with no new structural problems. Two Critical issues carried over from Lab 08/11 still need fixing before Lab 14: the report form's required-field error has no visual highlight on the input itself (FR-10), and the admin edit form's "New Room" field order still confuses testers (FR-08). Both are tracked as IMP-01 and IMP-02 in `docs/final-improvement-list.md`. The two required screenshots for this lab (`demo-flow.png`, `user-testing-evidence.png`) still need to be captured and added.
  
-## Next Step
-Fix IMP-01 and IMP-02 from `docs/final-improvement-list.md` (report form validation visibility, admin edit field order), capture the two missing Lab 13 screenshots, and rehearse the demo script before Lab 14.
+## Lab 14: Final MVP Release and Venture Pitch
+ 
+### Project Title
+Smart Timetable (Team DigiTry)
+ 
+### Group Members
+| Name | Role | Main Contribution |
+|---|---|---|
+| Sai Thi Han Win | Technical Lead | Built the interactive prototype, diagrams, and the final round of usability fixes |
+| Soe Yu Nwe | Product Lead | Product concept, requirement mapping, report form design, go-to-market messaging |
+| Rigzang Lhmao | Documentation Lead | Documentation, wireframe specification, README, screenshot evidence |
+| Seint Myat Wai | Validation Lead | Customer discovery, MVP experiments, user testing, startup metrics |
+ 
+### Project Overview
+SmartTimetable replaces RIC's static PDF class timetable with a searchable, always-current schedule and a report-and-resolve loop connecting students, lecturers, and admin/staff.
+ 
+### Target Users
+Primary: RIC students. Secondary: lecturers. Tertiary: admin/staff who review reports and keep the schedule accurate.
+ 
+### Problem Solved
+The PDF timetable doesn't update for cancellations, room changes, or double-bookings, and changes only spread informally through group chats — confirmed in Lab 03 discovery (21 respondents, 76% rating a real-time alternative 7/10+ in value).
+ 
+### Final Prototype
+- Prototype folder: `/prototype/final-prototype/` (all usability and login fixes merged and verified — this is the definitive version)
+- Landing page: `/landing-page/index.html`
+- Final demo link: run locally via `/prototype/final-prototype/index.html`
+### Final Documentation
+- System requirements: `/docs/system-requirements.md`
+- User stories: `/docs/user-stories.md`
+- MVP feature list: `/docs/mvp-feature-list.md`
+- Feature implementation status: `/docs/feature-implementation-status.md` (all 16 requirements now Completed)
+- Requirement traceability matrix: `/docs/requirement-traceability-matrix.md`
+- Final prototype report: `/docs/final-prototype-report.md`
+- Final demo script: `/docs/final-demo-script.md`
+- Final reflection: `/docs/final-reflection.md`
+- Final submission checklist: `/docs/final-submission-checklist.md`
+### Screenshots
+`final-homepage.png`, `final-input-form.png`, `final-record-list.png`, `final-detail-view.png`, `final-dashboard.png`, `final-admin-view.png` — *(not yet captured, see Final Submission Notes)*
+ 
+### Pitch
+- Final pitch outline: `/pitch/final-pitch-outline.md`
+### Data and Diagrams
+- Final sample data: `/data/` (includes `customer_segments_value.csv`, `lab11_prototype_records.csv`, `lab11_activity_log.csv`, `lab11_data_dictionary.csv`, validation and acquisition datasets)
+- Final diagrams: `/diagrams/` (user flow, use case, system architecture, data flow, privacy/security review, experiment flow, validation-result flow, implementation flow, implementation-metrics flow, landing-page-to-prototype flow, user-testing flow, final-demo flow)
+### Final Submission Notes
+All 16 requirements are Completed. Outstanding before presentation: capture and upload the 6 final screenshots listed above, create the drafted GitHub Issues on the actual repository, and fix two remaining filename mismatches (`validation-results-analytics.xlsx` vs. the required `validation-results.xlsx`; Lab 10 screenshot names).
+ 
