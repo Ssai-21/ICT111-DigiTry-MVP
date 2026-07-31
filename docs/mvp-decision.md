@@ -4,11 +4,11 @@
 ## 1. Decision
 Choose one:
 
-- [ ] Continue with the current MVP direction
+- [x] Continue with the current MVP direction
 - [x] Continue with minor revisions
-- [ ] Revise major workflow or feature
-- [ ] Collect more evidence before implementation
-- [ ] Pivot or change the solution direction
+- [x] Revise major workflow or feature
+- [x] Collect more evidence before implementation
+- [x] Pivot or change the solution direction
 
 ## 2. Evidence Supporting the Decision
 All five success metrics defined in docs/success-metrics.md were met or exceeded in this round: task success rate 95% (vs. 70% target), search success 100% (vs. 70% target), usability 4.1/5 (vs. 4/5 target), and feature usefulness 4.5/5 (vs. 4/5 target). This is strong enough evidence that the core concept and main workflow don't need to change. The one metric with no safety margin — form completion accuracy, at exactly 80% — combined with the same two friction points (report form validation clarity, admin edit field order) showing up independently across different testers, is why the decision is "minor revisions" rather than "continue as-is": both issues are small and fixable, but worth fixing before this number gets relied on again.
