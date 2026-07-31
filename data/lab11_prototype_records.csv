@@ -1,0 +1,16 @@
+RecordID,SubmittedDate,LastUpdatedDate,ItemCategory,Location,Priority,CurrentStatus,ResolutionDays,RequirementID,OwnerRole
+R001,2026-07-15,2026-07-16,Room Change,Building 11 Room A504,High,Returned,1,FR-08,Admin
+R002,2026-07-15,2026-07-18,Cancellation,Building 11 Room 304,High,Claimed,3,FR-08,Admin
+R003,2026-07-16,2026-07-16,Wrong Time,Building 11 Room A504,Medium,Pending,0,FR-03,Staff
+R004,2026-07-16,2026-07-20,Room Change,Building 11 Room 208,High,Closed,4,FR-05,Admin
+R005,2026-07-17,2026-07-24,Wrong Lecturer,Building 3 Room 216D,Low,Pending,2,FR-06,Admin
+R006,2026-07-17,2026-07-20,Cancellation,Building 11 Room A504,High,Claimed,3,FR-09,Staff
+R007,2026-07-18,2026-07-20,Other,Building 6 Room A501,Medium,Returned,2,FR-05,Admin
+R008,2026-07-18,2026-07-19,Room Change,Building 3 Room 216D,Low,Pending,1,FR-08,Staff
+R009,2026-07-19,2026-07-21,Wrong Time,Building 6 Room 302B,Medium,Claimed,2,FR-06,Admin
+R010,2026-07-19,2026-07-22,Cancellation,Building 11 Room 305,Medium,Pending,3,FR-12,Admin
+R011,2026-07-20,2026-07-23,Room Change,Building 11 Room 302,Low,Closed,3,FR-05,Staff
+R012,2026-07-20,2026-07-24,Wrong Lecturer,Building 11 Room A504,Low,Pending,4,FR-08,Admin
+R013,2026-07-21,2026-07-22,Room Change,Building 11 Room A504,High,Returned,1,FR-03,Staff
+R014,2026-07-21,2026-07-24,Wrong Time,Building 6 Room A501,High,Pending,3,FR-06,Admin
+R015,2026-07-22,2026-07-24,Other,Building 11 Room 302,Low,Claimed,2,FR-05,Admin
