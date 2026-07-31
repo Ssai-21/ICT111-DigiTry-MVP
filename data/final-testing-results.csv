@@ -1,0 +1,8 @@
+tester_id,target_user_type,task,completed,time_minutes,confusion_point,feedback_score_1_5,comment,improvement_needed
+S01,Student,Submit schedule mismatch report,Yes,1.5,No major issue,5,Report an Issue button made it quick,No
+S02,Student,Search class by course code,Yes,1.1,No major issue,4,Search worked as expected,No
+S03,Student,Submit schedule mismatch report,Partial,3.4,Missed the required-field error at first,3,Needed a second look to notice the error,Fixed
+S04,Student,View class detail and status,Yes,1.0,No major issue,5,Liked seeing old vs new room,No
+S05,Student,Check class status,Yes,1.4,No major issue,4,Status colors made it easy to scan,No
+A01,Admin,Update class status to Room Changed,Partial,2.1,Unsure whether to enter new room before or after selecting status,4,Useful once field order was clear,Fixed
+A02,Admin,Review admin dashboard,Yes,0.9,No major issue,5,Dashboard summary cards were clear,No

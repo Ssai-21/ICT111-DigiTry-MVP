@@ -1,0 +1,14 @@
+record_id,record_type,course_code,room,day,status,submitted_by_role,last_updated,notes
+ict105-130,Class,ICT 105,3-216D,Monday,Confirmed,,2026-08-26,Fundamental Technology Entrepreneurship
+irs164-900,Class,IRS 164,6-A501,Monday,Confirmed,,2026-08-26,Digital Skills in Everyday Life
+ile126-900,Class,ILE 126,11-208,Monday,Room Changed,,2026-08-26,Moved from Room 11-304 after a student report
+ict111-130,Class,ICT 111,11-A504,Tuesday/Thursday,Confirmed,,2026-08-26,Introduction to Information Technology
+ict402-132,Class,ICT 402,6-302B,Tuesday/Thursday,Confirmed,,2026-08-26,Research Methodology
+ict401-132,Class,ICT 401,11-304,Tuesday,Cancelled,,2026-08-26,Cancelled by lecturer for this week
+ict110-130,Class,ICT 110,11-A504,Wednesday,Confirmed,,2026-08-26,Web Systems and Technologies
+ict105-131,Class,ICT 105,3-216D,Wednesday,Confirmed,,2026-08-26,Fundamental Technology Entrepreneurship
+ict401-131,Class,ICT 401,11-305,Wednesday,Confirmed,,2026-08-26,Seminar in ICT
+ite201-130,Class,ITE 201,11-302,Thursday,Confirmed,,2026-08-26,IT Community
+R001,Report,ICT 111,11-A504,,Resolved,Student,2026-07-16,Room corrected in system
+R002,Report,ICT 401,11-304,,Claimed,Student,2026-07-18,Cancellation confirmed
+R003,Report,ICT 110,11-A504,,Pending,Lecturer,2026-07-16,Reported wrong time listed

@@ -1,0 +1,17 @@
+requirement_id,feature_or_screen,user_story_id,evidence_source,final_status,screenshot_file,notes
+FR-01,Homepage,US-01,Lab03 E01,Completed,final-homepage.png,
+FR-02,Tab bar and router navigation,US-02,Lab03 E02,Completed,final-homepage.png,
+FR-03,Report a mismatch form,US-03,Lab03 E03,Completed,final-input-form.png,
+FR-04,Class and Report data model,US-04,Lab06 architecture,Completed,,No screenshot; code-level requirement
+FR-05,Weekly schedule list,US-05,Lab03 E05,Completed,final-record-list.png,
+FR-06,Search by course code or room,US-06,Lab03 E06,Completed,final-record-list.png,
+FR-07,Class detail view,US-07,Lab03 E07,Completed,final-detail-view.png,
+FR-08,Live status label and admin edit,US-08,Lab08 validation; fixed IMP-02,Completed,final-detail-view.png,Admin edit field order fixed and merged
+FR-09,Admin login/dashboard/edit,US-09,Lab09 security check; fixed IMP-03,Completed,final-admin-view.png,Real login validation added and merged
+FR-10,Report form validation,US-10,Lab08 validation; fixed IMP-01,Completed,final-input-form.png,Visual highlight on invalid fields added and merged
+FR-11,Report/admin confirmation messages,US-11,Lab03 E11,Completed,,No dedicated screenshot; dynamic confirmation screens
+FR-12,Admin dashboard summary and metrics,US-12,Lab11 startup metrics,Completed,final-dashboard.png,
+FR-13,Shared UI design system,US-13,Lab05 wireframes,Completed,,Applies across all screens
+FR-14,Mobile-responsive layout,US-14,Lab13 real-device testing,Completed,,Day-chip tap targets enlarged after Lab 13
+FR-15,Privacy-minimal data handling,US-15,Lab09 responsible IT check,Completed,,See data-handling-policy.md
+FR-16,Full requirement traceability,US-16,This file plus requirement-traceability-matrix.md,Completed,,
