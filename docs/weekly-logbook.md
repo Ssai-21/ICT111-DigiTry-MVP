@@ -424,7 +424,7 @@ Smart Timetable (Team DigiTry) — a searchable, status-aware digital replacemen
 ## Member Contributions
 | Member Name | Contribution | GitHub Evidence |
 |---|---|---|
-| Sai Thi Han Win | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Sai Thi Han Win | Built lab11-startup metrics dashboard and redesign the prototype| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
 | Soe Yu Nwe | Created future implementation status and prototype testing notes| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
 | Rigzang Lhmao | Created startup metrics and uploaded the required screenshots of the updated prototype| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
 | Seint Myat Wai | Updated weekly logbook and README.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
@@ -461,7 +461,7 @@ August 14, 2026
  
 | Member Name | Contribution | File/Commit Evidence |
 | --- | --- | --- |
-| Sai Thi Han Win | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Sai Thi Han Win | Build landing page and uploaded required screenshots| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
 | Soe Yu Nwe | Uploaded acquisition metrics data set and created acquisition metrics.md in docs/ | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
 | Rigzang Lhmao | Created go to market plan and marketing message| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
 | Seint Myat Wai | Created landing page content and Updated weekly log book and README.md | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
@@ -549,19 +549,7 @@ Sai Thi Han Win, Soe Yu Nwe, Rigzang Lhmao, Seint Myat Wai
 ## GitHub Contributions Today
 | Member | File/Issue/Commit Updated | Evidence Link |
 |---|---|---|
-| Sai Thi Han Win | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
-| Soe Yu Nwe | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
-| Rigzang Lhmao | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
-| Seint Myat Wai | | https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
-
-## Problems Found Before Submission
-- The 6 required final screenshots (`final-homepage.png` through `final-admin-view.png`) still need to be captured from `/prototype/final-prototype/` and added to `/screenshots/`
-- README.md still needs its Lab 14 section added
-- Two filename mismatches remain open from earlier labs: `data/validation-results-analytics.xlsx` vs. the required `validation-results.xlsx` name, and the Lab 10 screenshot names not matching the task sheet exactly
-- GitHub Issues have been drafted but not yet created on the actual repository — pending manual creation
-
-## Action Before Final Presentation
-Capture and upload the 6 final screenshots, add the Lab 14 section to README.md, create the drafted GitHub Issues, do a final read-through of every document for spelling and broken links, and rehearse the demo script as a full timed run-through before presenting.
-*(Update: IMP-01, IMP-02, and IMP-03 were addressed after this lab — see the prototype fixes applied for FR-10, FR-08, and FR-09.)*
-## Next Action Before Lab 13
-Run the actual channel outreach (starting with the ICT111 class group chat as a soft launch), log real numbers into `data/acquisition-metrics.csv`, and fix the two outstanding Lab 08/11 usability issues before pushing to wider channels (QR poster, Instagram, Line group).
+| Sai Thi Han Win | Fixed and finished up the final prototype, final pitch and uploaded required screenshots. Updated weekly logbook and README.md| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Soe Yu Nwe | Created final prototype report and final demo script| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Rigzang Lhmao | Created final reflection and requirement traceability metrix| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
+| Seint Myat Wai | Created final submission checklist and uploaded required data sets| https://github.com/Ssai-21/ICT111-DigiTry-MVP/commits/main |
