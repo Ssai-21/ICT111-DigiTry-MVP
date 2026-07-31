@@ -448,13 +448,14 @@ p.lead { color: var(--ink-700); font-size: 1.03rem; max-width: 62ch; text-wrap: 
   .tab-item {
     flex-direction: column;
     gap: 2px;
-    padding: 8px 10px;
-    font-size: .68rem;
+    padding: 8px 4px;
+    font-size: .62rem;
     flex: 1;
     text-align: center;
     justify-content: center;
+    white-space: nowrap;
   }
-  .tab-icon { font-size: 1.2rem; }
+  .tab-icon { font-size: 1.15rem; }
 
   /* Bigger tap targets on mobile — testers found the day chips small to
      tap accurately on an actual phone (UI-04 in docs/user-testing-results.md) */
@@ -721,6 +722,62 @@ p.lead { color: var(--ink-700); font-size: 1.03rem; max-width: 62ch; text-wrap: 
 @media (max-width: 600px) {
   .step-row { gap: 14px; padding: 18px; }
   .step-row .step-num { font-size: 1.3rem; min-width: 34px; }
+}
+
+/* ---------- Student dashboard ---------- */
+
+.next-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  margin: var(--space-6) 0 var(--space-8);
+  flex-wrap: wrap;
+}
+.next-card .next-time {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--accent-text);
+  font-variant-numeric: tabular-nums;
+  min-width: 96px;
+}
+.next-card .next-body { flex: 1 1 220px; min-width: 0; }
+.next-card .next-body .eyebrow { margin-bottom: 4px; }
+.next-card .next-title { font-weight: 700; font-size: 1.02rem; }
+.next-card-empty { color: var(--ink-700); }
+.next-card-empty .icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--success-bg);
+  color: var(--success-fg);
+  flex-shrink: 0;
+}
+.next-card-empty .icon svg { width: 22px; height: 22px; }
+
+.now-badge { background: var(--accent-solid); color: #fff; }
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+.course-card { display: flex; flex-direction: column; gap: var(--space-1); }
+.course-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+.course-card-head .eyebrow { margin-bottom: 2px; }
+.course-card-head h3 { margin: 0; font-size: 1rem; }
+.course-card .btn { align-self: flex-start; margin-top: var(--space-3); }
+
+@media (max-width: 600px) {
+  .next-card { padding: var(--space-5); gap: var(--space-4); }
 }
 
 /* ---------- Day chips / filter chips / search ---------- */
