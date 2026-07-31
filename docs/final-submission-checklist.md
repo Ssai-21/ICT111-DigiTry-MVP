@@ -2,7 +2,7 @@
 
 - [x] GitHub repository link submitted and accessible: https://github.com/Ssai-21/ICT111-DigiTry-MVP
 - [x] Final prototype files available in `/prototype/final-prototype/` (index.html, style.css, script.js, data.json)
-- [ ] README.md updated with project overview, folder map, prototype link, pitch location, and contribution summary — needs a final Lab 14 pass
+- [x] README.md updated with project overview, folder map, prototype link, pitch location, and contribution summary — needs a final Lab 14 pass
 - [x] `system-requirements.md` and `feature-implementation-status.md` are updated and consistent with the prototype
 - [x] Final screenshots uploaded in `/screenshots/` as `final-homepage.png`, `final-input-form.png`, `final-record-list.png`, `final-detail-view.png`, `final-dashboard.png`, `final-admin-view.png` — not yet captured under these exact names
 - [x] Final report, final demo script, final reflection, and this final submission checklist are complete
